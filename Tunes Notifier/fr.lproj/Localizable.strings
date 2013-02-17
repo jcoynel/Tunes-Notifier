@@ -1,0 +1,38 @@
+﻿/* MENU ITEMS */
+"ABOUT_MENU_ITEM" = "À propos de Tunes Notifier";
+
+"PAUSE_MENU_ITEM" = "Suspendre les notifications";
+
+"QUIT_MENU_ITEM" = "Quitter Tunes Notifier";
+
+"START_MENU_ITEM" = "Lancer au démarrage";
+
+"HIDE_MENU_ITEM" = "Masquer Tunes Notifier";
+
+"HIDE_FOREVER_MENU_ITEM" = "Toujours masquer Tunes Notifier";
+
+"BLACK_AND_WHITE_ICON_MENU_ITEM" = "Icône monochrome";
+
+"ITUNES_MENU_ITEM" = "iTunes";
+
+"SPOTIFY_MENU_ITEM" = "Spotify";
+
+/* HIDE CONFIRMATION */
+"HIDE_FOREVER_CONFIRMATION_TITLE" = "Toujours masquer Tunes Notifier";
+
+"HIDE_FOREVER_CONFIRMATION_CONTINUE" = "Continuer";
+
+"HIDE_FOREVER_CONFIRMATION_CANCEL" = "Annuler";
+
+"HIDE_FOREVER_CONFIRMATION_MESSAGE" = "Tunes Notifier n'apparaîtra plus dans la barre de menu et sera lancé automatiquement au démarrage de votre ordinateur.\n\nPour rendre Tunes Notifier visible, ouvrez le depuis le dossier Application.";
+
+/* REVIEW REQUEST */
+"REVIEW_REQUEST_ALERT_TITLE" = "Vous appréciez Tunes Notifier ?";
+
+"REVIEW_REQUEST_RATE_BUTTON" = "Oui, noter maintenant !";
+
+"REVIEW_REQUEST_DONT_ASK_BUTTON" = "Ne plus me demander";
+
+"REVIEW_REQUEST_REMIND_LATER_BUTTON" = "Me le rappeler plus tard";
+
+"REVIEW_REQUEST_MESSAGE" = "Si oui, merci de nous aider en notant Tunes Notifier avec 5 étoiles dans le Mac App Store.";

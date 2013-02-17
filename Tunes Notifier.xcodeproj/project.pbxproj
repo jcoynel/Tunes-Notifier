@@ -1,0 +1,458 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8402909B15E3D7E600E23303 /* TNNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8402909A15E3D7E600E23303 /* TNNotifier.m */; };
+		84268D94161B910B0008E4B8 /* TNReviewRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84268D93161B910A0008E4B8 /* TNReviewRequest.m */; };
+		842EE9D815E68338005C675C /* status.png in Resources */ = {isa = PBXBuildFile; fileRef = 842EE9D515E68338005C675C /* status.png */; };
+		842EE9D915E68338005C675C /* status@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 842EE9D615E68338005C675C /* status@2x.png */; };
+		842EE9ED15E68920005C675C /* Tunes Notifier Helper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 842EE9EB15E68852005C675C /* Tunes Notifier Helper.app */; };
+		843A4548168F4E2B005B1ACB /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 843A454A168F4E2B005B1ACB /* Credits.rtf */; };
+		843E3E821640990300457644 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 842EE9DE15E684A5005C675C /* Localizable.strings */; };
+		844E1A39161620E600417ABD /* status_bw.png in Resources */ = {isa = PBXBuildFile; fileRef = 844E1A37161620E600417ABD /* status_bw.png */; };
+		844E1A3A161620E600417ABD /* status_bw@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844E1A38161620E600417ABD /* status_bw@2x.png */; };
+		845C86AD15E68DB600455397 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8402909F15E3EE7900E23303 /* ServiceManagement.framework */; };
+		845C86AE15E68DBC00455397 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8402909C15E3D93200E23303 /* ScriptingBridge.framework */; };
+		845C86B215E6905300455397 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 845C86B115E6905300455397 /* icon.icns */; };
+		8492BB1C167E677500E06476 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8492BB1B167E677500E06476 /* UserDefaults.plist */; };
+		84EDF02A15E3CCB2003A7AB0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EDF02915E3CCB2003A7AB0 /* Cocoa.framework */; };
+		84EDF03415E3CCB2003A7AB0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84EDF03215E3CCB2003A7AB0 /* InfoPlist.strings */; };
+		84EDF03615E3CCB2003A7AB0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EDF03515E3CCB2003A7AB0 /* main.m */; };
+		84EDF03D15E3CCB2003A7AB0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EDF03C15E3CCB2003A7AB0 /* AppDelegate.m */; };
+		84EDF04015E3CCB3003A7AB0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84EDF03E15E3CCB3003A7AB0 /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		842EE9EA15E68852005C675C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84A4600E15E50DAC00DA8DF6 /* Tunes Notifier Helper.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 84A45FED15E50DAC00DA8DF6;
+			remoteInfo = "Tunes Notifier Helper";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8402913915E3F8E300E23303 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				842EE9ED15E68920005C675C /* Tunes Notifier Helper.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8402909515E3D75F00E23303 /* iTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunes.h; sourceTree = "<group>"; };
+		8402909915E3D7E600E23303 /* TNNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNNotifier.h; sourceTree = "<group>"; };
+		8402909A15E3D7E600E23303 /* TNNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNNotifier.m; sourceTree = "<group>"; };
+		8402909C15E3D93200E23303 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
+		8402909E15E3D94900E23303 /* Tunes Notifier.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Tunes Notifier.entitlements"; sourceTree = "<group>"; };
+		8402909F15E3EE7900E23303 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		84225C6B1632C88600C12FBE /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		84268D7116170A570008E4B8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		84268D7316171A5D0008E4B8 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		84268D751617A1580008E4B8 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
+		84268D82161857560008E4B8 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		84268D92161B910A0008E4B8 /* TNReviewRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNReviewRequest.h; sourceTree = "<group>"; };
+		84268D93161B910A0008E4B8 /* TNReviewRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNReviewRequest.m; sourceTree = "<group>"; };
+		842E4834161E30010095B1B6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		842EE9D515E68338005C675C /* status.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = status.png; sourceTree = "<group>"; };
+		842EE9D615E68338005C675C /* status@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "status@2x.png"; sourceTree = "<group>"; };
+		842EE9DD15E684A5005C675C /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		842EE9DF15E684A9005C675C /* fr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		843A4549168F4E2B005B1ACB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		844E1A37161620E600417ABD /* status_bw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = status_bw.png; sourceTree = "<group>"; };
+		844E1A38161620E600417ABD /* status_bw@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "status_bw@2x.png"; sourceTree = "<group>"; };
+		845C86B115E6905300455397 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		846899741654454D00148B40 /* Spotify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spotify.h; sourceTree = "<group>"; };
+		8492BB1B167E677500E06476 /* UserDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
+		8492BB1D167E770100E06476 /* TNConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNConstants.h; sourceTree = "<group>"; };
+		84A4600E15E50DAC00DA8DF6 /* Tunes Notifier Helper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Tunes Notifier Helper.xcodeproj"; path = "Tunes Notifier Helper/Tunes Notifier Helper.xcodeproj"; sourceTree = "<group>"; };
+		84B8957D1613B34F005F781E /* fi */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		84EDF02515E3CCB2003A7AB0 /* Tunes Notifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tunes Notifier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		84EDF02915E3CCB2003A7AB0 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		84EDF02C15E3CCB2003A7AB0 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		84EDF02D15E3CCB2003A7AB0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		84EDF02E15E3CCB2003A7AB0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		84EDF03115E3CCB2003A7AB0 /* Tunes Notifier-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tunes Notifier-Info.plist"; sourceTree = "<group>"; };
+		84EDF03315E3CCB2003A7AB0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		84EDF03515E3CCB2003A7AB0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		84EDF03715E3CCB2003A7AB0 /* Tunes Notifier-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tunes Notifier-Prefix.pch"; sourceTree = "<group>"; };
+		84EDF03B15E3CCB2003A7AB0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		84EDF03C15E3CCB2003A7AB0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		84EDF03F15E3CCB3003A7AB0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		84EDF02215E3CCB2003A7AB0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				845C86AE15E68DBC00455397 /* ScriptingBridge.framework in Frameworks */,
+				845C86AD15E68DB600455397 /* ServiceManagement.framework in Frameworks */,
+				84EDF02A15E3CCB2003A7AB0 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		842EE9CD15E6828A005C675C /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				844E1A37161620E600417ABD /* status_bw.png */,
+				844E1A38161620E600417ABD /* status_bw@2x.png */,
+				845C86B115E6905300455397 /* icon.icns */,
+				842EE9D515E68338005C675C /* status.png */,
+				842EE9D615E68338005C675C /* status@2x.png */,
+			);
+			name = icons;
+			sourceTree = "<group>";
+		};
+		842EE9E715E68852005C675C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				842EE9EB15E68852005C675C /* Tunes Notifier Helper.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84EDF01A15E3CCB2003A7AB0 = {
+			isa = PBXGroup;
+			children = (
+				84A4600E15E50DAC00DA8DF6 /* Tunes Notifier Helper.xcodeproj */,
+				84EDF02F15E3CCB2003A7AB0 /* Tunes Notifier */,
+				84EDF02815E3CCB2003A7AB0 /* Frameworks */,
+				84EDF02615E3CCB2003A7AB0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		84EDF02615E3CCB2003A7AB0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84EDF02515E3CCB2003A7AB0 /* Tunes Notifier.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84EDF02815E3CCB2003A7AB0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84EDF02C15E3CCB2003A7AB0 /* AppKit.framework */,
+				84EDF02D15E3CCB2003A7AB0 /* CoreData.framework */,
+				84EDF02E15E3CCB2003A7AB0 /* Foundation.framework */,
+				8402909F15E3EE7900E23303 /* ServiceManagement.framework */,
+				84EDF02915E3CCB2003A7AB0 /* Cocoa.framework */,
+				8402909C15E3D93200E23303 /* ScriptingBridge.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		84EDF02F15E3CCB2003A7AB0 /* Tunes Notifier */ = {
+			isa = PBXGroup;
+			children = (
+				84EDF03B15E3CCB2003A7AB0 /* AppDelegate.h */,
+				84EDF03C15E3CCB2003A7AB0 /* AppDelegate.m */,
+				8402909915E3D7E600E23303 /* TNNotifier.h */,
+				8402909A15E3D7E600E23303 /* TNNotifier.m */,
+				84268D92161B910A0008E4B8 /* TNReviewRequest.h */,
+				84268D93161B910A0008E4B8 /* TNReviewRequest.m */,
+				8492BB1D167E770100E06476 /* TNConstants.h */,
+				8402909515E3D75F00E23303 /* iTunes.h */,
+				846899741654454D00148B40 /* Spotify.h */,
+				84EDF03E15E3CCB3003A7AB0 /* MainMenu.xib */,
+				84EDF03015E3CCB2003A7AB0 /* Supporting Files */,
+			);
+			path = "Tunes Notifier";
+			sourceTree = "<group>";
+		};
+		84EDF03015E3CCB2003A7AB0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				843A454A168F4E2B005B1ACB /* Credits.rtf */,
+				842EE9CD15E6828A005C675C /* icons */,
+				84EDF03215E3CCB2003A7AB0 /* InfoPlist.strings */,
+				842EE9DE15E684A5005C675C /* Localizable.strings */,
+				84EDF03515E3CCB2003A7AB0 /* main.m */,
+				84EDF03115E3CCB2003A7AB0 /* Tunes Notifier-Info.plist */,
+				84EDF03715E3CCB2003A7AB0 /* Tunes Notifier-Prefix.pch */,
+				8402909E15E3D94900E23303 /* Tunes Notifier.entitlements */,
+				8492BB1B167E677500E06476 /* UserDefaults.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		84EDF02415E3CCB2003A7AB0 /* Tunes Notifier */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84EDF04315E3CCB3003A7AB0 /* Build configuration list for PBXNativeTarget "Tunes Notifier" */;
+			buildPhases = (
+				84EDF02115E3CCB2003A7AB0 /* Sources */,
+				84EDF02215E3CCB2003A7AB0 /* Frameworks */,
+				84EDF02315E3CCB2003A7AB0 /* Resources */,
+				8402913915E3F8E300E23303 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Tunes Notifier";
+			productName = TunesNotifier;
+			productReference = 84EDF02515E3CCB2003A7AB0 /* Tunes Notifier.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84EDF01C15E3CCB2003A7AB0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TN;
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Jules Coynel";
+			};
+			buildConfigurationList = 84EDF01F15E3CCB2003A7AB0 /* Build configuration list for PBXProject "Tunes Notifier" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				fr,
+				fi,
+				ja,
+				es,
+				pt,
+				da,
+				de,
+				tr,
+				it,
+				nl,
+			);
+			mainGroup = 84EDF01A15E3CCB2003A7AB0;
+			productRefGroup = 84EDF02615E3CCB2003A7AB0 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 842EE9E715E68852005C675C /* Products */;
+					ProjectRef = 84A4600E15E50DAC00DA8DF6 /* Tunes Notifier Helper.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				84EDF02415E3CCB2003A7AB0 /* Tunes Notifier */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		842EE9EB15E68852005C675C /* Tunes Notifier Helper.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Tunes Notifier Helper.app";
+			remoteRef = 842EE9EA15E68852005C675C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		84EDF02315E3CCB2003A7AB0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84EDF03415E3CCB2003A7AB0 /* InfoPlist.strings in Resources */,
+				84EDF04015E3CCB3003A7AB0 /* MainMenu.xib in Resources */,
+				842EE9D815E68338005C675C /* status.png in Resources */,
+				842EE9D915E68338005C675C /* status@2x.png in Resources */,
+				845C86B215E6905300455397 /* icon.icns in Resources */,
+				844E1A39161620E600417ABD /* status_bw.png in Resources */,
+				844E1A3A161620E600417ABD /* status_bw@2x.png in Resources */,
+				843E3E821640990300457644 /* Localizable.strings in Resources */,
+				8492BB1C167E677500E06476 /* UserDefaults.plist in Resources */,
+				843A4548168F4E2B005B1ACB /* Credits.rtf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		84EDF02115E3CCB2003A7AB0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84EDF03615E3CCB2003A7AB0 /* main.m in Sources */,
+				84EDF03D15E3CCB2003A7AB0 /* AppDelegate.m in Sources */,
+				8402909B15E3D7E600E23303 /* TNNotifier.m in Sources */,
+				84268D94161B910B0008E4B8 /* TNReviewRequest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		842EE9DE15E684A5005C675C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				842EE9DD15E684A5005C675C /* en */,
+				842EE9DF15E684A9005C675C /* fr */,
+				84B8957D1613B34F005F781E /* fi */,
+				84268D7116170A570008E4B8 /* es */,
+				84268D7316171A5D0008E4B8 /* pt */,
+				84268D751617A1580008E4B8 /* da */,
+				84268D82161857560008E4B8 /* ja */,
+				842E4834161E30010095B1B6 /* de */,
+				84225C6B1632C88600C12FBE /* tr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		843A454A168F4E2B005B1ACB /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				843A4549168F4E2B005B1ACB /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		84EDF03215E3CCB2003A7AB0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84EDF03315E3CCB2003A7AB0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		84EDF03E15E3CCB3003A7AB0 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84EDF03F15E3CCB3003A7AB0 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		84EDF04115E3CCB3003A7AB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application: Jules Coynel";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "16320A1B-A17C-4F1F-955A-F4445ACFC21B";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		84EDF04215E3CCB3003A7AB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application: Jules Coynel";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PROVISIONING_PROFILE = "16320A1B-A17C-4F1F-955A-F4445ACFC21B";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		84EDF04415E3CCB3003A7AB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
+				CODE_SIGN_ENTITLEMENTS = "Tunes Notifier/Tunes Notifier.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tunes Notifier/Tunes Notifier-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Tunes Notifier/Tunes Notifier-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "Tunes Notifier";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		84EDF04515E3CCB3003A7AB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
+				CODE_SIGN_ENTITLEMENTS = "Tunes Notifier/Tunes Notifier.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tunes Notifier/Tunes Notifier-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Tunes Notifier/Tunes Notifier-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "Tunes Notifier";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		84EDF01F15E3CCB2003A7AB0 /* Build configuration list for PBXProject "Tunes Notifier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84EDF04115E3CCB3003A7AB0 /* Debug */,
+				84EDF04215E3CCB3003A7AB0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84EDF04315E3CCB3003A7AB0 /* Build configuration list for PBXNativeTarget "Tunes Notifier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84EDF04415E3CCB3003A7AB0 /* Debug */,
+				84EDF04515E3CCB3003A7AB0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 84EDF01C15E3CCB2003A7AB0 /* Project object */;
+}

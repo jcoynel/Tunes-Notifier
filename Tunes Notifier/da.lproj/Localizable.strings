@@ -1,0 +1,38 @@
+/* MENU ITEMS */
+"ABOUT_MENU_ITEM" = "Om Tunes Notifier";
+
+"PAUSE_MENU_ITEM" = "Afbryd meddelelser";
+
+"QUIT_MENU_ITEM" = "Afslut Tunes Notifier";
+
+"START_MENU_ITEM" = "Start ved login";
+
+"HIDE_MENU_ITEM" = "Skjul fra menu bar";
+
+"HIDE_FOREVER_MENU_ITEM" = "Skjul fra menu bar for evigt";
+
+"BLACK_AND_WHITE_ICON_MENU_ITEM" = "Sort og hvidt ikon";
+
+"ITUNES_MENU_ITEM" = "iTunes";
+
+"SPOTIFY_MENU_ITEM" = "Spotify";
+
+/* HIDE CONFIRMATION */
+"HIDE_FOREVER_CONFIRMATION_TITLE" = "Skjul fra menu bar for evigt";
+
+"HIDE_FOREVER_CONFIRMATION_CONTINUE" = "Fortsæt";
+
+"HIDE_FOREVER_CONFIRMATION_CANCEL" = "Annuller";
+
+"HIDE_FOREVER_CONFIRMATION_MESSAGE" = "Tunes Notifier vil aldrig igen vises i menu baren og vil automatisk starte ved login.\n\nFor at vise Tunes Notifier igen, åbn det fra Programmer.";
+
+/* REVIEW REQUEST */
+"REVIEW_REQUEST_ALERT_TITLE" = "Enjoying Tunes Notifier?";
+
+"REVIEW_REQUEST_RATE_BUTTON" = "Yes, rate now!";
+
+"REVIEW_REQUEST_DONT_ASK_BUTTON" = "Don't ask again";
+
+"REVIEW_REQUEST_REMIND_LATER_BUTTON" = "Remind me later";
+
+"REVIEW_REQUEST_MESSAGE" = "If so, please help us by rating this app with 5 stars on the Mac App Store.";

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>launchCountSinceLastReviewRequest</key>
+	<integer>0</integer>
+	<key>neverAskForReview</key>
+	<false/>
+	<key>itunesNotificationsEnabled</key>
+	<true/>
+	<key>spotifyNotificationsEnabled</key>
+	<true/>
+	<key>hideForever</key>
+	<false/>
+	<key>blackAndWhiteMenuIcon</key>
+	<false/>
+</dict>
+</plist>

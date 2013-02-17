@@ -1,0 +1,38 @@
+﻿/* MENU ITEMS */
+"ABOUT_MENU_ITEM" = "Tunes Notifier hakkında";
+
+"PAUSE_MENU_ITEM" = "Bildirimleri durdur";
+
+"QUIT_MENU_ITEM" = "Tunes Notifier'den çık";
+
+"START_MENU_ITEM" = "Her oturumda başlat";
+
+"HIDE_MENU_ITEM" = "Menu çubuğundan gizle";
+
+"HIDE_FOREVER_MENU_ITEM" = "Menu çubuğundan daima gizle";
+
+"BLACK_AND_WHITE_ICON_MENU_ITEM" = "Siyah beyaz simge";
+
+"ITUNES_MENU_ITEM" = "iTunes";
+
+"SPOTIFY_MENU_ITEM" = "Spotify";
+
+/* HIDE CONFIRMATION */
+"HIDE_FOREVER_CONFIRMATION_TITLE" = "Menu çubuğundan daima gizle";
+
+"HIDE_FOREVER_CONFIRMATION_CONTINUE" = "Devam";
+
+"HIDE_FOREVER_CONFIRMATION_CANCEL" = "Vazgeç";
+
+"HIDE_FOREVER_CONFIRMATION_MESSAGE" = "Tunes Notifier menü çubuğunda asla görünmeyecek ve her oturumda otomatik olarak başlayacak.\n\nTunes Notifier'in tekrar görünmesi için, onu Uygulamalar klasöründen açın.";
+
+/* REVIEW REQUEST */
+"REVIEW_REQUEST_ALERT_TITLE" = "Tunes Notifier'i beğendiniz mi?";
+
+"REVIEW_REQUEST_RATE_BUTTON" = "Evet, şimdi değerlendir!";
+
+"REVIEW_REQUEST_DONT_ASK_BUTTON" = "Bir daha sorma";
+
+"REVIEW_REQUEST_REMIND_LATER_BUTTON" = "Sonra hatırlat";
+
+"REVIEW_REQUEST_MESSAGE" = "Öyleyse, lütfen Mac App Store'de 5 yıldızla değerlendirerek bize yardımcı olun.";

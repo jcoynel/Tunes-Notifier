@@ -1,0 +1,38 @@
+﻿/* MENU ITEMS */
+"ABOUT_MENU_ITEM" = "Tietoja Tunes Notifierista";
+
+"PAUSE_MENU_ITEM" = "Lopeta väliaikaisesti ilmoitukset";
+
+"QUIT_MENU_ITEM" = "Lopeta ohjelma";
+
+"START_MENU_ITEM" = "Käynnistä sisäänkirjautumisen yhteydessä";
+
+"HIDE_MENU_ITEM" = "Piilota kuvake";
+
+"HIDE_FOREVER_MENU_ITEM" = "Piilota kuvake kokonaan";
+
+"BLACK_AND_WHITE_ICON_MENU_ITEM" = "Mustavalkoinen kuvake";
+
+"ITUNES_MENU_ITEM" = "iTunes";
+
+"SPOTIFY_MENU_ITEM" = "Spotify";
+
+/* HIDE CONFIRMATION */
+"HIDE_FOREVER_CONFIRMATION_TITLE" = "Piilota kuvake ikuisesti";
+
+"HIDE_FOREVER_CONFIRMATION_CONTINUE" = "Vahvista";
+
+"HIDE_FOREVER_CONFIRMATION_CANCEL" = "Peruuta";
+
+"HIDE_FOREVER_CONFIRMATION_MESSAGE" = "Tunes Notifierin kuvake poistetaan ikuisesti, ja ohjelma käynnistyy sisäänkirjautuen.\n\nJos haluat kuvakkeen takaisin, avaa se Ohjelmat kansiosta.";
+
+/* REVIEW REQUEST */
+"REVIEW_REQUEST_ALERT_TITLE" = "Enjoying Tunes Notifier?";
+
+"REVIEW_REQUEST_RATE_BUTTON" = "Yes, rate now!";
+
+"REVIEW_REQUEST_DONT_ASK_BUTTON" = "Don't ask again";
+
+"REVIEW_REQUEST_REMIND_LATER_BUTTON" = "Remind me later";
+
+"REVIEW_REQUEST_MESSAGE" = "If so, please help us by rating this app with 5 stars on the Mac App Store.";

@@ -1,0 +1,35 @@
+﻿/* MENU ITEMS */
+"ABOUT_MENU_ITEM" = "About Tunes Notifier";
+
+"PAUSE_MENU_ITEM" = "Pause notifications";
+
+"QUIT_MENU_ITEM" = "Quit Tunes Notifier";
+
+"START_MENU_ITEM" = "Start at login";
+
+"HIDE_MENU_ITEM" = "Hide from menu bar";
+
+"HIDE_FOREVER_MENU_ITEM" = "Hide from menu bar forever";
+
+"BLACK_AND_WHITE_ICON_MENU_ITEM" = "Black and white icon";
+
+
+/* HIDE CONFIRMATION */
+"HIDE_FOREVER_CONFIRMATION_TITLE" = "Hide from menu bar forever";
+
+"HIDE_FOREVER_CONFIRMATION_CONTINUE" = "Continue";
+
+"HIDE_FOREVER_CONFIRMATION_CANCEL" = "Cancel";
+
+"HIDE_FOREVER_CONFIRMATION_MESSAGE" = "Tunes Notifier will never appear again in the menu bar and will be automatically started a login.\n\nTo make Tunes Notifier visible again, open it from the Application folder.";
+
+/* REVIEW REQUEST */
+"REVIEW_REQUEST_ALERT_TITLE" = "Bevalt Tunes Notifier?";
+
+"REVIEW_REQUEST_RATE_BUTTON" = "Ja, beoordel nu!";
+
+"REVIEW_REQUEST_DONT_ASK_BUTTON" = "Niet meer vragen";
+
+"REVIEW_REQUEST_REMIND_LATER_BUTTON" = "Later opnieuw vragen";
+
+"REVIEW_REQUEST_MESSAGE" = "Zo ja, help ons dan abstallieft door dese app. met 5 sterren de beoordelen in de Mac App Store.";

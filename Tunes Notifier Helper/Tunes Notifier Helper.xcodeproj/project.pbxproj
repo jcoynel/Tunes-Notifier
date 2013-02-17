@@ -1,0 +1,319 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		842EE9E215E686C5005C675C /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 842EE9E115E686C5005C675C /* icon.icns */; };
+		84A45FF215E50DAC00DA8DF6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A45FF115E50DAC00DA8DF6 /* Cocoa.framework */; };
+		84A45FFC15E50DAC00DA8DF6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84A45FFA15E50DAC00DA8DF6 /* InfoPlist.strings */; };
+		84A45FFE15E50DAC00DA8DF6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A45FFD15E50DAC00DA8DF6 /* main.m */; };
+		84A4600215E50DAC00DA8DF6 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 84A4600015E50DAC00DA8DF6 /* Credits.rtf */; };
+		84A4600515E50DAC00DA8DF6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A4600415E50DAC00DA8DF6 /* AppDelegate.m */; };
+		84A4600815E50DAC00DA8DF6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A4600615E50DAC00DA8DF6 /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		842EE9E115E686C5005C675C /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		84A45FED15E50DAC00DA8DF6 /* Tunes Notifier Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tunes Notifier Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		84A45FF115E50DAC00DA8DF6 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		84A45FF415E50DAC00DA8DF6 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		84A45FF515E50DAC00DA8DF6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		84A45FF615E50DAC00DA8DF6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		84A45FF915E50DAC00DA8DF6 /* Tunes Notifier Helper-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tunes Notifier Helper-Info.plist"; sourceTree = "<group>"; };
+		84A45FFB15E50DAC00DA8DF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		84A45FFD15E50DAC00DA8DF6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		84A45FFF15E50DAC00DA8DF6 /* Tunes Notifier Helper-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tunes Notifier Helper-Prefix.pch"; sourceTree = "<group>"; };
+		84A4600115E50DAC00DA8DF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		84A4600315E50DAC00DA8DF6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		84A4600415E50DAC00DA8DF6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		84A4600715E50DAC00DA8DF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		84A4601415E50DE600DA8DF6 /* Tunes Notifier Helper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Tunes Notifier Helper.entitlements"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		84A45FEA15E50DAC00DA8DF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84A45FF215E50DAC00DA8DF6 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		84A45FE215E50DAC00DA8DF6 = {
+			isa = PBXGroup;
+			children = (
+				842EE9E115E686C5005C675C /* icon.icns */,
+				84A45FF715E50DAC00DA8DF6 /* Tunes Notifier Helper */,
+				84A45FF015E50DAC00DA8DF6 /* Frameworks */,
+				84A45FEE15E50DAC00DA8DF6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		84A45FEE15E50DAC00DA8DF6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84A45FED15E50DAC00DA8DF6 /* Tunes Notifier Helper.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84A45FF015E50DAC00DA8DF6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84A45FF115E50DAC00DA8DF6 /* Cocoa.framework */,
+				84A45FF315E50DAC00DA8DF6 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		84A45FF315E50DAC00DA8DF6 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84A45FF415E50DAC00DA8DF6 /* AppKit.framework */,
+				84A45FF515E50DAC00DA8DF6 /* CoreData.framework */,
+				84A45FF615E50DAC00DA8DF6 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		84A45FF715E50DAC00DA8DF6 /* Tunes Notifier Helper */ = {
+			isa = PBXGroup;
+			children = (
+				84A4601415E50DE600DA8DF6 /* Tunes Notifier Helper.entitlements */,
+				84A4600315E50DAC00DA8DF6 /* AppDelegate.h */,
+				84A4600415E50DAC00DA8DF6 /* AppDelegate.m */,
+				84A4600615E50DAC00DA8DF6 /* MainMenu.xib */,
+				84A45FF815E50DAC00DA8DF6 /* Supporting Files */,
+			);
+			path = "Tunes Notifier Helper";
+			sourceTree = "<group>";
+		};
+		84A45FF815E50DAC00DA8DF6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				84A45FF915E50DAC00DA8DF6 /* Tunes Notifier Helper-Info.plist */,
+				84A45FFA15E50DAC00DA8DF6 /* InfoPlist.strings */,
+				84A45FFD15E50DAC00DA8DF6 /* main.m */,
+				84A45FFF15E50DAC00DA8DF6 /* Tunes Notifier Helper-Prefix.pch */,
+				84A4600015E50DAC00DA8DF6 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		84A45FEC15E50DAC00DA8DF6 /* Tunes Notifier Helper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84A4600B15E50DAC00DA8DF6 /* Build configuration list for PBXNativeTarget "Tunes Notifier Helper" */;
+			buildPhases = (
+				84A45FE915E50DAC00DA8DF6 /* Sources */,
+				84A45FEA15E50DAC00DA8DF6 /* Frameworks */,
+				84A45FEB15E50DAC00DA8DF6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Tunes Notifier Helper";
+			productName = TunesNotifierHelper;
+			productReference = 84A45FED15E50DAC00DA8DF6 /* Tunes Notifier Helper.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84A45FE415E50DAC00DA8DF6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Jules Coynel";
+			};
+			buildConfigurationList = 84A45FE715E50DAC00DA8DF6 /* Build configuration list for PBXProject "Tunes Notifier Helper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 84A45FE215E50DAC00DA8DF6;
+			productRefGroup = 84A45FEE15E50DAC00DA8DF6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				84A45FEC15E50DAC00DA8DF6 /* Tunes Notifier Helper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		84A45FEB15E50DAC00DA8DF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84A45FFC15E50DAC00DA8DF6 /* InfoPlist.strings in Resources */,
+				84A4600215E50DAC00DA8DF6 /* Credits.rtf in Resources */,
+				84A4600815E50DAC00DA8DF6 /* MainMenu.xib in Resources */,
+				842EE9E215E686C5005C675C /* icon.icns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		84A45FE915E50DAC00DA8DF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84A45FFE15E50DAC00DA8DF6 /* main.m in Sources */,
+				84A4600515E50DAC00DA8DF6 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		84A45FFA15E50DAC00DA8DF6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84A45FFB15E50DAC00DA8DF6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		84A4600015E50DAC00DA8DF6 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84A4600115E50DAC00DA8DF6 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		84A4600615E50DAC00DA8DF6 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84A4600715E50DAC00DA8DF6 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		84A4600915E50DAC00DA8DF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application: Jules Coynel";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "0FA1E8C5-EE1D-46A5-8E33-708B921E56F4";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		84A4600A15E50DAC00DA8DF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application: Jules Coynel";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PROVISIONING_PROFILE = "0FA1E8C5-EE1D-46A5-8E33-708B921E56F4";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		84A4600C15E50DAC00DA8DF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Tunes Notifier Helper/Tunes Notifier Helper.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tunes Notifier Helper/Tunes Notifier Helper-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Tunes Notifier Helper/Tunes Notifier Helper-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "Tunes Notifier Helper";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		84A4600D15E50DAC00DA8DF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Tunes Notifier Helper/Tunes Notifier Helper.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tunes Notifier Helper/Tunes Notifier Helper-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Tunes Notifier Helper/Tunes Notifier Helper-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "Tunes Notifier Helper";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		84A45FE715E50DAC00DA8DF6 /* Build configuration list for PBXProject "Tunes Notifier Helper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84A4600915E50DAC00DA8DF6 /* Debug */,
+				84A4600A15E50DAC00DA8DF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84A4600B15E50DAC00DA8DF6 /* Build configuration list for PBXNativeTarget "Tunes Notifier Helper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84A4600C15E50DAC00DA8DF6 /* Debug */,
+				84A4600D15E50DAC00DA8DF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 84A45FE415E50DAC00DA8DF6 /* Project object */;
+}
