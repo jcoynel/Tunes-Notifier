@@ -319,7 +319,7 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
 
 - (BOOL)isAppPresentInLoginItems
 {
-    NSArray * jobDicts = (__bridge NSArray *)SMCopyAllJobDictionaries(kSMDomainUserLaunchd);
+    NSArray *jobDicts = (NSArray *)CFBridgingRelease(SMCopyAllJobDictionaries(kSMDomainUserLaunchd));
     
     if ((jobDicts != nil) && [jobDicts count] > 0) {
         BOOL bOnDemand = NO;
@@ -331,7 +331,6 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
             }
         }
         
-        CFRelease((__bridge CFDictionaryRef)jobDicts); jobDicts = nil;
         return bOnDemand;
     }
     
