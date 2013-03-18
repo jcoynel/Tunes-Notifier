@@ -8,19 +8,39 @@
 
 #import "TNReviewRequest.h"
 
-
+/** NSUserDefault key to save the version of the app when last reviewed. */
 static NSString *const lastVersionReviewed = @"lastVersionReviewed";
+/** NSUserDefault key to save the user preference regarding review requests. */
 static NSString *const neverAskForReview = @"neverAskForReview";
+/** 
+ NSUserDefault key to save the number of times Tunes Notifier has been launched
+ since the last review request. 
+ */
 static NSString *const launchCountSinceLastReviewRequest = @"launchCountSinceLastReviewRequest";
+/**
+ NSUserDefault key to save the version number of Tunes Notifier version when
+ the app was launched the last time. 
+ */
 static NSString *const versionWhenLastLaunched = @"versionWhenLastLaunched";
 
+/** The number of times Tunes Notifier should be launched before asking for review. */
 static NSInteger const launchCountSinceLastReviewRequestBeforeAskingForReview = 5;
 
+/** Link to Tunes Notifier in the Mac App Store. */
 static NSString *const macAppStoreLink = @"macappstore://itunes.apple.com/app/tunes-notifier/id555731861?ls=1&mt=12";
 
-@implementation TNReviewRequest
+@interface TNReviewRequest ()
+/** 
+ Handle user response for a review request.
+ 
+ @param alert The NSAlert with the review request.
+ @param returnCode The button pressed.
+ @param contextInfo Information passed when creating the NSAlert.
+ */
+- (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
+@end
 
-// ReviewRequest should be started when the app starts
+@implementation TNReviewRequest
 
 - (id)init
 {
@@ -49,7 +69,6 @@ static NSString *const macAppStoreLink = @"macappstore://itunes.apple.com/app/tu
     return self;
 }
 
-// Return YES if conditions for asking for review are met
 - (BOOL)shouldAskForReview
 {    
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -78,7 +97,6 @@ static NSString *const macAppStoreLink = @"macappstore://itunes.apple.com/app/tu
     return YES;
 }
 
-// Show review alert to user
 - (void)askForReview
 {
     NSAlert *reviewAlert = [NSAlert alertWithMessageText:NSLocalizedString(@"REVIEW_REQUEST_ALERT_TITLE", nil)
@@ -96,7 +114,6 @@ static NSString *const macAppStoreLink = @"macappstore://itunes.apple.com/app/tu
     [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
 }
 
-// Handle user response for review request
 - (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
 {
     switch (returnCode) {

@@ -6,7 +6,7 @@ About Tunes Notifier
 
 **Contact:** Jules Coynel (jules@tunes-notifier.com)
 
-Licence
+Licence (MIT)
 --------------
 Copyright (c) 2012-2013 Jules Coynel
 
@@ -46,3 +46,22 @@ History
 
 - **Version 1.0** (Submitted to Apple: 23/08/12 – Released: 25/09/12)
   - Initial version
+
+Documentation
+--------------
+Tunes Notifier is documented using [appledoc](https://github.com/tomaz/appledoc).
+
+To generate the documentation
+
+- Download appledoc
+`git clone git://github.com/tomaz/appledoc.git`
+  
+- Install it using
+`cd /PATH/TO/APPLEDOC/PROJECT` and `sudo sh install-appledoc.sh`
+  
+- Generate the documentation using
+`cd /PATH/TO/TUNES-NOTIFIER/PROJECT` and `appledoc ./`
+	
+This will create a docset, install it in the default documentation folder for Xcode (`~/Library/Developer/Shared/Documentation/DocSets/`) and make it available within Xcode's Quick Help.
+
+For more information about appledoc please visit http://gentlebytes.com/appledoc/

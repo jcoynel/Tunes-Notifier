@@ -8,22 +8,63 @@
 
 #import "AppDelegate.h"
 
+/** 
+ Number of seconds before showing a review request. 
+ 
+ This is used to delay showing review request when the app starts, which is
+ likely to be when the user starts it's computer. It therefore leaves a few
+ seconds for the other apps starting automatically at login to do so and prevent
+ from hidding the review request.
+ */
 static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
 
 @interface AppDelegate ()
+/// ----------------------------------------------------------------------------
+/** @name Setting up and updating UI */
+/// ----------------------------------------------------------------------------
+
+/**
+ Initialise each menu item, add them to the menu and set the related properties.
+ */
 - (void)setupMenu;
+
+/**
+ Set the appearance of all menu items.
+ 
+ This is typically called before the menu appears to update the text and tick or
+ untick each of the menu items based on user preferences.
+ */
 - (void)updateAllMenuItems;
 
-// Menu actions
+/// ----------------------------------------------------------------------------
+/** @name Handle interactions with menu items */
+/// ----------------------------------------------------------------------------
+
+/** Pause all notifications if currently enabled or resume them if paused. */
 - (void)tooglePauseNotifications;
+/** Set Tunes Notifier to start at login if it isn't and vice versa. */
 - (void)toogleStartAtLogin;
+/** Hide the menu bar icon until the user restarts its computer. */
 - (void)hideFromMenuBar;
+/** Hide the menu bar icon forever after the user is asked for confirmation. */
 - (void)hideFromMenuBarForever;
+/** Disable iTunes notifications if there are enabled and vice versa. */
 - (void)toogleItunesNotificationsEnabled;
+/** Disable Spotify notifications if there are enabled and vice versa. */
 - (void)toogleSpotifyNotificationsEnabled;
+/** Set the menu icon to monochrome if currently coloured and vice versa. */
 - (void)toogleIconColor;
 
-// User Defaults
+/// ----------------------------------------------------------------------------
+/** @name User Defaults */
+/// ----------------------------------------------------------------------------
+
+/**
+ Check whether Tunes Notifier is present in the list of apps starting at login.
+ 
+ @return `YES` if Tunes Notifier is in the list of apps starting at login. `NO`
+ otherwise.
+ */
 - (BOOL)isAppPresentInLoginItems;
 @end
 
@@ -138,7 +179,6 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
     [self.statusMenu addItem:self.quitItem];
 }
 
-// Set the appearance of all menu items
 - (void)updateAllMenuItems
 {
     [[self startAtLoginItem] setState:[self isAppPresentInLoginItems]];
@@ -319,6 +359,26 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
 
 - (BOOL)isAppPresentInLoginItems
 {
+    /* 
+     The following is what a job dictionary looks like
+     
+     {
+         EnableTransactions = 1;
+         Label = "com.julescoynel.Tunes-Notifier-Helper";
+         LastExitStatus = 0;
+         LimitLoadToSessionType = Aqua;
+         MachServices = {
+            "com.julescoynel.Tunes-Notifier-Helper" = 0;
+         };
+         OnDemand = 1;
+         ProgramArguments = (
+            "/usr/libexec/launchproxyls",
+            "com.julescoynel.Tunes-Notifier-Helper"
+         );
+         TimeOut = 30;
+     }
+     */
+    
     NSArray *jobDicts = (NSArray *)CFBridgingRelease(SMCopyAllJobDictionaries(kSMDomainUserLaunchd));
     
     if ((jobDicts != nil) && [jobDicts count] > 0) {

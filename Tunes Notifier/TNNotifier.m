@@ -8,17 +8,62 @@
 
 #import "TNNotifier.h"
 
+/** iTunes app bundle identifier. */
 NSString *const iTunesBundleIdentifier = @"com.apple.iTunes";
+/** iTunes player info notification identifier. */
 NSString *const iTunesNotificationIdentifier = @"com.apple.iTunes.playerInfo";
+/** Spotify app bundle identifier. */
 NSString *const spotifyBundleIdentifier = @"com.spotify.client";
+/** Spotify player info notification identifier. */
 NSString *const spotifyNotificationIdentifier = @"com.spotify.client.PlaybackStateChanged";
+/** 
+ Key used to identify the player in the userInfo dictionary of an 
+ NSNotification.
+ 
+ The value set to that key should be the bundle identifier of the player app.
+ */
 NSString *const notificationUserInfoPlayerBundleIdentifier = @"playerBundleIdentifier";
 
-@interface TNNotifier (Private)
+@interface TNNotifier ()
+/**
+ Check iTunes status.
+ 
+ This is typically triggered by an NSNotification but can also be called 
+ manually, passing _nil_ to the _notification_ parameter.
+ 
+ @param notification The notification which triggered this method.
+ */
 - (void)checkItunes:(NSNotification *)notification;
+
+/**
+ Check Stoptify status.
+ 
+ This is typically triggered by an NSNotification but can also be called
+ manually, passing _nil_ to the _notification_ parameter.
+ 
+ @param notification The notification which triggered this method.
+ */
 - (void)checkSpotify:(NSNotification *)notification;
+
+/**
+ Display a notification in the Notification Center for a song played in iTunes.
+ 
+ @param track The song to notify the user about.
+ */
 - (void)sendiTunesNotificationForTrack:(iTunesTrack *)track;
+
+/**
+ Display a notification in the Notification Center for a song played in Spotify.
+ 
+ @param track The song to notify the user about.
+ */
 - (void)sendSpotifyNotificationForTrack:(SpotifyTrack *)track;
+
+/**
+ Display a notification in the Notification Center.
+ 
+ @param notification The notification to display.
+ */
 - (void)sendNotification:(NSUserNotification *)notification;
 @end
 
@@ -29,7 +74,6 @@ NSString *const notificationUserInfoPlayerBundleIdentifier = @"playerBundleIdent
     return [self initWithItunes:YES spotify:YES paused:NO];
 }
 
-// Default initialiser
 - (id)initWithItunes:(BOOL)iTunesEnabled spotify:(BOOL)spotifyEnabled paused:(BOOL)paused
 {
     self = [super init];
@@ -181,7 +225,11 @@ NSString *const notificationUserInfoPlayerBundleIdentifier = @"playerBundleIdent
 
 - (void)userNotificationCenter:(NSUserNotificationCenter *)center
        didActivateNotification:(NSUserNotification *)notification
-{    
+{
+    /* 
+     Find out which music player the notification is associated with and open
+     that music player. It none is found, just clean up the notifications.
+     */
     NSDictionary *userInfo = [notification userInfo];
     NSString *playerBundleIdentifier = [userInfo objectForKey:notificationUserInfoPlayerBundleIdentifier];
     
