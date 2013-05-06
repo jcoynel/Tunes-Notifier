@@ -14,6 +14,9 @@ Tunes Notifier requires the following
 
 History
 --------------
+- **Version 1.4** (Submitted to Apple: 06/05/13)
+  - Notifications for songs played from radio stations in iTunes
+
 - **Version 1.3** (Submitted to Apple: 30/12/12 – Released: 08/01/13)
   - Spotify support
   - Reduced processor usage
@@ -47,10 +50,10 @@ $ cd /Users/Jules/Library/Developer/Xcode/Archives/2012-08-23/Tunes Notifier 23-
 $ rm Tunes\ Notifier.app/Contents/Library/LoginItems/Tunes\ Notifier\ Helper.app/Contents/embedded.provisionprofile
  
 # Code sign the deamon
-$ codesign -f -s "3rd Party Mac Developer Application: Jules Coynel" -i "com.julescoynel.Tunes-Notifier-Helper" --entitlements "/Users/Jules/Documents/TunesNotifier/Tunes Notifier Helper/Tunes Notifier Helper/Tunes Notifier Helper.entitlements" "Tunes Notifier.app/Contents/Library/LoginItems/Tunes Notifier Helper.app"
+$ codesign -f -s "3rd Party Mac Developer Application: Jules Coynel" -i "com.julescoynel.Tunes-Notifier-Helper" --entitlements "/Users/Jules/Documents/Xcode/Tunes-Notifier/Tunes Notifier Helper/Tunes Notifier Helper/Tunes Notifier Helper.entitlements" "Tunes Notifier.app/Contents/Library/LoginItems/Tunes Notifier Helper.app"
  
 # Code sign the main application
-$ codesign -f -s "3rd Party Mac Developer Application: Jules Coynel" -i "com.julescoynel.Tunes-Notifier" --entitlements "/Users/Jules/Documents/TunesNotifier/Tunes Notifier/Tunes Notifier.entitlements" "Tunes Notifier.app"
+$ codesign -f -s "3rd Party Mac Developer Application: Jules Coynel" -i "com.julescoynel.Tunes-Notifier" --entitlements "/Users/Jules/Documents/Xcode/Tunes-Notifier/Tunes Notifier/Tunes Notifier.entitlements" "Tunes Notifier.app"
  
 # "3rd Party Mac Developer Application: Jules Coynel" is the name of the certificate to use as visible in the Keychain Access app
 # "com.julescoynel.Tunes-Notifier-Helper" is the bundle identifier of the demon app
