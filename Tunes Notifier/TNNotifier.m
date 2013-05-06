@@ -49,8 +49,10 @@ NSString *const notificationUserInfoPlayerBundleIdentifier = @"playerBundleIdent
  Display a notification in the Notification Center for a song played in iTunes.
  
  @param track The song to notify the user about.
+ @param streamTitle Title of the stream if the song is played from a stream 
+ (e.g. radio station) or _nil_ if it's a normal song.
  */
-- (void)sendiTunesNotificationForTrack:(iTunesTrack *)track;
+- (void)sendiTunesNotificationForTrack:(iTunesTrack *)track streamTitle:(NSString *)streamTitle;
 
 /**
  Display a notification in the Notification Center for a song played in Spotify.
@@ -151,10 +153,11 @@ NSString *const notificationUserInfoPlayerBundleIdentifier = @"playerBundleIdent
     
     if ([[self iTunes] isRunning]) {
         iTunesEPlS iTunesState = [[self iTunes] playerState];
-                
+        
         if (iTunesState == iTunesEPlSPlaying) {
             iTunesTrack *currentTrack = [[self iTunes] currentTrack];
-            [self sendiTunesNotificationForTrack:currentTrack];
+            
+            [self sendiTunesNotificationForTrack:currentTrack streamTitle:self.iTunes.currentStreamTitle];
         }
     }
 }
@@ -178,14 +181,17 @@ NSString *const notificationUserInfoPlayerBundleIdentifier = @"playerBundleIdent
 
 #pragma mark - Notifications
 
-- (void)sendiTunesNotificationForTrack:(iTunesTrack *)track
+- (void)sendiTunesNotificationForTrack:(iTunesTrack *)track streamTitle:(NSString *)streamTitle;
 {
     NSUserNotification *notification = [[NSUserNotification alloc] init];
     NSDictionary *userInfo = [[NSDictionary alloc] initWithObjects:@[iTunesBundleIdentifier] forKeys:@[notificationUserInfoPlayerBundleIdentifier]];
     
+    // If there is an artist, use it. Otherwise try to use the stream title.
+    NSString *subtitle = [track.artist length] > 0 ? track.artist : streamTitle;
+    
     [notification setTitle:[track name]];
-    [notification setSubtitle:[track artist]];
-    [notification setInformativeText:[track album]];
+    [notification setSubtitle:subtitle];
+    [notification setInformativeText:track.album];
     [notification setSoundName:nil];
     [notification setUserInfo:userInfo];
 
