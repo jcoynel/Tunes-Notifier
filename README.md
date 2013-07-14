@@ -14,7 +14,7 @@ Tunes Notifier requires the following
 
 History
 --------------
-- **Version 1.4** (Submitted to Apple: 06/05/13)
+- **Version 1.4** (Submitted to Apple: 06/05/13 - Rejected: 12/05/13)
   - Notifications for songs played from radio stations in iTunes
 
 - **Version 1.3** (Submitted to Apple: 30/12/12 – Released: 08/01/13)
