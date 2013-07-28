@@ -25,7 +25,7 @@
             result = [result stringByReplacingCharactersInRange:range withString:@""];
         }
     }
-
+    
     return result;
 }
 

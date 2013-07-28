@@ -12,14 +12,14 @@
 static NSString *const lastVersionReviewed = @"lastVersionReviewed";
 /** NSUserDefault key to save the user preference regarding review requests. */
 static NSString *const neverAskForReview = @"neverAskForReview";
-/** 
+/**
  NSUserDefault key to save the number of times Tunes Notifier has been launched
- since the last review request. 
+ since the last review request.
  */
 static NSString *const launchCountSinceLastReviewRequest = @"launchCountSinceLastReviewRequest";
 /**
  NSUserDefault key to save the version number of Tunes Notifier version when
- the app was launched the last time. 
+ the app was launched the last time.
  */
 static NSString *const versionWhenLastLaunched = @"versionWhenLastLaunched";
 
@@ -30,7 +30,7 @@ static NSInteger const launchCountSinceLastReviewRequestBeforeAskingForReview = 
 static NSString *const macAppStoreLink = @"macappstore://itunes.apple.com/app/tunes-notifier/id555731861?ls=1&mt=12";
 
 @interface TNReviewRequest ()
-/** 
+/**
  Handle user response for a review request.
  
  @param alert The NSAlert with the review request.
@@ -70,7 +70,7 @@ static NSString *const macAppStoreLink = @"macappstore://itunes.apple.com/app/tu
 }
 
 - (BOOL)shouldAskForReview
-{    
+{
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
     // NEVER ASK
@@ -81,7 +81,7 @@ static NSString *const macAppStoreLink = @"macappstore://itunes.apple.com/app/tu
     // CHECK VERSION
     NSString* currentAppVersion = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
 	NSString* reviewedAppVersion = [userDefaults stringForKey:lastVersionReviewed];
-
+    
     // don't ask for review if already reviewed the current version
     if ([currentAppVersion isEqualToString:reviewedAppVersion]) {
         return NO;
@@ -93,7 +93,7 @@ static NSString *const macAppStoreLink = @"macappstore://itunes.apple.com/app/tu
     if (launchCount < launchCountSinceLastReviewRequestBeforeAskingForReview) {
         return NO;
     }
-        
+    
     return YES;
 }
 
@@ -104,7 +104,7 @@ static NSString *const macAppStoreLink = @"macappstore://itunes.apple.com/app/tu
                                          alternateButton:NSLocalizedString(@"REVIEW_REQUEST_DONT_ASK_BUTTON", nil)
                                              otherButton:NSLocalizedString(@"REVIEW_REQUEST_REMIND_LATER_BUTTON", nil)
                                informativeTextWithFormat:NSLocalizedString(@"REVIEW_REQUEST_MESSAGE", nil)];
-
+    
     [reviewAlert beginSheetModalForWindow:[[NSApplication sharedApplication] mainWindow]
                             modalDelegate:self
                            didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:)
@@ -118,7 +118,7 @@ static NSString *const macAppStoreLink = @"macappstore://itunes.apple.com/app/tu
 {
     switch (returnCode) {
         case NSAlertDefaultReturn: // rate
-        {            
+        {
             NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
             [userDefaults setObject:[[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"] forKey:lastVersionReviewed];
             [userDefaults removeObjectForKey:launchCountSinceLastReviewRequest];
@@ -138,7 +138,7 @@ static NSString *const macAppStoreLink = @"macappstore://itunes.apple.com/app/tu
             break;
         }
         case NSAlertOtherReturn: // ask later
-        {            
+        {
             NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
             [userDefaults setInteger:0 forKey:launchCountSinceLastReviewRequest];
             [userDefaults synchronize];

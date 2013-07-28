@@ -16,7 +16,7 @@
 @end
 
 /**
- TNNotifier let you listen to iTunes and Spotify notifications and offers 
+ TNNotifier let you listen to iTunes and Spotify notifications and offers
  options to start and stop doing so. It also manages the notifications shown
  in the Notification Center.
  */
@@ -64,7 +64,7 @@
 /**
  Create an instance of TNNotifier with options to enable iTunes and Spotify
  notifications and suspend them.
-  
+ 
  @param iTunesEnabled Specify whether iTunes notifications are enabled or not.
  @param spotifyEnabled Specify whether Spotify notifications are enabled or not.
  @param paused Specify whether the notifications should be paused or not.
@@ -114,8 +114,8 @@
 /** @name Turning on and off Player Specific Notifications */
 /// ----------------------------------------------------------------------------
 
-/** 
- Start or stop observing iTunes player status. 
+/**
+ Start or stop observing iTunes player status.
  
  @param enabled `YES` to start observing iTunes status, `NO` to stop.
  */

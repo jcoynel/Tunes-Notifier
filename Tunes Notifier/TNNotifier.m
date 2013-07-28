@@ -78,11 +78,11 @@
     if (self) {
         _delegate = delegate;
         
-        [self setItunesEnabled:iTunesEnabled];
-        [self setSpotifyEnabled:spotifyEnabled];
-        [self setPaused:paused];
+        self.itunesEnabled = iTunesEnabled;
+        self.spotifyEnabled = spotifyEnabled;
+        self.paused = paused;
         
-        if ([self isPaused] == NO) {
+        if (!self.paused) {
             [self resume];
         }
     }
@@ -92,7 +92,7 @@
 
 - (void)pause
 {
-    [self setPaused:YES];
+    self.paused = YES;
     
     NSDistributedNotificationCenter *distributedNotificationCenter = [NSDistributedNotificationCenter defaultCenter];
     [distributedNotificationCenter removeObserver:self];
@@ -100,14 +100,14 @@
 
 - (void)resume
 {
-    [self setPaused:NO];
-        
-    if ([self isItunesEnabled]) {
+    self.paused = NO;
+    
+    if (self.itunesEnabled) {
         [self observeItunesNotifications:YES];
         [self checkItunes:nil];
     }
     
-    if ([self isSpotifyEnabled]) {
+    if (self.spotifyEnabled) {
         [self observeSpotifyNotifications:YES];
         [self checkSpotify:nil];
     }
@@ -115,26 +115,26 @@
 
 - (void)observeItunesNotifications:(BOOL)enabled
 {
-    [self setItunesEnabled:enabled];
+    self.itunesEnabled = enabled;
     
     // Always remove observer to prevent receving the same notification several times    
     NSDistributedNotificationCenter *distributedNotificationCenter = [NSDistributedNotificationCenter defaultCenter];
     [distributedNotificationCenter removeObserver:self name:iTunesNotificationIdentifier object:nil];
 
-    if ([self isItunesEnabled] && ![self isPaused]) {
+    if (self.itunesEnabled && !self.paused) {
         [distributedNotificationCenter addObserver:self selector:@selector(checkItunes:) name:iTunesNotificationIdentifier object:nil];
     }
 }
 
 - (void)observeSpotifyNotifications:(BOOL)enabled
 {
-    [self setSpotifyEnabled:enabled];
+    self.spotifyEnabled = enabled;
     
     // Always remove observer to prevent receving the same notification several times
     NSDistributedNotificationCenter *distributedNotificationCenter = [NSDistributedNotificationCenter defaultCenter];
     [distributedNotificationCenter removeObserver:self name:spotifyNotificationIdentifier object:nil];
     
-    if ([self isSpotifyEnabled] && ![self isPaused]) {
+    if (self.spotifyEnabled && !self.paused) {
         [distributedNotificationCenter addObserver:self selector:@selector(checkSpotify:) name:spotifyNotificationIdentifier object:nil];
     }
 }
@@ -144,15 +144,15 @@
 - (void)checkItunes:(NSNotification *)notification
 {
     // Set iTunes in case it didn't exist when the user started Tunes Notifier
-    if (![self iTunes]) {
-        [self setITunes:[SBApplication applicationWithBundleIdentifier:iTunesBundleIdentifier]];
+    if (!self.iTunes) {
+        self.iTunes = [SBApplication applicationWithBundleIdentifier:iTunesBundleIdentifier];
     }
     
-    if ([[self iTunes] isRunning]) {
-        iTunesEPlS iTunesState = [[self iTunes] playerState];
+    if ([self.iTunes isRunning]) {
+        iTunesEPlS iTunesState = self.iTunes.playerState;
         
         if (iTunesState == iTunesEPlSPlaying) {
-            iTunesTrack *currentTrack = [[self iTunes] currentTrack];
+            iTunesTrack *currentTrack = self.iTunes.currentTrack;
             
             self.currentPlayer = self.iTunes;
             [self sendiTunesNotificationForTrack:currentTrack streamTitle:self.iTunes.currentStreamTitle];
@@ -165,15 +165,15 @@
 - (void)checkSpotify:(NSNotification *)notification
 {
     // Set Spotify in case it didn't exist when the user started Tunes Notifier
-    if (![self spotify]) {
-        [self setSpotify:[SBApplication applicationWithBundleIdentifier:spotifyBundleIdentifier]];
+    if (!self.spotify) {
+        self.spotify = [SBApplication applicationWithBundleIdentifier:spotifyBundleIdentifier];
     }
     
-    if ([[self spotify] isRunning]) {
-        SpotifyEPlS spotifyState = [[self spotify] playerState];
+    if ([self.spotify isRunning]) {
+        SpotifyEPlS spotifyState = self.spotify.playerState;
         
         if (spotifyState == SpotifyEPlSPlaying) {
-            SpotifyTrack *currentTrack = [[self spotify] currentTrack];
+            SpotifyTrack *currentTrack = self.spotify.currentTrack;
             
             self.currentPlayer = self.spotify;
             [self sendSpotifyNotificationForTrack:currentTrack];
@@ -193,11 +193,11 @@
     // If there is an artist, use it. Otherwise try to use the stream title.
     NSString *subtitle = [track.artist length] > 0 ? track.artist : streamTitle;
     
-    [notification setTitle:[track name]];
-    [notification setSubtitle:subtitle];
-    [notification setInformativeText:track.album];
-    [notification setSoundName:nil];
-    [notification setUserInfo:userInfo];
+    notification.title = track.name;
+    notification.subtitle = subtitle;
+    notification.informativeText = track.album;
+    notification.soundName = nil;
+    notification.userInfo = userInfo;
 
     [self sendNotification:notification];
 }
@@ -207,11 +207,11 @@
     NSUserNotification *notification = [[NSUserNotification alloc] init];
     NSDictionary *userInfo = [[NSDictionary alloc] initWithObjects:@[spotifyBundleIdentifier] forKeys:@[notificationUserInfoPlayerBundleIdentifier]];
     
-    [notification setTitle:[track name]];
-    [notification setSubtitle:[track artist]];
-    [notification setInformativeText:[track album]];
-    [notification setSoundName:nil];
-    [notification setUserInfo:userInfo];
+    notification.title = track.name;
+    notification.subtitle = track.artist;
+    notification.informativeText = track.album;
+    notification.soundName = nil;
+    notification.userInfo = userInfo;
     
     [self sendNotification:notification];
 }
@@ -220,7 +220,7 @@
 {
     NSUserNotificationCenter *notificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
     
-    [notificationCenter setDelegate:self];
+    notificationCenter.delegate = self;
     [self cleanNotifications];
     [notificationCenter deliverNotification:notification];
 }

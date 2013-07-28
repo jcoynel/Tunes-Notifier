@@ -16,7 +16,7 @@
     
     NSArray *running = [[NSWorkspace sharedWorkspace] runningApplications];
     for (NSRunningApplication *app in running) {
-        if ([[app bundleIdentifier] isEqualToString:mainAppBundleIdentifier]) {
+        if ([app.bundleIdentifier isEqualToString:mainAppBundleIdentifier]) {
             alreadyRunning = YES;
         }
     }

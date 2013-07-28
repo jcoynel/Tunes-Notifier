@@ -24,15 +24,15 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
 /** Status bar menu. */
 @property (strong) IBOutlet NSMenu *statusMenu;
 
-/** 
+/**
  Contains the application logic to handle notifications.
  
  @see TNNotifier
  */
 @property (strong) TNNotifier *notifier;
 
-/** 
- Contains the logic to ask the user to review the application on the Mac App 
+/**
+ Contains the logic to ask the user to review the application on the Mac App
  Store.
  
  @see TNReviewRequest
@@ -58,14 +58,14 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
 @property (strong) NSMenuItem *spotityNotificationsItem;
 /** Menu item to enable or disable starting the application at login. */
 @property (strong) NSMenuItem *startAtLoginItem;
-/** 
- Menu item to hide the logo of the application from the menu bar until the 
+/**
+ Menu item to hide the logo of the application from the menu bar until the
  application is closed.
  */
 @property (strong) NSMenuItem *hideFromMenuBarItem;
 /**
- Menu item to hide the logo of the application from the menu bar until the 
- application is manually started. 
+ Menu item to hide the logo of the application from the menu bar until the
+ application is manually started.
  */
 @property (strong) NSMenuItem *hideFromMenuBarForeverItem;
 /** Menu item to to select a colored or black and white menu bar icon. */

@@ -11,7 +11,7 @@
 @interface NSString (MaxWidth)
 
 /**
- Truncate a string if its width for the given font is wider than the maximum 
+ Truncate a string if its width for the given font is wider than the maximum
  width specified and add _..._ at the end.
  
     e.g. _A string_ could become _A str..._

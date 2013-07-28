@@ -9,8 +9,8 @@
 #import "AppDelegate.h"
 #import "NSString+MaxWidth.h"
 
-/** 
- Number of seconds before showing a review request. 
+/**
+ Number of seconds before showing a review request.
  
  This is used to delay showing review request when the app starts, which is
  likely to be when the user starts it's computer. It therefore leaves a few
@@ -103,26 +103,26 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
     // Load default defaults
     [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"UserDefaults" ofType:@"plist"]]];
     
-    [self setTemporaryHidden:NO];
-    [self setPaused:NO];
-    [self setNotifier:[[TNNotifier alloc] initWithItunes:[self areItunesNotificationsEnabled] spotify:[self areSpotifyNotificationsEnabled] paused:NO delegate:self]];
+    self.temporaryHidden = NO;
+    self.paused = NO;
+    self.notifier = [[TNNotifier alloc] initWithItunes:self.itunesNotificationsEnabled spotify:self.areSpotifyNotificationsEnabled paused:NO delegate:self];
     
     // Set up review request
-    [self setReviewRequest:[[TNReviewRequest alloc] init]];
+    self.reviewRequest = [[TNReviewRequest alloc] init];
     
-    if ([[self reviewRequest] shouldAskForReview]) {
-        [[self reviewRequest] performSelector:@selector(askForReview)
-                                   withObject:nil
-                                   afterDelay:delayInSecondsBeforeShowingReviewRequest];
+    if ([self.reviewRequest shouldAskForReview]) {
+        [self.reviewRequest performSelector:@selector(askForReview)
+                                 withObject:nil
+                                 afterDelay:delayInSecondsBeforeShowingReviewRequest];
     }
 }
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag
 {
     // The menu is currently hidden, therefore show it
-    if ([self shouldHideFromMenuBar] || [self isTemporaryHidden]) {
-        [self setHideFromMenuBar:NO];
-        [self setTemporaryHidden:NO];
+    if (self.shouldHideFromMenuBar || self.isTemporaryHidden) {
+        self.hideFromMenuBar = NO;
+        self.temporaryHidden = NO;
         [self setupMenu];
     }
     
@@ -135,12 +135,12 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     // remove all notifications from notification center
-    [[self notifier] cleanNotifications];
+    [self.notifier cleanNotifications];
 }
 
 - (void)awakeFromNib
 {
-    if (![self shouldHideFromMenuBar]) { // don't show the menu if user asked for it to be always hidden
+    if (!self.shouldHideFromMenuBar) { // don't show the menu if user asked for it to be always hidden
         [self setupMenu];
     }
 }
@@ -156,6 +156,7 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
 
 - (void)currentSongDidChange
 {
+    // Refresh current song info if the menu is visible
     if (!self.statusMenu.isTornOff) {
         [self updateCurrentSongMenuItem];
         [self.statusMenu update];
@@ -169,7 +170,7 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
     self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     
     [self.statusItem setMenu:self.statusMenu];
-    if ([self isBlackAndWhiteIcon]) {
+    if (self.isBlackAndWhiteIcon) {
         [self.statusItem setImage:[NSImage imageNamed:@"status_bw"]];
     } else {
         [self.statusItem setImage:[NSImage imageNamed:@"status"]];
@@ -208,8 +209,13 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
                                                             action:@selector(toogleIconColor)
                                                      keyEquivalent:@"b"];
     
-    self.aboutItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"ABOUT_MENU_ITEM", @"About Tunes Notifier") action:@selector(showAboutPanel) keyEquivalent:@""];
-    self.quitItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"QUIT_MENU_ITEM", @"Quit Tunes Notifier") action:@selector(terminate:) keyEquivalent:@"q"];
+    self.aboutItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"ABOUT_MENU_ITEM", @"About Tunes Notifier")
+                                                action:@selector(showAboutPanel)
+                                         keyEquivalent:@""];
+    
+    self.quitItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"QUIT_MENU_ITEM", @"Quit Tunes Notifier")
+                                               action:@selector(terminate:)
+                                        keyEquivalent:@"q"];
     
     [self.statusMenu addItem:self.currentSongInfoItem];
     [self.statusMenu addItem:[NSMenuItem separatorItem]];
@@ -229,7 +235,7 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
 }
 
 - (void)updateCurrentSongMenuItem
-{    
+{
     BOOL songPlaying = NO;
     
     NSString *name = nil;
@@ -278,25 +284,25 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
 {
     [self updateCurrentSongMenuItem];
     
-    [[self startAtLoginItem] setState:[self isAppPresentInLoginItems]];
-
-    [[self pauseNotificationsItem] setState:[self isPaused]];
-
-    [[self iTunesNotificationsItem] setState:[self areItunesNotificationsEnabled]];
+    [self.startAtLoginItem setState:self.isAppPresentInLoginItems];
     
-    [[self spotityNotificationsItem] setState:[self areSpotifyNotificationsEnabled]];
+    [self.pauseNotificationsItem setState:self.isPaused];
     
-    [[self blackAndWhiteIconItem] setState:[self isBlackAndWhiteIcon]];
+    [self.iTunesNotificationsItem setState:self.areItunesNotificationsEnabled];
+    
+    [self.spotityNotificationsItem setState:self.areSpotifyNotificationsEnabled];
+    
+    [self.blackAndWhiteIconItem setState:self.isBlackAndWhiteIcon];
     
     // If iTunes and Spotify notifications are both disabled, we don't want to be able to hide the app
     // So we disable hide menus
-    if (![self areItunesNotificationsEnabled] && ![self areSpotifyNotificationsEnabled]) {
+    if (!self.areItunesNotificationsEnabled && !self.areSpotifyNotificationsEnabled) {
         // To disable a menu we need to set its action to nil
-        [[self hideFromMenuBarItem] setAction:nil];
-        [[self hideFromMenuBarForeverItem] setAction:nil];
+        [self.hideFromMenuBarItem setAction:nil];
+        [self.hideFromMenuBarForeverItem setAction:nil];
     } else {
-        [[self hideFromMenuBarItem] setAction:@selector(hideFromMenuBar)];
-        [[self hideFromMenuBarForeverItem] setAction:@selector(hideFromMenuBarForever)];
+        [self.hideFromMenuBarItem setAction:@selector(hideFromMenuBar)];
+        [self.hideFromMenuBarForeverItem setAction:@selector(hideFromMenuBarForever)];
     }
 }
 
@@ -306,11 +312,11 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
     NSFont *titleFont = [fontManager fontWithFamily:@"Lucida Grande" traits:NSBoldFontMask weight:0 size:14.0f];
     NSFont *artistFont = [fontManager fontWithFamily:@"Lucida Grande" traits:NSBoldFontMask weight:0 size:12.0f];
     NSFont *albumFont = [fontManager fontWithFamily:@"Lucida Grande" traits:0 weight:0 size:12.0f];
- 
+    
     NSString *titleString = name.length > 0 ? [name stringWithFont:titleFont maxWidth:225] : @"Unknown Track";
     NSString *artistString = artist.length > 0 ? [artist stringWithFont:titleFont maxWidth:225] : @"Unknown Artist";
     NSString *albumString = album.length > 0 ? [album stringWithFont:titleFont maxWidth:225] : @"Unknown Album";
-
+    
     NSString *menuTitle = [NSString stringWithFormat:@" %@\n %@\n %@", titleString, artistString, albumString];
     
     NSMutableAttributedString *attributedTitle = [[NSMutableAttributedString alloc] initWithString:menuTitle];
@@ -337,12 +343,12 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
 
 - (void)tooglePauseNotifications
 {
-    if ([self isPaused]) {
-        [[self notifier] resume];
-        [self setPaused:NO];
+    if (self.isPaused) {
+        [self.notifier resume];
+        self.paused = NO;
     } else {
-        [[self notifier] pause];
-        [self setPaused:YES];
+        [self.notifier pause];
+        self.paused = YES;
     }
 }
 
@@ -362,10 +368,10 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
 - (void)hideFromMenuBar
 {
     NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
-    [statusBar removeStatusItem:[self statusItem]];
-    [[self statusMenu] removeAllItems];
+    [statusBar removeStatusItem:self.statusItem];
+    [self.statusMenu removeAllItems];
     
-    [self setTemporaryHidden:YES];
+    self.temporaryHidden = YES;
 }
 
 - (void)hideFromMenuBarForever
@@ -376,7 +382,7 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
                                               otherButton:nil
                                 informativeTextWithFormat:NSLocalizedString(@"HIDE_FOREVER_CONFIRMATION_MESSAGE", nil)];
     
-    [confirmation beginSheetModalForWindow:[self window]
+    [confirmation beginSheetModalForWindow:self.window
                              modalDelegate:self
                             didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:)
                                contextInfo:NULL];
@@ -386,26 +392,26 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
 
 - (void)toogleItunesNotificationsEnabled
 {
-    BOOL newState = ![self areItunesNotificationsEnabled];
+    BOOL newState = !self.areItunesNotificationsEnabled;
     
-    [self setItunesNotificationsEnabled:newState];
+    self.itunesNotificationsEnabled = newState;
     [self.notifier observeItunesNotifications:newState];
 }
 
 - (void)toogleSpotifyNotificationsEnabled
 {
-    BOOL newState = ![self areSpotifyNotificationsEnabled];
+    BOOL newState = !self.areSpotifyNotificationsEnabled;
     
-    [self setSpotifyNotificationsEnabled:newState];
+    self.spotifyNotificationsEnabled = newState;
     [self.notifier observeSpotifyNotifications:newState];
 }
 
 - (void)toogleIconColor
 {
-    NSString *imageName = ([self isBlackAndWhiteIcon]) ? @"status" : @"status_bw";
+    NSString *imageName = self.isBlackAndWhiteIcon ? @"status" : @"status_bw";
     [self.statusItem setImage:[NSImage imageNamed:imageName]];
-
-    [self setBlackAndWhiteIcon:![self isBlackAndWhiteIcon]];
+    
+    self.blackAndWhiteIcon = !self.blackAndWhiteIcon;
 }
 
 #pragma mark - Handle hide forever confirmation
@@ -413,13 +419,13 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
 - (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
 {
     if (returnCode == NSAlertDefaultReturn) { // user agreed to hide forever
-        [self setHideFromMenuBar:YES];
+        self.hideFromMenuBar = YES;
         
         if (![self isAppPresentInLoginItems]) { // start at login
             [self toogleStartAtLogin];
         }
         
-        if ([self isPaused]) { // resume notifications
+        if (self.isPaused) { // resume notifications
             [self tooglePauseNotifications];
         }
         
@@ -438,7 +444,7 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
 }
 
 - (void)setItunesNotificationsEnabled:(BOOL)enabled
-{    
+{
     [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:userDefaultsItunesNotificationsKey];
 }
 
@@ -462,19 +468,19 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
 }
 
 - (void)setHideFromMenuBar:(BOOL)hidden
-{    
+{
     [[NSUserDefaults standardUserDefaults] setBool:hidden forKey:userDefaultsHideForeverKey];
 }
 
 #pragma mark Black and white icon
 
 - (BOOL)isBlackAndWhiteIcon
-{    
+{
     return [[NSUserDefaults standardUserDefaults] boolForKey:userDefaultsBlackAndWhiteIconKey];
 }
 
 - (void)setBlackAndWhiteIcon:(BOOL)blackAndWhite
-{   
+{
     [[NSUserDefaults standardUserDefaults] setBool:blackAndWhite forKey:userDefaultsBlackAndWhiteIconKey];
 }
 
@@ -482,23 +488,23 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
 
 - (BOOL)isAppPresentInLoginItems
 {
-    /* 
+    /*
      The following is what a job dictionary looks like
      
      {
-         EnableTransactions = 1;
-         Label = "com.julescoynel.Tunes-Notifier-Helper";
-         LastExitStatus = 0;
-         LimitLoadToSessionType = Aqua;
-         MachServices = {
-            "com.julescoynel.Tunes-Notifier-Helper" = 0;
-         };
-         OnDemand = 1;
-         ProgramArguments = (
-            "/usr/libexec/launchproxyls",
-            "com.julescoynel.Tunes-Notifier-Helper"
-         );
-         TimeOut = 30;
+     EnableTransactions = 1;
+     Label = "com.julescoynel.Tunes-Notifier-Helper";
+     LastExitStatus = 0;
+     LimitLoadToSessionType = Aqua;
+     MachServices = {
+     "com.julescoynel.Tunes-Notifier-Helper" = 0;
+     };
+     OnDemand = 1;
+     ProgramArguments = (
+     "/usr/libexec/launchproxyls",
+     "com.julescoynel.Tunes-Notifier-Helper"
+     );
+     TimeOut = 30;
      }
      */
     

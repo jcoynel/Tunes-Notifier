@@ -22,4 +22,3 @@ static NSString *const spotifyNotificationIdentifier = @"com.spotify.client.Play
  The value set to that key should be the bundle identifier of the player app.
  */
 static NSString *const notificationUserInfoPlayerBundleIdentifier = @"playerBundleIdentifier";
-
