@@ -8,22 +8,6 @@
 
 #import "TNNotifier.h"
 
-/** iTunes app bundle identifier. */
-NSString *const iTunesBundleIdentifier = @"com.apple.iTunes";
-/** iTunes player info notification identifier. */
-NSString *const iTunesNotificationIdentifier = @"com.apple.iTunes.playerInfo";
-/** Spotify app bundle identifier. */
-NSString *const spotifyBundleIdentifier = @"com.spotify.client";
-/** Spotify player info notification identifier. */
-NSString *const spotifyNotificationIdentifier = @"com.spotify.client.PlaybackStateChanged";
-/** 
- Key used to identify the player in the userInfo dictionary of an 
- NSNotification.
- 
- The value set to that key should be the bundle identifier of the player app.
- */
-NSString *const notificationUserInfoPlayerBundleIdentifier = @"playerBundleIdentifier";
-
 @interface TNNotifier ()
 /**
  Check iTunes status.
