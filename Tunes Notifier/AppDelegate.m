@@ -314,8 +314,8 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
     NSFont *albumFont = [fontManager fontWithFamily:@"Lucida Grande" traits:0 weight:0 size:12.0f];
     
     NSString *titleString = name.length > 0 ? [name stringWithFont:titleFont maxWidth:240] : NSLocalizedString(@"UNKNOWN_TRACK", @"Unknown track");
-    NSString *artistString = artist.length > 0 ? [artist stringWithFont:titleFont maxWidth:240] : NSLocalizedString(@"UNKNOWN_ARTIST", @"Unknown artist");
-    NSString *albumString = album.length > 0 ? [album stringWithFont:titleFont maxWidth:240] : NSLocalizedString(@"UNKNOWN_ALBUM", @"Unknown album");
+    NSString *artistString = artist.length > 0 ? [artist stringWithFont:artistFont maxWidth:240] : NSLocalizedString(@"UNKNOWN_ARTIST", @"Unknown artist");
+    NSString *albumString = album.length > 0 ? [album stringWithFont:albumFont maxWidth:240] : NSLocalizedString(@"UNKNOWN_ALBUM", @"Unknown album");
     
     NSString *menuTitle = [NSString stringWithFormat:@" %@\n %@\n %@", titleString, artistString, albumString];
     
