@@ -14,6 +14,9 @@ Tunes Notifier requires the following
 
 History
 --------------
+- **Version 1.5** (Submitted to Apple: 28/07/13)
+  - Add the current song artwork, title, album and artist in the menu bar
+
 - **Version 1.4** (Submitted to Apple: 06/05/13 - Rejected: 12/05/13)
   - Notifications for songs played from radio stations in iTunes
 
