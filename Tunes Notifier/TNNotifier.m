@@ -241,7 +241,7 @@
      that music player. It none is found, just clean up the notifications.
      */
     NSDictionary *userInfo = [notification userInfo];
-    NSString *playerBundleIdentifier = [userInfo objectForKey:notificationUserInfoPlayerBundleIdentifier];
+    NSString *playerBundleIdentifier = userInfo[notificationUserInfoPlayerBundleIdentifier];
     
     if ([playerBundleIdentifier isEqualToString:iTunesBundleIdentifier]) {
         [self.iTunes activate];

@@ -47,7 +47,7 @@ static NSString *const macAppStoreLink = @"macappstore://itunes.apple.com/app/tu
     self = [super init];
     
     if (self != nil) {
-        NSString *currentVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+        NSString *currentVersion = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
         
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         
@@ -79,7 +79,7 @@ static NSString *const macAppStoreLink = @"macappstore://itunes.apple.com/app/tu
     }
     
     // CHECK VERSION
-    NSString* currentAppVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    NSString* currentAppVersion = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
 	NSString* reviewedAppVersion = [userDefaults stringForKey:lastVersionReviewed];
 
     // don't ask for review if already reviewed the current version
@@ -120,7 +120,7 @@ static NSString *const macAppStoreLink = @"macappstore://itunes.apple.com/app/tu
         case NSAlertDefaultReturn: // rate
         {            
             NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-            [userDefaults setObject:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] forKey:lastVersionReviewed];
+            [userDefaults setObject:[[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"] forKey:lastVersionReviewed];
             [userDefaults removeObjectForKey:launchCountSinceLastReviewRequest];
             [userDefaults synchronize];
             

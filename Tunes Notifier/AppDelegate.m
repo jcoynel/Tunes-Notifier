@@ -508,8 +508,8 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
         BOOL bOnDemand = NO;
         
         for (NSDictionary * job in jobDicts) {
-            if ([helperBundleIdentifier isEqualToString:[job objectForKey:@"Label"]]) {
-                bOnDemand = [[job objectForKey:@"OnDemand"] boolValue];
+            if ([helperBundleIdentifier isEqualToString:job[@"Label"]]) {
+                bOnDemand = [job[@"OnDemand"] boolValue];
                 break;
             }
         }
