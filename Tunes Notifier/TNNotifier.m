@@ -51,6 +51,12 @@
  @param notification The notification to display.
  */
 - (void)sendNotification:(NSUserNotification *)notification;
+
+/**
+ Notifier the delegate of the current instance of TNNotifier that the current
+ song has changed.
+ */
+- (void)notifyDelegateCurrentSongDidChange;
 @end
 
 @implementation TNNotifier
@@ -62,9 +68,16 @@
 
 - (id)initWithItunes:(BOOL)iTunesEnabled spotify:(BOOL)spotifyEnabled paused:(BOOL)paused
 {
+    return [self initWithItunes:iTunesEnabled spotify:spotifyEnabled paused:paused delegate:nil];
+}
+
+- (id)initWithItunes:(BOOL)iTunesEnabled spotify:(BOOL)spotifyEnabled paused:(BOOL)paused delegate:(id<TNNotifierDelegate>)delegate
+{
     self = [super init];
     
     if (self) {
+        _delegate = delegate;
+        
         [self setItunesEnabled:iTunesEnabled];
         [self setSpotifyEnabled:spotifyEnabled];
         [self setPaused:paused];
@@ -141,9 +154,12 @@
         if (iTunesState == iTunesEPlSPlaying) {
             iTunesTrack *currentTrack = [[self iTunes] currentTrack];
             
+            self.currentPlayer = self.iTunes;
             [self sendiTunesNotificationForTrack:currentTrack streamTitle:self.iTunes.currentStreamTitle];
         }
     }
+    
+    [self notifyDelegateCurrentSongDidChange];
 }
 
 - (void)checkSpotify:(NSNotification *)notification
@@ -158,9 +174,13 @@
         
         if (spotifyState == SpotifyEPlSPlaying) {
             SpotifyTrack *currentTrack = [[self spotify] currentTrack];
+            
+            self.currentPlayer = self.spotify;
             [self sendSpotifyNotificationForTrack:currentTrack];
         }
     }
+    
+    [self notifyDelegateCurrentSongDidChange];
 }
 
 #pragma mark - Notifications
@@ -230,6 +250,13 @@
     } else {
         [self cleanNotifications];
     }
+}
+
+#pragma mark - Methods for TNNotifierDelegate Protocol
+
+- (void)notifyDelegateCurrentSongDidChange
+{
+    [self.delegate currentSongDidChange];
 }
 
 @end

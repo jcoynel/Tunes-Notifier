@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8402909B15E3D7E600E23303 /* TNNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8402909A15E3D7E600E23303 /* TNNotifier.m */; };
+		8410ABB317A579CE0019A9D3 /* NSString+MaxWidth.m in Sources */ = {isa = PBXBuildFile; fileRef = 8410ABB217A579CE0019A9D3 /* NSString+MaxWidth.m */; };
 		84268D94161B910B0008E4B8 /* TNReviewRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84268D93161B910A0008E4B8 /* TNReviewRequest.m */; };
 		842EE9D815E68338005C675C /* status.png in Resources */ = {isa = PBXBuildFile; fileRef = 842EE9D515E68338005C675C /* status.png */; };
 		842EE9D915E68338005C675C /* status@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 842EE9D615E68338005C675C /* status@2x.png */; };
@@ -57,6 +58,8 @@
 		8402909C15E3D93200E23303 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
 		8402909E15E3D94900E23303 /* Tunes Notifier.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Tunes Notifier.entitlements"; sourceTree = "<group>"; };
 		8402909F15E3EE7900E23303 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		8410ABB117A579CD0019A9D3 /* NSString+MaxWidth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MaxWidth.h"; sourceTree = "<group>"; };
+		8410ABB217A579CE0019A9D3 /* NSString+MaxWidth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MaxWidth.m"; sourceTree = "<group>"; };
 		84225C6B1632C88600C12FBE /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84268D7116170A570008E4B8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84268D7316171A5D0008E4B8 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -109,11 +112,11 @@
 		842EE9CD15E6828A005C675C /* icons */ = {
 			isa = PBXGroup;
 			children = (
-				844E1A37161620E600417ABD /* status_bw.png */,
-				844E1A38161620E600417ABD /* status_bw@2x.png */,
 				845C86B115E6905300455397 /* icon.icns */,
 				842EE9D515E68338005C675C /* status.png */,
 				842EE9D615E68338005C675C /* status@2x.png */,
+				844E1A37161620E600417ABD /* status_bw.png */,
+				844E1A38161620E600417ABD /* status_bw@2x.png */,
 			);
 			name = icons;
 			sourceTree = "<group>";
@@ -162,15 +165,17 @@
 			children = (
 				84EDF03B15E3CCB2003A7AB0 /* AppDelegate.h */,
 				84EDF03C15E3CCB2003A7AB0 /* AppDelegate.m */,
+				8402909515E3D75F00E23303 /* iTunes.h */,
+				84EDF03E15E3CCB3003A7AB0 /* MainMenu.xib */,
+				8410ABB117A579CD0019A9D3 /* NSString+MaxWidth.h */,
+				8410ABB217A579CE0019A9D3 /* NSString+MaxWidth.m */,
+				846899741654454D00148B40 /* Spotify.h */,
+				84EDF03015E3CCB2003A7AB0 /* Supporting Files */,
+				8492BB1D167E770100E06476 /* TNConstants.h */,
 				8402909915E3D7E600E23303 /* TNNotifier.h */,
 				8402909A15E3D7E600E23303 /* TNNotifier.m */,
 				84268D92161B910A0008E4B8 /* TNReviewRequest.h */,
 				84268D93161B910A0008E4B8 /* TNReviewRequest.m */,
-				8492BB1D167E770100E06476 /* TNConstants.h */,
-				8402909515E3D75F00E23303 /* iTunes.h */,
-				846899741654454D00148B40 /* Spotify.h */,
-				84EDF03E15E3CCB3003A7AB0 /* MainMenu.xib */,
-				84EDF03015E3CCB2003A7AB0 /* Supporting Files */,
 			);
 			path = "Tunes Notifier";
 			sourceTree = "<group>";
@@ -294,6 +299,7 @@
 				84EDF03D15E3CCB2003A7AB0 /* AppDelegate.m in Sources */,
 				8402909B15E3D7E600E23303 /* TNNotifier.m in Sources */,
 				84268D94161B910B0008E4B8 /* TNReviewRequest.m in Sources */,
+				8410ABB317A579CE0019A9D3 /* NSString+MaxWidth.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

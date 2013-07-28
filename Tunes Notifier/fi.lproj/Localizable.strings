@@ -1,4 +1,6 @@
 ﻿/* MENU ITEMS */
+"NO_SONG_PLAYING" = "No song playing...";
+
 "ABOUT_MENU_ITEM" = "Tietoja Tunes Notifierista";
 
 "PAUSE_MENU_ITEM" = "Lopeta väliaikaisesti ilmoitukset";

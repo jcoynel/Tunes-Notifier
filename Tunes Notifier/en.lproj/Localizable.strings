@@ -1,4 +1,6 @@
 ﻿/* MENU ITEMS */
+"NO_SONG_PLAYING" = "No song playing...";
+
 "ABOUT_MENU_ITEM" = "About Tunes Notifier";
 
 "PAUSE_MENU_ITEM" = "Pause notifications";

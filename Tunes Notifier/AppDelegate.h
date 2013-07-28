@@ -16,7 +16,7 @@
 NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper";
 
 /** Application delegate. */
-@interface AppDelegate : NSObject <NSApplicationDelegate, NSMenuDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, NSMenuDelegate, TNNotifierDelegate>
 
 /** Application window. */
 @property (assign) IBOutlet NSWindow *window;
@@ -45,6 +45,9 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
 /// ----------------------------------------------------------------------------
 /** @name Menu items */
 /// ----------------------------------------------------------------------------
+
+/** Menu item that contain information about the current song. */
+@property (strong) NSMenuItem *currentSongInfoItem;
 
 /** Menu item to enable or disable all notifications. */
 @property (strong) NSMenuItem *pauseNotificationsItem;

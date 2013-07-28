@@ -1,4 +1,6 @@
 /* MENU ITEMS */
+"NO_SONG_PLAYING" = "No song playing...";
+
 "ABOUT_MENU_ITEM" = "Tunes Notifier について";
 
 "PAUSE_MENU_ITEM" = "通知を一時停止";
