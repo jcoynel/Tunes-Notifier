@@ -52,7 +52,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8402909515E3D75F00E23303 /* iTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunes.h; sourceTree = "<group>"; };
 		8402909915E3D7E600E23303 /* TNNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNNotifier.h; sourceTree = "<group>"; };
 		8402909A15E3D7E600E23303 /* TNNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNNotifier.m; sourceTree = "<group>"; };
 		8402909C15E3D93200E23303 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
@@ -165,7 +164,6 @@
 			children = (
 				84EDF03B15E3CCB2003A7AB0 /* AppDelegate.h */,
 				84EDF03C15E3CCB2003A7AB0 /* AppDelegate.m */,
-				8402909515E3D75F00E23303 /* iTunes.h */,
 				84EDF03E15E3CCB3003A7AB0 /* MainMenu.xib */,
 				8410ABB117A579CD0019A9D3 /* NSString+MaxWidth.h */,
 				8410ABB217A579CE0019A9D3 /* NSString+MaxWidth.m */,

@@ -9,15 +9,6 @@
 #import "TNNotifier.h"
 
 @interface TNNotifier ()
-/**
- Check iTunes status.
- 
- This is typically triggered by an NSNotification but can also be called 
- manually, passing _nil_ to the _notification_ parameter.
- 
- @param notification The notification which triggered this method.
- */
-- (void)checkItunes:(NSNotification *)notification;
 
 /**
  Check Stoptify status.
@@ -28,15 +19,6 @@
  @param notification The notification which triggered this method.
  */
 - (void)checkSpotify:(NSNotification *)notification;
-
-/**
- Display a notification in the Notification Center for a song played in iTunes.
- 
- @param track The song to notify the user about.
- @param streamTitle Title of the stream if the song is played from a stream 
- (e.g. radio station) or _nil_ if it's a normal song.
- */
-- (void)sendiTunesNotificationForTrack:(iTunesTrack *)track streamTitle:(NSString *)streamTitle;
 
 /**
  Display a notification in the Notification Center for a song played in Spotify.
@@ -63,22 +45,21 @@
 
 - (id)init
 {
-    return [self initWithItunes:YES spotify:YES paused:NO];
+    return [self initWithSpotify:YES paused:NO];
 }
 
-- (id)initWithItunes:(BOOL)iTunesEnabled spotify:(BOOL)spotifyEnabled paused:(BOOL)paused
+- (id)initWithSpotify:(BOOL)spotifyEnabled paused:(BOOL)paused
 {
-    return [self initWithItunes:iTunesEnabled spotify:spotifyEnabled paused:paused delegate:nil];
+    return [self initWithSpotify:spotifyEnabled paused:paused delegate:nil];
 }
 
-- (id)initWithItunes:(BOOL)iTunesEnabled spotify:(BOOL)spotifyEnabled paused:(BOOL)paused delegate:(id<TNNotifierDelegate>)delegate
+- (id)initWithSpotify:(BOOL)spotifyEnabled paused:(BOOL)paused delegate:(id<TNNotifierDelegate>)delegate
 {
     self = [super init];
     
     if (self) {
         _delegate = delegate;
         
-        self.itunesEnabled = iTunesEnabled;
         self.spotifyEnabled = spotifyEnabled;
         self.paused = paused;
         
@@ -102,27 +83,9 @@
 {
     self.paused = NO;
     
-    if (self.itunesEnabled) {
-        [self observeItunesNotifications:YES];
-        [self checkItunes:nil];
-    }
-    
     if (self.spotifyEnabled) {
         [self observeSpotifyNotifications:YES];
         [self checkSpotify:nil];
-    }
-}
-
-- (void)observeItunesNotifications:(BOOL)enabled
-{
-    self.itunesEnabled = enabled;
-    
-    // Always remove observer to prevent receving the same notification several times    
-    NSDistributedNotificationCenter *distributedNotificationCenter = [NSDistributedNotificationCenter defaultCenter];
-    [distributedNotificationCenter removeObserver:self name:iTunesNotificationIdentifier object:nil];
-
-    if (self.itunesEnabled && !self.paused) {
-        [distributedNotificationCenter addObserver:self selector:@selector(checkItunes:) name:iTunesNotificationIdentifier object:nil];
     }
 }
 
@@ -140,27 +103,6 @@
 }
 
 #pragma mark - Players state
-
-- (void)checkItunes:(NSNotification *)notification
-{
-    // Set iTunes in case it didn't exist when the user started Tunes Notifier
-    if (!self.iTunes) {
-        self.iTunes = [SBApplication applicationWithBundleIdentifier:iTunesBundleIdentifier];
-    }
-    
-    if ([self.iTunes isRunning]) {
-        iTunesEPlS iTunesState = self.iTunes.playerState;
-        
-        if (iTunesState == iTunesEPlSPlaying) {
-            iTunesTrack *currentTrack = self.iTunes.currentTrack;
-            
-            self.currentPlayer = self.iTunes;
-            [self sendiTunesNotificationForTrack:currentTrack streamTitle:self.iTunes.currentStreamTitle];
-        }
-    }
-    
-    [self notifyDelegateCurrentSongDidChange];
-}
 
 - (void)checkSpotify:(NSNotification *)notification
 {
@@ -184,23 +126,6 @@
 }
 
 #pragma mark - Notifications
-
-- (void)sendiTunesNotificationForTrack:(iTunesTrack *)track streamTitle:(NSString *)streamTitle;
-{
-    NSUserNotification *notification = [[NSUserNotification alloc] init];
-    NSDictionary *userInfo = [[NSDictionary alloc] initWithObjects:@[iTunesBundleIdentifier] forKeys:@[notificationUserInfoPlayerBundleIdentifier]];
-    
-    // If there is an artist, use it. Otherwise try to use the stream title.
-    NSString *subtitle = [track.artist length] > 0 ? track.artist : streamTitle;
-    
-    notification.title = track.name;
-    notification.subtitle = subtitle;
-    notification.informativeText = track.album;
-    notification.soundName = nil;
-    notification.userInfo = userInfo;
-
-    [self sendNotification:notification];
-}
 
 - (void)sendSpotifyNotificationForTrack:(SpotifyTrack *)track
 {
@@ -243,9 +168,7 @@
     NSDictionary *userInfo = [notification userInfo];
     NSString *playerBundleIdentifier = userInfo[notificationUserInfoPlayerBundleIdentifier];
     
-    if ([playerBundleIdentifier isEqualToString:iTunesBundleIdentifier]) {
-        [self.iTunes activate];
-    } else if ([playerBundleIdentifier isEqualToString:spotifyBundleIdentifier]) {
+    if ([playerBundleIdentifier isEqualToString:spotifyBundleIdentifier]) {
         [self.spotify activate];
     } else {
         [self cleanNotifications];

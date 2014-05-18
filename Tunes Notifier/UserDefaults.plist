@@ -6,8 +6,6 @@
 	<integer>0</integer>
 	<key>neverAskForReview</key>
 	<false/>
-	<key>itunesNotificationsEnabled</key>
-	<true/>
 	<key>spotifyNotificationsEnabled</key>
 	<true/>
 	<key>hideForever</key>

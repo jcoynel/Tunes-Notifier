@@ -8,7 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 #import <ServiceManagement/ServiceManagement.h>
-#import "iTunes.h"
 #import "TNNotifier.h"
 #import "TNReviewRequest.h"
 
@@ -52,10 +51,6 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
 /** Menu item to enable or disable all notifications. */
 @property (strong) NSMenuItem *pauseNotificationsItem;
 
-/** Menu item to enable or disable notifications for iTunes. */
-@property (strong) NSMenuItem *iTunesNotificationsItem;
-/** Menu item to enable or disable notifications for Spotify. */
-@property (strong) NSMenuItem *spotityNotificationsItem;
 /** Menu item to enable or disable starting the application at login. */
 @property (strong) NSMenuItem *startAtLoginItem;
 /**
@@ -79,10 +74,6 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
 /** @name User preferences saved in User Defaults */
 /// ----------------------------------------------------------------------------
 
-/** Tells whether iTunes notifications are enabled. */
-@property (getter = areItunesNotificationsEnabled) BOOL itunesNotificationsEnabled;
-/** Tells whether Spotify notifications are enabled. */
-@property (getter = areSpotifyNotificationsEnabled) BOOL spotifyNotificationsEnabled;
 /** Tells whether the app should always be hidden from the menu bar. */
 @property (getter = shouldHideFromMenuBar) BOOL hideFromMenuBar;
 /** Tells whether the menu bar icon is monochrome. */

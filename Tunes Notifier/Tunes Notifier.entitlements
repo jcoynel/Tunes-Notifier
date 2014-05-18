@@ -4,7 +4,6 @@
 <dict>
 	<key>com.apple.security.temporary-exception.apple-events</key>
 	<array>
-		<string>com.apple.itunes</string>
 		<string>com.spotify.client</string>
 	</array>
 	<key>com.apple.security.app-sandbox</key>

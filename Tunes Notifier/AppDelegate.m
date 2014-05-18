@@ -74,10 +74,6 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
 - (void)hideFromMenuBar;
 /** Hide the menu bar icon forever after the user is asked for confirmation. */
 - (void)hideFromMenuBarForever;
-/** Disable iTunes notifications if there are enabled and vice versa. */
-- (void)toogleItunesNotificationsEnabled;
-/** Disable Spotify notifications if there are enabled and vice versa. */
-- (void)toogleSpotifyNotificationsEnabled;
 /** Set the menu icon to monochrome if currently coloured and vice versa. */
 - (void)toogleIconColor;
 
@@ -105,7 +101,7 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
     
     self.temporaryHidden = NO;
     self.paused = NO;
-    self.notifier = [[TNNotifier alloc] initWithItunes:self.itunesNotificationsEnabled spotify:self.areSpotifyNotificationsEnabled paused:NO delegate:self];
+    self.notifier = [[TNNotifier alloc] initWithSpotify:self.areSpotifyNotificationsEnabled paused:NO delegate:self];
     
     // Set up review request
     self.reviewRequest = [[TNReviewRequest alloc] init];
@@ -185,14 +181,6 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
                                                              action:@selector(tooglePauseNotifications)
                                                       keyEquivalent:@"p"];
     
-    self.iTunesNotificationsItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"ITUNES_MENU_ITEM", @"iTunes")
-                                                              action:@selector(toogleItunesNotificationsEnabled)
-                                                       keyEquivalent:@""];
-    
-    self.spotityNotificationsItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"SPOTIFY_MENU_ITEM", @"Spotify")
-                                                               action:@selector(toogleSpotifyNotificationsEnabled)
-                                                        keyEquivalent:@""];
-    
     self.startAtLoginItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"START_MENU_ITEM", @"Start at login")
                                                        action:@selector(toogleStartAtLogin)
                                                 keyEquivalent:@"s"];
@@ -220,8 +208,6 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
     [self.statusMenu addItem:self.currentSongInfoItem];
     [self.statusMenu addItem:[NSMenuItem separatorItem]];
     [self.statusMenu addItem:self.pauseNotificationsItem];
-    [self.statusMenu addItem:self.iTunesNotificationsItem];
-    [self.statusMenu addItem:self.spotityNotificationsItem];
     [self.statusMenu addItem:[NSMenuItem separatorItem]];
     [self.statusMenu addItem:self.startAtLoginItem];
     [self.statusMenu addItem:[NSMenuItem separatorItem]];
@@ -244,16 +230,7 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
     NSImage *artworkImage = nil;
     
     Class currentPlayerClass = self.notifier.currentPlayer.class;
-    if (currentPlayerClass == NSClassFromString(@"ITunesApplication") && self.notifier.iTunes.playerState == iTunesEPlSPlaying) {
-        songPlaying = YES;
-        
-        iTunesTrack *track = self.notifier.iTunes.currentTrack;
-        name = track.name;
-        artist = [track.artist length] > 0 ? track.artist : self.notifier.iTunes.currentStreamTitle;
-        album = track.album;
-        iTunesArtwork *artwork = (iTunesArtwork *)[[[track artworks] get] lastObject];
-        artworkImage = [[NSImage alloc] initWithData:artwork.rawData];
-    } else if (currentPlayerClass == NSClassFromString(@"SpotifyApplication") && self.notifier.spotify.playerState == SpotifyEPlSPlaying) {
+    if (currentPlayerClass == NSClassFromString(@"SpotifyApplication") && self.notifier.spotify.playerState == SpotifyEPlSPlaying) {
         songPlaying = YES;
         
         SpotifyTrack *track = self.notifier.spotify.currentTrack;
@@ -288,15 +265,11 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
     
     [self.pauseNotificationsItem setState:self.isPaused];
     
-    [self.iTunesNotificationsItem setState:self.areItunesNotificationsEnabled];
-    
-    [self.spotityNotificationsItem setState:self.areSpotifyNotificationsEnabled];
-    
     [self.blackAndWhiteIconItem setState:self.isBlackAndWhiteIcon];
     
-    // If iTunes and Spotify notifications are both disabled, we don't want to be able to hide the app
+    // If Spotify notifications are disabled, we don't want to be able to hide the app
     // So we disable hide menus
-    if (!self.areItunesNotificationsEnabled && !self.areSpotifyNotificationsEnabled) {
+    if (!self.areSpotifyNotificationsEnabled) {
         // To disable a menu we need to set its action to nil
         [self.hideFromMenuBarItem setAction:nil];
         [self.hideFromMenuBarForeverItem setAction:nil];
@@ -390,14 +363,6 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
     [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
 }
 
-- (void)toogleItunesNotificationsEnabled
-{
-    BOOL newState = !self.areItunesNotificationsEnabled;
-    
-    self.itunesNotificationsEnabled = newState;
-    [self.notifier observeItunesNotifications:newState];
-}
-
 - (void)toogleSpotifyNotificationsEnabled
 {
     BOOL newState = !self.areSpotifyNotificationsEnabled;
@@ -435,18 +400,6 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
 }
 
 #pragma mark - NSUserDefaults
-
-#pragma mark Itunes
-
-- (BOOL)areItunesNotificationsEnabled
-{
-    return [[NSUserDefaults standardUserDefaults] boolForKey:userDefaultsItunesNotificationsKey];
-}
-
-- (void)setItunesNotificationsEnabled:(BOOL)enabled
-{
-    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:userDefaultsItunesNotificationsKey];
-}
 
 #pragma mark Spotify
 
