@@ -10,17 +10,13 @@
 		8402909B15E3D7E600E23303 /* TNNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8402909A15E3D7E600E23303 /* TNNotifier.m */; };
 		8410ABB317A579CE0019A9D3 /* NSString+MaxWidth.m in Sources */ = {isa = PBXBuildFile; fileRef = 8410ABB217A579CE0019A9D3 /* NSString+MaxWidth.m */; };
 		84268D94161B910B0008E4B8 /* TNReviewRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84268D93161B910A0008E4B8 /* TNReviewRequest.m */; };
-		842EE9D815E68338005C675C /* status.png in Resources */ = {isa = PBXBuildFile; fileRef = 842EE9D515E68338005C675C /* status.png */; };
-		842EE9D915E68338005C675C /* status@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 842EE9D615E68338005C675C /* status@2x.png */; };
 		842EE9ED15E68920005C675C /* Tunes Notifier Helper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 842EE9EB15E68852005C675C /* Tunes Notifier Helper.app */; };
 		843A4548168F4E2B005B1ACB /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 843A454A168F4E2B005B1ACB /* Credits.rtf */; };
 		843E3E821640990300457644 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 842EE9DE15E684A5005C675C /* Localizable.strings */; };
-		844E1A39161620E600417ABD /* status_bw.png in Resources */ = {isa = PBXBuildFile; fileRef = 844E1A37161620E600417ABD /* status_bw.png */; };
-		844E1A3A161620E600417ABD /* status_bw@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844E1A38161620E600417ABD /* status_bw@2x.png */; };
 		845C86AD15E68DB600455397 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8402909F15E3EE7900E23303 /* ServiceManagement.framework */; };
 		845C86AE15E68DBC00455397 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8402909C15E3D93200E23303 /* ScriptingBridge.framework */; };
-		845C86B215E6905300455397 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 845C86B115E6905300455397 /* icon.icns */; };
 		8492BB1C167E677500E06476 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8492BB1B167E677500E06476 /* UserDefaults.plist */; };
+		84A6D1FE1929027D002E034E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A6D1FD1929027D002E034E /* Images.xcassets */; };
 		84EDF02A15E3CCB2003A7AB0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EDF02915E3CCB2003A7AB0 /* Cocoa.framework */; };
 		84EDF03415E3CCB2003A7AB0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84EDF03215E3CCB2003A7AB0 /* InfoPlist.strings */; };
 		84EDF03615E3CCB2003A7AB0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EDF03515E3CCB2003A7AB0 /* main.m */; };
@@ -67,18 +63,14 @@
 		84268D92161B910A0008E4B8 /* TNReviewRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNReviewRequest.h; sourceTree = "<group>"; };
 		84268D93161B910A0008E4B8 /* TNReviewRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNReviewRequest.m; sourceTree = "<group>"; };
 		842E4834161E30010095B1B6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		842EE9D515E68338005C675C /* status.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = status.png; sourceTree = "<group>"; };
-		842EE9D615E68338005C675C /* status@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "status@2x.png"; sourceTree = "<group>"; };
 		842EE9DD15E684A5005C675C /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		842EE9DF15E684A9005C675C /* fr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		843A4549168F4E2B005B1ACB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		844E1A37161620E600417ABD /* status_bw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = status_bw.png; sourceTree = "<group>"; };
-		844E1A38161620E600417ABD /* status_bw@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "status_bw@2x.png"; sourceTree = "<group>"; };
-		845C86B115E6905300455397 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		846899741654454D00148B40 /* Spotify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spotify.h; sourceTree = "<group>"; };
 		8492BB1B167E677500E06476 /* UserDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
 		8492BB1D167E770100E06476 /* TNConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNConstants.h; sourceTree = "<group>"; };
 		84A4600E15E50DAC00DA8DF6 /* Tunes Notifier Helper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Tunes Notifier Helper.xcodeproj"; path = "Tunes Notifier Helper/Tunes Notifier Helper.xcodeproj"; sourceTree = "<group>"; };
+		84A6D1FD1929027D002E034E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		84B8957D1613B34F005F781E /* fi */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84EDF02515E3CCB2003A7AB0 /* Tunes Notifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tunes Notifier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84EDF02915E3CCB2003A7AB0 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -108,18 +100,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		842EE9CD15E6828A005C675C /* icons */ = {
-			isa = PBXGroup;
-			children = (
-				845C86B115E6905300455397 /* icon.icns */,
-				842EE9D515E68338005C675C /* status.png */,
-				842EE9D615E68338005C675C /* status@2x.png */,
-				844E1A37161620E600417ABD /* status_bw.png */,
-				844E1A38161620E600417ABD /* status_bw@2x.png */,
-			);
-			name = icons;
-			sourceTree = "<group>";
-		};
 		842EE9E715E68852005C675C /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,7 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				843A454A168F4E2B005B1ACB /* Credits.rtf */,
-				842EE9CD15E6828A005C675C /* icons */,
+				84A6D1FD1929027D002E034E /* Images.xcassets */,
 				84EDF03215E3CCB2003A7AB0 /* InfoPlist.strings */,
 				842EE9DE15E684A5005C675C /* Localizable.strings */,
 				84EDF03515E3CCB2003A7AB0 /* main.m */,
@@ -280,11 +260,7 @@
 			files = (
 				84EDF03415E3CCB2003A7AB0 /* InfoPlist.strings in Resources */,
 				84EDF04015E3CCB3003A7AB0 /* MainMenu.xib in Resources */,
-				842EE9D815E68338005C675C /* status.png in Resources */,
-				842EE9D915E68338005C675C /* status@2x.png in Resources */,
-				845C86B215E6905300455397 /* icon.icns in Resources */,
-				844E1A39161620E600417ABD /* status_bw.png in Resources */,
-				844E1A3A161620E600417ABD /* status_bw@2x.png in Resources */,
+				84A6D1FE1929027D002E034E /* Images.xcassets in Resources */,
 				843E3E821640990300457644 /* Localizable.strings in Resources */,
 				8492BB1C167E677500E06476 /* UserDefaults.plist in Resources */,
 				843A4548168F4E2B005B1ACB /* Credits.rtf in Resources */,
@@ -408,6 +384,7 @@
 		84EDF04415E3CCB3003A7AB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
 				CODE_SIGN_ENTITLEMENTS = "Tunes Notifier/Tunes Notifier.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
@@ -425,6 +402,7 @@
 		84EDF04515E3CCB3003A7AB0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = NO;
 				CODE_SIGN_ENTITLEMENTS = "Tunes Notifier/Tunes Notifier.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
