@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 Jules Coynel. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
-#import <ServiceManagement/ServiceManagement.h>
+@import Cocoa;
+@import ServiceManagement;
 #import "TNNotifier.h"
 #import "TNReviewRequest.h"
 

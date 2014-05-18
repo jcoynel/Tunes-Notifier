@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Jules Coynel. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 /**
  A class that monitors the usage of the application to allow the Application

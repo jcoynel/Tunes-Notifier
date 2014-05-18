@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Jules Coynel. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+@import Cocoa;
 
 NSString *const mainAppBundleIdentifier = @"com.julescoynel.Tunes-Notifier";
 NSString *const mainAppFileName = @"Tunes Notifier";

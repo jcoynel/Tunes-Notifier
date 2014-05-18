@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 Jules Coynel. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <ScriptingBridge/ScriptingBridge.h>
+@import Foundation;
+@import ScriptingBridge;
 #import "Spotify.h"
 
 @protocol TNNotifierDelegate <NSObject>
