@@ -34,11 +34,6 @@
  */
 - (void)sendNotification:(NSUserNotification *)notification;
 
-/**
- Notifier the delegate of the current instance of TNNotifier that the current
- song has changed.
- */
-- (void)notifyDelegateCurrentSongDidChange;
 @end
 
 @implementation TNNotifier
@@ -50,16 +45,9 @@
 
 - (id)initWithSpotify:(BOOL)spotifyEnabled paused:(BOOL)paused
 {
-    return [self initWithSpotify:spotifyEnabled paused:paused delegate:nil];
-}
-
-- (id)initWithSpotify:(BOOL)spotifyEnabled paused:(BOOL)paused delegate:(id<TNNotifierDelegate>)delegate
-{
     self = [super init];
     
-    if (self) {
-        _delegate = delegate;
-        
+    if (self) {        
         self.spotifyEnabled = spotifyEnabled;
         self.paused = paused;
         
@@ -121,8 +109,6 @@
             [self sendSpotifyNotificationForTrack:currentTrack];
         }
     }
-    
-    [self notifyDelegateCurrentSongDidChange];
 }
 
 #pragma mark - Notifications
@@ -173,13 +159,6 @@
     } else {
         [self cleanNotifications];
     }
-}
-
-#pragma mark - Methods for TNNotifierDelegate Protocol
-
-- (void)notifyDelegateCurrentSongDidChange
-{
-    [self.delegate currentSongDidChange];
 }
 
 @end

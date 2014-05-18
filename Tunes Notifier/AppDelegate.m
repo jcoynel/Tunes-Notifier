@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "NSString+MaxWidth.h"
 
 /**
  Number of seconds before showing a review request.
@@ -37,30 +36,12 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
 - (void)setupMenu;
 
 /**
- Update the current song menu item.
- */
-- (void)updateCurrentSongMenuItem;
-
-/**
  Set the appearance of all menu items.
  
  This is typically called before the menu appears to update the text and tick or
  untick each of the menu items based on user preferences.
  */
 - (void)updateAllMenuItems;
-
-/**
- Generate an attributed string with the name, artist and album of a song.
- 
- @param name Name of the song.
- @param artist Artist of the song.
- @param album Album of the song.
- 
- @return Attributed title string for the song.
- */
-- (NSAttributedString *)attributedTitleForSongWithName:(NSString *)name
-                                                artist:(NSString *)artist
-                                                 album:(NSString *)album;
 
 /// ----------------------------------------------------------------------------
 /** @name Handle interactions with menu items */
@@ -101,7 +82,7 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
     
     self.temporaryHidden = NO;
     self.paused = NO;
-    self.notifier = [[TNNotifier alloc] initWithSpotify:self.areSpotifyNotificationsEnabled paused:NO delegate:self];
+    self.notifier = [[TNNotifier alloc] initWithSpotify:self.areSpotifyNotificationsEnabled paused:NO];
     
     // Set up review request
     self.reviewRequest = [[TNReviewRequest alloc] init];
@@ -148,17 +129,6 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
     [self.notifier.currentPlayer activate];
 }
 
-#pragma mark - TNNotifierDelegate
-
-- (void)currentSongDidChange
-{
-    // Refresh current song info if the menu is visible
-    if (!self.statusMenu.isTornOff) {
-        [self updateCurrentSongMenuItem];
-        [self.statusMenu update];
-    }
-}
-
 #pragma mark - Setting up and updating UI
 
 - (void)setupMenu
@@ -172,10 +142,6 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
         [self.statusItem setImage:[NSImage imageNamed:@"status"]];
     }
     [self.statusItem setHighlightMode:YES];
-    
-    self.currentSongInfoItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"NO_SONG_PLAYING", @"No song playing.")
-                                                          action:@selector(openCurrentPlayer)
-                                                   keyEquivalent:@""];
     
     self.pauseNotificationsItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"PAUSE_MENU_ITEM", @"Pause notifications")
                                                              action:@selector(tooglePauseNotifications)
@@ -205,8 +171,6 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
                                                action:@selector(terminate:)
                                         keyEquivalent:@"q"];
     
-    [self.statusMenu addItem:self.currentSongInfoItem];
-    [self.statusMenu addItem:[NSMenuItem separatorItem]];
     [self.statusMenu addItem:self.pauseNotificationsItem];
     [self.statusMenu addItem:[NSMenuItem separatorItem]];
     [self.statusMenu addItem:self.startAtLoginItem];
@@ -220,47 +184,8 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
     [self.statusMenu addItem:self.quitItem];
 }
 
-- (void)updateCurrentSongMenuItem
-{
-    BOOL songPlaying = NO;
-    
-    NSString *name = nil;
-    NSString *artist = nil;
-    NSString *album = nil;
-    NSImage *artworkImage = nil;
-    
-    Class currentPlayerClass = self.notifier.currentPlayer.class;
-    if (currentPlayerClass == NSClassFromString(@"SpotifyApplication") && self.notifier.spotify.playerState == SpotifyEPlSPlaying) {
-        songPlaying = YES;
-        
-        SpotifyTrack *track = self.notifier.spotify.currentTrack;
-        name = track.name;
-        artist = track.artist;
-        album = track.album;
-        artworkImage = track.artwork;
-    }
-    
-    if (!songPlaying) {
-        self.currentSongInfoItem.attributedTitle = nil;
-        self.currentSongInfoItem.image = nil;
-        self.currentSongInfoItem.title = NSLocalizedString(@"NO_SONG_PLAYING", @"No song playing...");
-        self.currentSongInfoItem.action = nil;
-    } else {
-        if (!artworkImage) {
-            artworkImage = [[NSBundle mainBundle] imageForResource:@"icon.icns"];
-        }
-        [artworkImage setSize:NSMakeSize(60, 60)];
-        
-        self.currentSongInfoItem.image = artworkImage;
-        self.currentSongInfoItem.attributedTitle = [self attributedTitleForSongWithName:name artist:artist album:album];
-        self.currentSongInfoItem.action = @selector(openCurrentPlayer);
-    }
-}
-
 - (void)updateAllMenuItems
 {
-    [self updateCurrentSongMenuItem];
-    
     [self.startAtLoginItem setState:self.isAppPresentInLoginItems];
     
     [self.pauseNotificationsItem setState:self.isPaused];
@@ -277,32 +202,6 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
         [self.hideFromMenuBarItem setAction:@selector(hideFromMenuBar)];
         [self.hideFromMenuBarForeverItem setAction:@selector(hideFromMenuBarForever)];
     }
-}
-
-- (NSAttributedString *)attributedTitleForSongWithName:(NSString *)name artist:(NSString *)artist album:(NSString *)album
-{
-    NSFontManager *fontManager = [NSFontManager sharedFontManager];
-    NSFont *titleFont = [fontManager fontWithFamily:@"Lucida Grande" traits:NSBoldFontMask weight:0 size:14.0f];
-    NSFont *artistFont = [fontManager fontWithFamily:@"Lucida Grande" traits:NSBoldFontMask weight:0 size:12.0f];
-    NSFont *albumFont = [fontManager fontWithFamily:@"Lucida Grande" traits:0 weight:0 size:12.0f];
-    
-    NSString *titleString = name.length > 0 ? [name stringWithFont:titleFont maxWidth:240] : NSLocalizedString(@"UNKNOWN_TRACK", @"Unknown track");
-    NSString *artistString = artist.length > 0 ? [artist stringWithFont:artistFont maxWidth:240] : NSLocalizedString(@"UNKNOWN_ARTIST", @"Unknown artist");
-    NSString *albumString = album.length > 0 ? [album stringWithFont:albumFont maxWidth:240] : NSLocalizedString(@"UNKNOWN_ALBUM", @"Unknown album");
-    
-    NSString *menuTitle = [NSString stringWithFormat:@" %@\n %@\n %@", titleString, artistString, albumString];
-    
-    NSMutableAttributedString *attributedTitle = [[NSMutableAttributedString alloc] initWithString:menuTitle];
-    
-    NSDictionary *titleAttributes = @{NSFontAttributeName: titleFont};
-    NSDictionary *artistAttributes = @{NSFontAttributeName: artistFont};
-    NSDictionary *albumAttributes = @{NSFontAttributeName: albumFont};
-    
-    [attributedTitle addAttributes:titleAttributes range:[menuTitle rangeOfString:titleString]];
-    [attributedTitle addAttributes:artistAttributes range:[menuTitle rangeOfString:artistString]];
-    [attributedTitle addAttributes:albumAttributes range:[menuTitle rangeOfString:albumString]];
-    
-    return attributedTitle;
 }
 
 #pragma mark - NSMenuDelegate

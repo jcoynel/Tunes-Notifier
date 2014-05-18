@@ -10,18 +10,12 @@
 @import ScriptingBridge;
 #import "Spotify.h"
 
-@protocol TNNotifierDelegate <NSObject>
-- (void)currentSongDidChange;
-@end
-
 /**
  TNNotifier let you listen Spotify notifications and offers
  options to start and stop doing so. It also manages the notifications shown
  in the Notification Center.
  */
 @interface TNNotifier : NSObject <NSUserNotificationCenterDelegate>
-
-@property (weak) id<TNNotifierDelegate> delegate;
 
 /// ----------------------------------------------------------------------------
 /** @name Music Players */
@@ -52,7 +46,6 @@
  @return An instance of TNNotifier.
  
  @see initWithSpotify:paused:
- @see initWithSpotify:paused:delegate:
  */
 - (id)init;
 
@@ -66,28 +59,8 @@
  @return An instance of TNNotifier.
  
  @see init
- @see initWithSpotify:paused:delegate:
  */
 - (id)initWithSpotify:(BOOL)spotifyEnabled paused:(BOOL)paused;
-
-/**
- Create an instance of TNNotifier with options to enable Spotify
- notifications, suspend them and a delegate.
- 
- @warning This is the default initialiser.
- 
- @param spotifyEnabled Specify whether Spotify notifications are enabled or not.
- @param paused Specify whether the notifications should be paused or not.
- @param delegate The delegate of the current instance of TNNotifier.
- 
- @return An instance of TNNotifier.
- 
- @see init
- @see initWithSpotify:paused:
- */
-- (id)initWithSpotify:(BOOL)spotifyEnabled
-               paused:(BOOL)paused
-             delegate:(id<TNNotifierDelegate>)delegate;
 
 /// ----------------------------------------------------------------------------
 /** @name Turning on and off all Notifications */

@@ -1,12 +1,4 @@
 ﻿/* MENU ITEMS */
-"NO_SONG_PLAYING" = "No song playing...";
-
-"UNKNOWN_TRACK" = "Unknown track";
-
-"UNKNOWN_ARTIST" = "Unknown artist";
-
-"UNKNOWN_ALBUM" = "Unknown album";
-
 "ABOUT_MENU_ITEM" = "Tietoja Tunes Notifierista";
 
 "PAUSE_MENU_ITEM" = "Lopeta väliaikaisesti ilmoitukset";
