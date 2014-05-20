@@ -1,5 +1,8 @@
 About Tunes Notifier
 --------------
+
+Minimal, easy to use OS X application that uses the Notification Center to display the name of the artist, album and song track any time a song starts playing on Spotify.
+
 **Website:** http://www.tunes-notifier.com
 
 **Mac App Store:** http://itunes.apple.com/app/tunes-notifier/id555731861?ls=1&mt=12
@@ -9,12 +12,16 @@ About Tunes Notifier
 Requirements
 --------------
 Tunes Notifier requires the following
-- OS X Mountain Lion (10.8)
-- iTunes or Spotify
+- OS X Mountain Lion (10.8) or Mavericks (10.9)
+- Spotify
 
 History
 --------------
-- **Version 1.5** (Submitted to Apple: 28/07/13)
+- **Version 1.6** (Submitted to Apple: 20/05/14)
+  - Remove iTunes support (as notifications are now natively supported by iTunes)
+  - Remove current song info from menu bar (to keep the app minimal)
+
+- **Version 1.5** (Submitted to Apple: 28/07/13 - Rejected: 31/07/13)
   - Add the current song artwork, title, album and artist in the menu bar
 
 - **Version 1.4** (Submitted to Apple: 06/05/13 - Rejected: 12/05/13)
@@ -43,48 +50,9 @@ History
 - **Version 1.0** (Submitted to Apple: 23/08/12 – Released: 25/09/12)
   - Initial version
 
-Code Sign Tunes Notifier for the Mac App Store
---------------
-```bash
-# Move to Applications folder within Xcode archive
-$ cd /Users/Jules/Library/Developer/Xcode/Archives/2012-08-23/Tunes Notifier 23-08-2012 23.16.xcarchive/Products/Applications
- 
-# Delete the embedded provision profile of the deamon app (Tunes Notifier Helper)
-$ rm Tunes\ Notifier.app/Contents/Library/LoginItems/Tunes\ Notifier\ Helper.app/Contents/embedded.provisionprofile
- 
-# Code sign the deamon
-$ codesign -f -s "3rd Party Mac Developer Application: Jules Coynel" -i "com.julescoynel.Tunes-Notifier-Helper" --entitlements "/Users/Jules/Documents/Xcode/Tunes-Notifier/Tunes Notifier Helper/Tunes Notifier Helper/Tunes Notifier Helper.entitlements" "Tunes Notifier.app/Contents/Library/LoginItems/Tunes Notifier Helper.app"
- 
-# Code sign the main application
-$ codesign -f -s "3rd Party Mac Developer Application: Jules Coynel" -i "com.julescoynel.Tunes-Notifier" --entitlements "/Users/Jules/Documents/Xcode/Tunes-Notifier/Tunes Notifier/Tunes Notifier.entitlements" "Tunes Notifier.app"
- 
-# "3rd Party Mac Developer Application: Jules Coynel" is the name of the certificate to use as visible in the Keychain Access app
-# "com.julescoynel.Tunes-Notifier-Helper" is the bundle identifier of the demon app
-# "com.julescoynel.Tunes-Notifier" is the bundle identifier of the main app
-```
-
-Documentation
---------------
-Tunes Notifier is documented using [appledoc](https://github.com/tomaz/appledoc).
-
-To generate the documentation
-
-- Download appledoc
-`git clone git://github.com/tomaz/appledoc.git`
-  
-- Install it using
-`cd /PATH/TO/APPLEDOC/PROJECT` and `sudo sh install-appledoc.sh`
-  
-- Generate the documentation using
-`cd /PATH/TO/TUNES-NOTIFIER/PROJECT` and `appledoc ./`
-	
-This will create a docset, install it in the default documentation folder for Xcode (`~/Library/Developer/Shared/Documentation/DocSets/`) and make it available within Xcode's Quick Help.
-
-For more information about appledoc please visit http://gentlebytes.com/appledoc/
-
 Licence (MIT)
 --------------
-Copyright (c) 2012-2013 Jules Coynel
+Copyright (c) 2012-2014 Jules Coynel
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
