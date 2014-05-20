@@ -25,7 +25,8 @@
 	<key>LSUIElement</key>
 	<true/>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2012-2013 Jules Coynel. All rights reserved.</string>
+	<string>Copyright © 2012-2014 Jules Coynel
+All rights reserved.</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
