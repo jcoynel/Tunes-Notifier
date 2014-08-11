@@ -9,6 +9,10 @@ Minimal, easy to use OS X application that uses the Notification Center to displ
 
 **Contact:** Jules Coynel (jules@tunes-notifier.com)
 
+The Mac App Store version of Tunes Notifier will not be updated as the last three updates submitted have been rejected by Apple because *the app uses Notification Center in a manner that is inappropriate*, which is *not consistent with the OS X Human Interface Guidelines*.
+
+Please visit [tunes-notifier.com](http://www.tunes-notifier.com/#downloads) to download the latest version of the app.
+
 Requirements
 --------------
 Tunes Notifier requires the following
@@ -17,7 +21,7 @@ Tunes Notifier requires the following
 
 History
 --------------
-- **Version 1.6** (Submitted to Apple: 20/05/14)
+- **Version 1.6** (Submitted to Apple: 20/05/14 - Rejected: 21/05/14)
   - Remove iTunes support (as notifications are now natively supported by iTunes)
   - Remove current song info from menu bar (to keep the app minimal)
 
