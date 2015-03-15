@@ -16,11 +16,14 @@ Please visit [tunes-notifier.com](http://www.tunes-notifier.com/#downloads) to d
 Requirements
 --------------
 Tunes Notifier requires the following
-- OS X Mountain Lion (10.8) or Mavericks (10.9)
+- OS X Mountain Lion (10.8) or later
 - Spotify
 
 History
 --------------
+- **Version 1.6.1** (Submitted to Apple: 15/03/15)
+  - Fix for Spotify 1.0.1.1060 
+
 - **Version 1.6** (Submitted to Apple: 20/05/14 - Rejected: 21/05/14)
   - Remove iTunes support (as notifications are now natively supported by iTunes)
   - Remove current song info from menu bar (to keep the app minimal)
@@ -56,7 +59,7 @@ History
 
 Licence (MIT)
 --------------
-Copyright (c) 2012-2014 Jules Coynel
+Copyright (c) 2012-2015 Jules Coynel
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
