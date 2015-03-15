@@ -12,6 +12,7 @@
 		842EE9ED15E68920005C675C /* Tunes Notifier Helper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 842EE9EB15E68852005C675C /* Tunes Notifier Helper.app */; };
 		843A4548168F4E2B005B1ACB /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 843A454A168F4E2B005B1ACB /* Credits.rtf */; };
 		843E3E821640990300457644 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 842EE9DE15E684A5005C675C /* Localizable.strings */; };
+		844799CD1AB4EF46007CF71D /* TNTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 844799CC1AB4EF46007CF71D /* TNTrack.m */; };
 		8492BB1C167E677500E06476 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8492BB1B167E677500E06476 /* UserDefaults.plist */; };
 		84A6D1FE1929027D002E034E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A6D1FD1929027D002E034E /* Images.xcassets */; };
 		84EDF03415E3CCB2003A7AB0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84EDF03215E3CCB2003A7AB0 /* InfoPlist.strings */; };
@@ -58,6 +59,8 @@
 		842EE9DD15E684A5005C675C /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		842EE9DF15E684A9005C675C /* fr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		843A4549168F4E2B005B1ACB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		844799CB1AB4EF46007CF71D /* TNTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNTrack.h; sourceTree = "<group>"; };
+		844799CC1AB4EF46007CF71D /* TNTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNTrack.m; sourceTree = "<group>"; };
 		846899741654454D00148B40 /* Spotify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spotify.h; sourceTree = "<group>"; };
 		8492BB1B167E677500E06476 /* UserDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
 		8492BB1D167E770100E06476 /* TNConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNConstants.h; sourceTree = "<group>"; };
@@ -123,6 +126,8 @@
 				8402909A15E3D7E600E23303 /* TNNotifier.m */,
 				84268D92161B910A0008E4B8 /* TNReviewRequest.h */,
 				84268D93161B910A0008E4B8 /* TNReviewRequest.m */,
+				844799CB1AB4EF46007CF71D /* TNTrack.h */,
+				844799CC1AB4EF46007CF71D /* TNTrack.m */,
 			);
 			path = "Tunes Notifier";
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84EDF03615E3CCB2003A7AB0 /* main.m in Sources */,
+				844799CD1AB4EF46007CF71D /* TNTrack.m in Sources */,
 				84EDF03D15E3CCB2003A7AB0 /* AppDelegate.m in Sources */,
 				8402909B15E3D7E600E23303 /* TNNotifier.m in Sources */,
 				84268D94161B910B0008E4B8 /* TNReviewRequest.m in Sources */,

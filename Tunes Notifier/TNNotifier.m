@@ -7,6 +7,7 @@
 //
 
 #import "TNNotifier.h"
+#import "TNTrack.h"
 
 @interface TNNotifier ()
 
@@ -25,7 +26,7 @@
  
  @param track The song to notify the user about.
  */
-- (void)sendSpotifyNotificationForTrack:(SpotifyTrack *)track;
+- (void)sendSpotifyNotificationForTrack:(TNTrack *)track;
 
 /**
  Display a notification in the Notification Center.
@@ -100,20 +101,21 @@
     }
     
     if ([self.spotify isRunning]) {
-        SpotifyEPlS spotifyState = self.spotify.playerState;
-        
-        if (spotifyState == SpotifyEPlSPlaying) {
-            SpotifyTrack *currentTrack = self.spotify.currentTrack;
-            
+        NSDictionary *userInfo = notification.userInfo;
+        NSString *playerState = userInfo[@"Player State"];
+        if ([playerState isEqualToString:@"Playing"]) {
+            TNTrack *track = [[TNTrack alloc] initWithName:userInfo[@"Name"]
+                                                    artist:userInfo[@"Artist"]
+                                                     album:userInfo[@"Album"]];
             self.currentPlayer = self.spotify;
-            [self sendSpotifyNotificationForTrack:currentTrack];
+            [self sendSpotifyNotificationForTrack:track];
         }
     }
 }
 
 #pragma mark - Notifications
 
-- (void)sendSpotifyNotificationForTrack:(SpotifyTrack *)track
+- (void)sendSpotifyNotificationForTrack:(TNTrack *)track
 {
     NSUserNotification *notification = [[NSUserNotification alloc] init];
     NSDictionary *userInfo = [[NSDictionary alloc] initWithObjects:@[spotifyBundleIdentifier] forKeys:@[notificationUserInfoPlayerBundleIdentifier]];
