@@ -41,37 +41,23 @@
 
 - (id)init
 {
-    return [self initWithSpotify:YES paused:NO];
+    return [self initWithSpotify:YES];
 }
 
-- (id)initWithSpotify:(BOOL)spotifyEnabled paused:(BOOL)paused
+- (id)initWithSpotify:(BOOL)spotifyEnabled
 {
     self = [super init];
     
     if (self) {        
         self.spotifyEnabled = spotifyEnabled;
-        self.paused = paused;
-        
-        if (!self.paused) {
-            [self resume];
-        }
+        [self resume];
     }
     
     return self;
 }
 
-- (void)pause
-{
-    self.paused = YES;
-    
-    NSDistributedNotificationCenter *distributedNotificationCenter = [NSDistributedNotificationCenter defaultCenter];
-    [distributedNotificationCenter removeObserver:self];
-}
-
 - (void)resume
 {
-    self.paused = NO;
-    
     if (self.spotifyEnabled) {
         [self observeSpotifyNotifications:YES];
         [self checkSpotify:nil];
@@ -86,7 +72,7 @@
     NSDistributedNotificationCenter *distributedNotificationCenter = [NSDistributedNotificationCenter defaultCenter];
     [distributedNotificationCenter removeObserver:self name:spotifyNotificationIdentifier object:nil];
     
-    if (self.spotifyEnabled && !self.paused) {
+    if (self.spotifyEnabled) {
         [distributedNotificationCenter addObserver:self selector:@selector(checkSpotify:) name:spotifyNotificationIdentifier object:nil];
     }
 }

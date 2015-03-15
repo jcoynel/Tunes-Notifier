@@ -1,8 +1,6 @@
 ﻿/* MENU ITEMS */
 "ABOUT_MENU_ITEM" = "Tunes Notifier hakkında";
 
-"PAUSE_MENU_ITEM" = "Bildirimleri durdur";
-
 "QUIT_MENU_ITEM" = "Tunes Notifier'den çık";
 
 "START_MENU_ITEM" = "Her oturumda başlat";

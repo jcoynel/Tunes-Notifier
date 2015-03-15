@@ -1,8 +1,6 @@
 ﻿/* MENU ITEMS */
 "ABOUT_MENU_ITEM" = "Tietoja Tunes Notifierista";
 
-"PAUSE_MENU_ITEM" = "Lopeta väliaikaisesti ilmoitukset";
-
 "QUIT_MENU_ITEM" = "Lopeta ohjelma";
 
 "START_MENU_ITEM" = "Käynnistä sisäänkirjautumisen yhteydessä";

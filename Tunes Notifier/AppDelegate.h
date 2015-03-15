@@ -36,9 +36,6 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
 /** @name Menu items */
 /// ----------------------------------------------------------------------------
 
-/** Menu item to enable or disable all notifications. */
-@property (strong) NSMenuItem *pauseNotificationsItem;
-
 /** Menu item to enable or disable starting the application at login. */
 @property (strong) NSMenuItem *startAtLoginItem;
 /**
@@ -69,8 +66,6 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
 
 /** @name User preferences only valid during lifetime of the app */
 
-/** Tells whether the notifications are paused. */
-@property (nonatomic, getter = isPaused) BOOL paused;
 /** Tells whether the app is temporarily hidden. */
 @property (nonatomic, getter = isTemporaryHidden) BOOL temporaryHidden;
 

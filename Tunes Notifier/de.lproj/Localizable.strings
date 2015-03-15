@@ -1,8 +1,6 @@
 /* MENU ITEMS */
 "ABOUT_MENU_ITEM" = "Über Tunes Notifier";
 
-"PAUSE_MENU_ITEM" = "Benachrichtigungen pausieren";
-
 "QUIT_MENU_ITEM" = "Tunes Notifier beenden";
 
 "START_MENU_ITEM" = "Beim Anmelden starten";

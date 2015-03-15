@@ -1,8 +1,6 @@
 /* MENU ITEMS */
 "ABOUT_MENU_ITEM" = "Om Tunes Notifier";
 
-"PAUSE_MENU_ITEM" = "Afbryd meddelelser";
-
 "QUIT_MENU_ITEM" = "Afslut Tunes Notifier";
 
 "START_MENU_ITEM" = "Start ved login";

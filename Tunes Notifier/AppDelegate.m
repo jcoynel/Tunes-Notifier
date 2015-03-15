@@ -37,8 +37,6 @@
 /** @name Handle interactions with menu items */
 /// ----------------------------------------------------------------------------
 
-/** Pause all notifications if currently enabled or resume them if paused. */
-- (void)tooglePauseNotifications;
 /** Set Tunes Notifier to start at login if it isn't and vice versa. */
 - (void)toogleStartAtLogin;
 /** Hide the menu bar icon until the user restarts its computer. */
@@ -71,8 +69,7 @@
     [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"UserDefaults" ofType:@"plist"]]];
     
     self.temporaryHidden = NO;
-    self.paused = NO;
-    self.notifier = [[TNNotifier alloc] initWithSpotify:self.areSpotifyNotificationsEnabled paused:NO];
+    self.notifier = [[TNNotifier alloc] initWithSpotify:self.areSpotifyNotificationsEnabled];
 }
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag
@@ -124,10 +121,6 @@
     }
     [self.statusItem setHighlightMode:YES];
     
-    self.pauseNotificationsItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"PAUSE_MENU_ITEM", @"Pause notifications")
-                                                             action:@selector(tooglePauseNotifications)
-                                                      keyEquivalent:@"p"];
-    
     self.startAtLoginItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"START_MENU_ITEM", @"Start at login")
                                                        action:@selector(toogleStartAtLogin)
                                                 keyEquivalent:@"s"];
@@ -152,8 +145,6 @@
                                                action:@selector(terminate:)
                                         keyEquivalent:@"q"];
     
-    [self.statusMenu addItem:self.pauseNotificationsItem];
-    [self.statusMenu addItem:[NSMenuItem separatorItem]];
     [self.statusMenu addItem:self.startAtLoginItem];
     [self.statusMenu addItem:[NSMenuItem separatorItem]];
     [self.statusMenu addItem:self.blackAndWhiteIconItem];
@@ -168,8 +159,6 @@
 - (void)updateAllMenuItems
 {
     [self.startAtLoginItem setState:self.isAppPresentInLoginItems];
-    
-    [self.pauseNotificationsItem setState:self.isPaused];
     
     [self.blackAndWhiteIconItem setState:self.isBlackAndWhiteIcon];
     
@@ -193,17 +182,6 @@
 }
 
 # pragma mark - Selected menu item Actions
-
-- (void)tooglePauseNotifications
-{
-    if (self.isPaused) {
-        [self.notifier resume];
-        self.paused = NO;
-    } else {
-        [self.notifier pause];
-        self.paused = YES;
-    }
-}
 
 - (void)toogleStartAtLogin
 {
@@ -268,10 +246,6 @@
         
         if (![self isAppPresentInLoginItems]) { // start at login
             [self toogleStartAtLogin];
-        }
-        
-        if (self.isPaused) { // resume notifications
-            [self tooglePauseNotifications];
         }
         
         // hide menu

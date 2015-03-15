@@ -30,8 +30,6 @@
 /** @name Notifications Status */
 /// ----------------------------------------------------------------------------
 
-/** Specify whether all notifications suspended. */
-@property (getter = isPaused) BOOL paused;
 /** Specify whether Spotify notifications are enabled. */
 @property (getter = isSpotifyEnabled) BOOL spotifyEnabled;
 
@@ -45,7 +43,7 @@
  
  @return An instance of TNNotifier.
  
- @see initWithSpotify:paused:
+ @see initWithSpotify:
  */
 - (id)init;
 
@@ -54,20 +52,17 @@
  notifications and suspend them.
  
  @param spotifyEnabled Specify whether Spotify notifications are enabled or not.
- @param paused Specify whether the notifications should be paused or not.
  
  @return An instance of TNNotifier.
  
  @see init
  */
-- (id)initWithSpotify:(BOOL)spotifyEnabled paused:(BOOL)paused;
+- (id)initWithSpotify:(BOOL)spotifyEnabled;
 
 /// ----------------------------------------------------------------------------
 /** @name Turning on and off all Notifications */
 /// ----------------------------------------------------------------------------
 
-/** Suspend notifications. */
-- (void)pause;
 /** Resume notifications. */
 - (void)resume;
 /** Remove all notifications from the Notification Center. */
