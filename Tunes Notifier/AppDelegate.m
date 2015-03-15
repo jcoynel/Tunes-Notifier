@@ -39,8 +39,6 @@
 
 /** Set Tunes Notifier to start at login if it isn't and vice versa. */
 - (void)toogleStartAtLogin;
-/** Hide the menu bar icon until the user restarts its computer. */
-- (void)hideFromMenuBar;
 /** Hide the menu bar icon forever after the user is asked for confirmation. */
 - (void)hideFromMenuBarForever;
 /** Set the menu icon to monochrome if currently coloured and vice versa. */
@@ -68,16 +66,14 @@
     // Load default defaults
     [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"UserDefaults" ofType:@"plist"]]];
     
-    self.temporaryHidden = NO;
     self.notifier = [[TNNotifier alloc] initWithSpotify:self.areSpotifyNotificationsEnabled];
 }
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag
 {
     // The menu is currently hidden, therefore show it
-    if (self.shouldHideFromMenuBar || self.isTemporaryHidden) {
+    if (self.shouldHideFromMenuBar) {
         self.hideFromMenuBar = NO;
-        self.temporaryHidden = NO;
         [self setupMenu];
     }
     
@@ -125,10 +121,6 @@
                                                        action:@selector(toogleStartAtLogin)
                                                 keyEquivalent:@"s"];
     
-    self.hideFromMenuBarItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"HIDE_MENU_ITEM", @"Hide from menu bar")
-                                                          action:@selector(hideFromMenuBar)
-                                                   keyEquivalent:@"h"];
-    
     self.hideFromMenuBarForeverItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"HIDE_FOREVER_MENU_ITEM", @"Hide from menu bar forever")
                                                                  action:@selector(hideFromMenuBarForever)
                                                           keyEquivalent:@"H"];
@@ -149,7 +141,6 @@
     [self.statusMenu addItem:[NSMenuItem separatorItem]];
     [self.statusMenu addItem:self.blackAndWhiteIconItem];
     [self.statusMenu addItem:[NSMenuItem separatorItem]];
-    [self.statusMenu addItem:self.hideFromMenuBarItem];
     [self.statusMenu addItem:self.hideFromMenuBarForeverItem];
     [self.statusMenu addItem:[NSMenuItem separatorItem]];
     [self.statusMenu addItem:self.aboutItem];
@@ -166,10 +157,8 @@
     // So we disable hide menus
     if (!self.areSpotifyNotificationsEnabled) {
         // To disable a menu we need to set its action to nil
-        [self.hideFromMenuBarItem setAction:nil];
         [self.hideFromMenuBarForeverItem setAction:nil];
     } else {
-        [self.hideFromMenuBarItem setAction:@selector(hideFromMenuBar)];
         [self.hideFromMenuBarForeverItem setAction:@selector(hideFromMenuBarForever)];
     }
 }
@@ -194,15 +183,6 @@
 {
     [[NSApplication sharedApplication] orderFrontStandardAboutPanel:nil];
     [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
-}
-
-- (void)hideFromMenuBar
-{
-    NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
-    [statusBar removeStatusItem:self.statusItem];
-    [self.statusMenu removeAllItems];
-    
-    self.temporaryHidden = YES;
 }
 
 - (void)hideFromMenuBarForever
@@ -249,7 +229,9 @@
         }
         
         // hide menu
-        [self hideFromMenuBar];
+        NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
+        [statusBar removeStatusItem:self.statusItem];
+        [self.statusMenu removeAllItems];
     }
 }
 

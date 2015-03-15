@@ -40,11 +40,6 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
 @property (strong) NSMenuItem *startAtLoginItem;
 /**
  Menu item to hide the logo of the application from the menu bar until the
- application is closed.
- */
-@property (strong) NSMenuItem *hideFromMenuBarItem;
-/**
- Menu item to hide the logo of the application from the menu bar until the
  application is manually started.
  */
 @property (strong) NSMenuItem *hideFromMenuBarForeverItem;
@@ -63,10 +58,5 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
 @property (getter = shouldHideFromMenuBar) BOOL hideFromMenuBar;
 /** Tells whether the menu bar icon is monochrome. */
 @property (getter = isBlackAndWhiteIcon) BOOL blackAndWhiteIcon;
-
-/** @name User preferences only valid during lifetime of the app */
-
-/** Tells whether the app is temporarily hidden. */
-@property (nonatomic, getter = isTemporaryHidden) BOOL temporaryHidden;
 
 @end

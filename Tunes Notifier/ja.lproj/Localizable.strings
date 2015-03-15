@@ -5,8 +5,6 @@
 
 "START_MENU_ITEM" = "ログイン時に起動する";
 
-"HIDE_MENU_ITEM" = "メニューバーに表示しない";
-
 "HIDE_FOREVER_MENU_ITEM" = "今後メニューバーに表示しない";
 
 "BLACK_AND_WHITE_ICON_MENU_ITEM" = "アイコンを白黒にする";
