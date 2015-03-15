@@ -7,52 +7,21 @@
 //
 
 #import "AppDelegate.h"
+#import "TNNotifier.h"
+
+NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper";
 
 @interface AppDelegate ()
 
-/// ----------------------------------------------------------------------------
-/** @name Opening Music Players */
-/// ----------------------------------------------------------------------------
+@property (strong) NSStatusItem *statusItem;
+@property (strong) NSMenuItem *startAtLoginItem;
 
-- (void)openCurrentPlayer;
-
-/// ----------------------------------------------------------------------------
-/** @name Setting up and updating UI */
-/// ----------------------------------------------------------------------------
-
-/**
- Initialise each menu item, add them to the menu and set the related properties.
- */
-- (void)setupMenu;
-
-/**
- Set the appearance of all menu items.
- 
- This is typically called before the menu appears to update the text and tick or
- untick each of the menu items based on user preferences.
- */
-- (void)updateAllMenuItems;
-
-/// ----------------------------------------------------------------------------
-/** @name Handle interactions with menu items */
-/// ----------------------------------------------------------------------------
-
-/** Set Tunes Notifier to start at login if it isn't and vice versa. */
-- (void)toogleStartAtLogin;
-/** Hide the menu bar icon forever after the user is asked for confirmation. */
-- (void)hideFromMenuBarForever;
-
-/// ----------------------------------------------------------------------------
-/** @name User Defaults */
-/// ----------------------------------------------------------------------------
-
-/**
- Check whether Tunes Notifier is present in the list of apps starting at login.
- 
- @return `YES` if Tunes Notifier is in the list of apps starting at login. `NO`
- otherwise.
- */
 - (BOOL)isAppPresentInLoginItems;
+
+@property (strong) TNNotifier *notifier;
+
+@property (getter = shouldHideFromMenuBar) BOOL hideFromMenuBar;
+
 @end
 
 @implementation AppDelegate
@@ -61,10 +30,9 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Load default defaults
     [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"UserDefaults" ofType:@"plist"]]];
     
-    self.notifier = [[TNNotifier alloc] initWithSpotify:self.areSpotifyNotificationsEnabled];
+    self.notifier = [[TNNotifier alloc] init];
 }
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag
@@ -80,11 +48,9 @@
 
 - (void)applicationWillTerminate:(NSNotification *)notification
 {
-    // Force saving user defaults
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    // remove all notifications from notification center
-    [self.notifier cleanNotifications];
+    [self.notifier cleanNotificationCenter];
 }
 
 - (void)awakeFromNib
@@ -92,13 +58,6 @@
     if (!self.shouldHideFromMenuBar) { // don't show the menu if user asked for it to be always hidden
         [self setupMenu];
     }
-}
-
-#pragma mark - Opening Music Players
-
-- (void)openCurrentPlayer
-{
-    [self.notifier.currentPlayer activate];
 }
 
 #pragma mark - Setting up and updating UI
@@ -119,38 +78,29 @@
                                                        action:@selector(toogleStartAtLogin)
                                                 keyEquivalent:@"s"];
     
-    self.hideFromMenuBarForeverItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"HIDE_FOREVER_MENU_ITEM", @"Hide from menu bar forever")
-                                                                 action:@selector(hideFromMenuBarForever)
-                                                          keyEquivalent:@"H"];
+    NSMenuItem *hideFromMenuBarForeverItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"HIDE_FOREVER_MENU_ITEM", @"Hide from menu bar forever")
+                                                                        action:@selector(hideFromMenuBarForever)
+                                                                 keyEquivalent:@"H"];
     
-    self.aboutItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"ABOUT_MENU_ITEM", @"About Tunes Notifier")
-                                                action:@selector(showAboutPanel)
-                                         keyEquivalent:@""];
+    NSMenuItem *aboutItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"ABOUT_MENU_ITEM", @"About Tunes Notifier")
+                                                       action:@selector(showAboutPanel)
+                                                keyEquivalent:@""];
     
-    self.quitItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"QUIT_MENU_ITEM", @"Quit Tunes Notifier")
-                                               action:@selector(terminate:)
-                                        keyEquivalent:@"q"];
+    NSMenuItem *quitItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"QUIT_MENU_ITEM", @"Quit Tunes Notifier")
+                                                      action:@selector(terminate:)
+                                               keyEquivalent:@"q"];
     
     [self.statusMenu addItem:self.startAtLoginItem];
     [self.statusMenu addItem:[NSMenuItem separatorItem]];
-    [self.statusMenu addItem:self.hideFromMenuBarForeverItem];
+    [self.statusMenu addItem:hideFromMenuBarForeverItem];
     [self.statusMenu addItem:[NSMenuItem separatorItem]];
-    [self.statusMenu addItem:self.aboutItem];
-    [self.statusMenu addItem:self.quitItem];
+    [self.statusMenu addItem:aboutItem];
+    [self.statusMenu addItem:quitItem];
 }
 
 - (void)updateAllMenuItems
 {
     [self.startAtLoginItem setState:self.isAppPresentInLoginItems];
-    
-    // If Spotify notifications are disabled, we don't want to be able to hide the app
-    // So we disable hide menus
-    if (!self.areSpotifyNotificationsEnabled) {
-        // To disable a menu we need to set its action to nil
-        [self.hideFromMenuBarForeverItem setAction:nil];
-    } else {
-        [self.hideFromMenuBarForeverItem setAction:@selector(hideFromMenuBarForever)];
-    }
 }
 
 #pragma mark - NSMenuDelegate
@@ -191,14 +141,6 @@
     [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
 }
 
-- (void)toogleSpotifyNotificationsEnabled
-{
-    BOOL newState = !self.areSpotifyNotificationsEnabled;
-    
-    self.spotifyNotificationsEnabled = newState;
-    [self.notifier observeSpotifyNotifications:newState];
-}
-
 #pragma mark - Handle hide forever confirmation
 
 - (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
@@ -218,20 +160,6 @@
 }
 
 #pragma mark - NSUserDefaults
-
-#pragma mark Spotify
-
-- (BOOL)areSpotifyNotificationsEnabled
-{
-    return [[NSUserDefaults standardUserDefaults] boolForKey:userDefaultsSpotifyNotificationsKey];
-}
-
-- (void)setSpotifyNotificationsEnabled:(BOOL)enabled
-{
-    [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:userDefaultsSpotifyNotificationsKey];
-}
-
-#pragma mark Hide from menu bar
 
 - (BOOL)shouldHideFromMenuBar
 {
