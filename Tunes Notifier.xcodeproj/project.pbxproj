@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8402909B15E3D7E600E23303 /* TNNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8402909A15E3D7E600E23303 /* TNNotifier.m */; };
-		84268D94161B910B0008E4B8 /* TNReviewRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84268D93161B910A0008E4B8 /* TNReviewRequest.m */; };
 		842EE9ED15E68920005C675C /* Tunes Notifier Helper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 842EE9EB15E68852005C675C /* Tunes Notifier Helper.app */; };
 		843A4548168F4E2B005B1ACB /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 843A454A168F4E2B005B1ACB /* Credits.rtf */; };
 		843E3E821640990300457644 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 842EE9DE15E684A5005C675C /* Localizable.strings */; };
@@ -53,8 +52,6 @@
 		84268D7316171A5D0008E4B8 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84268D751617A1580008E4B8 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84268D82161857560008E4B8 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
-		84268D92161B910A0008E4B8 /* TNReviewRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNReviewRequest.h; sourceTree = "<group>"; };
-		84268D93161B910A0008E4B8 /* TNReviewRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNReviewRequest.m; sourceTree = "<group>"; };
 		842E4834161E30010095B1B6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		842EE9DD15E684A5005C675C /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		842EE9DF15E684A9005C675C /* fr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -124,8 +121,6 @@
 				8492BB1D167E770100E06476 /* TNConstants.h */,
 				8402909915E3D7E600E23303 /* TNNotifier.h */,
 				8402909A15E3D7E600E23303 /* TNNotifier.m */,
-				84268D92161B910A0008E4B8 /* TNReviewRequest.h */,
-				84268D93161B910A0008E4B8 /* TNReviewRequest.m */,
 				844799CB1AB4EF46007CF71D /* TNTrack.h */,
 				844799CC1AB4EF46007CF71D /* TNTrack.m */,
 			);
@@ -252,7 +247,6 @@
 				844799CD1AB4EF46007CF71D /* TNTrack.m in Sources */,
 				84EDF03D15E3CCB2003A7AB0 /* AppDelegate.m in Sources */,
 				8402909B15E3D7E600E23303 /* TNNotifier.m in Sources */,
-				84268D94161B910B0008E4B8 /* TNReviewRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

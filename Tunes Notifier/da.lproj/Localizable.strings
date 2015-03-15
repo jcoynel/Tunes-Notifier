@@ -23,14 +23,3 @@
 "HIDE_FOREVER_CONFIRMATION_CANCEL" = "Annuller";
 
 "HIDE_FOREVER_CONFIRMATION_MESSAGE" = "Tunes Notifier vil aldrig igen vises i menu baren og vil automatisk starte ved login.\n\nFor at vise Tunes Notifier igen, åbn det fra Programmer.";
-
-/* REVIEW REQUEST */
-"REVIEW_REQUEST_ALERT_TITLE" = "Enjoying Tunes Notifier?";
-
-"REVIEW_REQUEST_RATE_BUTTON" = "Yes, rate now!";
-
-"REVIEW_REQUEST_DONT_ASK_BUTTON" = "Don't ask again";
-
-"REVIEW_REQUEST_REMIND_LATER_BUTTON" = "Remind me later";
-
-"REVIEW_REQUEST_MESSAGE" = "If so, please help us by rating this app with 5 stars on the Mac App Store.";

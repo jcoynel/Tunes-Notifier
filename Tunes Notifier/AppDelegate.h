@@ -9,7 +9,6 @@
 @import Cocoa;
 @import ServiceManagement;
 #import "TNNotifier.h"
-#import "TNReviewRequest.h"
 
 /** Tunes Notifier Helper bundle identifier. */
 NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper";
@@ -29,14 +28,6 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
  @see TNNotifier
  */
 @property (strong) TNNotifier *notifier;
-
-/**
- Contains the logic to ask the user to review the application on the Mac App
- Store.
- 
- @see TNReviewRequest
- */
-@property (strong) TNReviewRequest *reviewRequest;
 
 /** Status bar item. */
 @property (strong) NSStatusItem *statusItem;

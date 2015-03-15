@@ -23,14 +23,3 @@
 "HIDE_FOREVER_CONFIRMATION_CANCEL" = "Vazgeç";
 
 "HIDE_FOREVER_CONFIRMATION_MESSAGE" = "Tunes Notifier menü çubuğunda asla görünmeyecek ve her oturumda otomatik olarak başlayacak.\n\nTunes Notifier'in tekrar görünmesi için, onu Uygulamalar klasöründen açın.";
-
-/* REVIEW REQUEST */
-"REVIEW_REQUEST_ALERT_TITLE" = "Tunes Notifier'i beğendiniz mi?";
-
-"REVIEW_REQUEST_RATE_BUTTON" = "Evet, şimdi değerlendir!";
-
-"REVIEW_REQUEST_DONT_ASK_BUTTON" = "Bir daha sorma";
-
-"REVIEW_REQUEST_REMIND_LATER_BUTTON" = "Sonra hatırlat";
-
-"REVIEW_REQUEST_MESSAGE" = "Öyleyse, lütfen Mac App Store'de 5 yıldızla değerlendirerek bize yardımcı olun.";

@@ -23,14 +23,3 @@
 "HIDE_FOREVER_CONFIRMATION_CANCEL" = "Abbrechen";
 
 "HIDE_FOREVER_CONFIRMATION_MESSAGE" = "Tunes Notifier wird in der Menüleiste nicht mehr angezeigt und automatisch nach dem Anmelden gestartet.\n\nUm Tunes Notifier wieder sichtbar zu machen, muss es aus dem Programm-Verzeichnis gestartet werden.";
-
-/* REVIEW REQUEST */
-"REVIEW_REQUEST_ALERT_TITLE" = "Enjoying Tunes Notifier?";
-
-"REVIEW_REQUEST_RATE_BUTTON" = "Yes, rate now!";
-
-"REVIEW_REQUEST_DONT_ASK_BUTTON" = "Don't ask again";
-
-"REVIEW_REQUEST_REMIND_LATER_BUTTON" = "Remind me later";
-
-"REVIEW_REQUEST_MESSAGE" = "If so, please help us by rating this app with 5 stars on the Mac App Store.";

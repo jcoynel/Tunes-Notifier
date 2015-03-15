@@ -23,14 +23,3 @@
 "HIDE_FOREVER_CONFIRMATION_CANCEL" = "キャンセル";
 
 "HIDE_FOREVER_CONFIRMATION_MESSAGE" = "Tunes Notifierは今後メニューバーには表示されず、自動でログイン時に起動します。\n\n再び Tunes Notifier を表示するにはアプリケーションフォルダから開いてください。";
-
-/* REVIEW REQUEST */
-"REVIEW_REQUEST_ALERT_TITLE" = "Enjoying Tunes Notifier?";
-
-"REVIEW_REQUEST_RATE_BUTTON" = "Yes, rate now!";
-
-"REVIEW_REQUEST_DONT_ASK_BUTTON" = "Don't ask again";
-
-"REVIEW_REQUEST_REMIND_LATER_BUTTON" = "Remind me later";
-
-"REVIEW_REQUEST_MESSAGE" = "If so, please help us by rating this app with 5 stars on the Mac App Store.";

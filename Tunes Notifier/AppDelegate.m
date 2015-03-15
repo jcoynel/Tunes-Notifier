@@ -8,16 +8,6 @@
 
 #import "AppDelegate.h"
 
-/**
- Number of seconds before showing a review request.
- 
- This is used to delay showing review request when the app starts, which is
- likely to be when the user starts it's computer. It therefore leaves a few
- seconds for the other apps starting automatically at login to do so and prevent
- from hidding the review request.
- */
-static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
-
 @interface AppDelegate ()
 
 /// ----------------------------------------------------------------------------
@@ -83,15 +73,6 @@ static NSInteger const delayInSecondsBeforeShowingReviewRequest = 10;
     self.temporaryHidden = NO;
     self.paused = NO;
     self.notifier = [[TNNotifier alloc] initWithSpotify:self.areSpotifyNotificationsEnabled paused:NO];
-    
-    // Set up review request
-    self.reviewRequest = [[TNReviewRequest alloc] init];
-    
-    if ([self.reviewRequest shouldAskForReview]) {
-        [self.reviewRequest performSelector:@selector(askForReview)
-                                 withObject:nil
-                                 afterDelay:delayInSecondsBeforeShowingReviewRequest];
-    }
 }
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag
