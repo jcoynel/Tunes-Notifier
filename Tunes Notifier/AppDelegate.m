@@ -41,8 +41,6 @@
 - (void)toogleStartAtLogin;
 /** Hide the menu bar icon forever after the user is asked for confirmation. */
 - (void)hideFromMenuBarForever;
-/** Set the menu icon to monochrome if currently coloured and vice versa. */
-- (void)toogleIconColor;
 
 /// ----------------------------------------------------------------------------
 /** @name User Defaults */
@@ -110,11 +108,11 @@
     self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     
     [self.statusItem setMenu:self.statusMenu];
-    if (self.isBlackAndWhiteIcon) {
-        [self.statusItem setImage:[NSImage imageNamed:@"status_bw"]];
-    } else {
-        [self.statusItem setImage:[NSImage imageNamed:@"status"]];
-    }
+    
+    NSImage *statusImage = [NSImage imageNamed:@"status"];
+    [statusImage setTemplate:YES];
+    
+    [self.statusItem setImage:statusImage];
     [self.statusItem setHighlightMode:YES];
     
     self.startAtLoginItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"START_MENU_ITEM", @"Start at login")
@@ -124,10 +122,6 @@
     self.hideFromMenuBarForeverItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"HIDE_FOREVER_MENU_ITEM", @"Hide from menu bar forever")
                                                                  action:@selector(hideFromMenuBarForever)
                                                           keyEquivalent:@"H"];
-    
-    self.blackAndWhiteIconItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"BLACK_AND_WHITE_ICON_MENU_ITEM", @"Black and white icon in menu")
-                                                            action:@selector(toogleIconColor)
-                                                     keyEquivalent:@"b"];
     
     self.aboutItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"ABOUT_MENU_ITEM", @"About Tunes Notifier")
                                                 action:@selector(showAboutPanel)
@@ -139,8 +133,6 @@
     
     [self.statusMenu addItem:self.startAtLoginItem];
     [self.statusMenu addItem:[NSMenuItem separatorItem]];
-    [self.statusMenu addItem:self.blackAndWhiteIconItem];
-    [self.statusMenu addItem:[NSMenuItem separatorItem]];
     [self.statusMenu addItem:self.hideFromMenuBarForeverItem];
     [self.statusMenu addItem:[NSMenuItem separatorItem]];
     [self.statusMenu addItem:self.aboutItem];
@@ -150,8 +142,6 @@
 - (void)updateAllMenuItems
 {
     [self.startAtLoginItem setState:self.isAppPresentInLoginItems];
-    
-    [self.blackAndWhiteIconItem setState:self.isBlackAndWhiteIcon];
     
     // If Spotify notifications are disabled, we don't want to be able to hide the app
     // So we disable hide menus
@@ -209,14 +199,6 @@
     [self.notifier observeSpotifyNotifications:newState];
 }
 
-- (void)toogleIconColor
-{
-    NSString *imageName = self.isBlackAndWhiteIcon ? @"status" : @"status_bw";
-    [self.statusItem setImage:[NSImage imageNamed:imageName]];
-    
-    self.blackAndWhiteIcon = !self.blackAndWhiteIcon;
-}
-
 #pragma mark - Handle hide forever confirmation
 
 - (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
@@ -259,18 +241,6 @@
 - (void)setHideFromMenuBar:(BOOL)hidden
 {
     [[NSUserDefaults standardUserDefaults] setBool:hidden forKey:userDefaultsHideForeverKey];
-}
-
-#pragma mark Black and white icon
-
-- (BOOL)isBlackAndWhiteIcon
-{
-    return [[NSUserDefaults standardUserDefaults] boolForKey:userDefaultsBlackAndWhiteIconKey];
-}
-
-- (void)setBlackAndWhiteIcon:(BOOL)blackAndWhite
-{
-    [[NSUserDefaults standardUserDefaults] setBool:blackAndWhite forKey:userDefaultsBlackAndWhiteIconKey];
 }
 
 #pragma mark - Startup

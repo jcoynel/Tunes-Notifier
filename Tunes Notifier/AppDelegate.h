@@ -43,8 +43,6 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
  application is manually started.
  */
 @property (strong) NSMenuItem *hideFromMenuBarForeverItem;
-/** Menu item to to select a colored or black and white menu bar icon. */
-@property (strong) NSMenuItem *blackAndWhiteIconItem;
 /** Menu item to open the cocoa application default about window. */
 @property (strong) NSMenuItem *aboutItem;
 /** Menu item to quit the application. */
@@ -56,7 +54,5 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
 
 /** Tells whether the app should always be hidden from the menu bar. */
 @property (getter = shouldHideFromMenuBar) BOOL hideFromMenuBar;
-/** Tells whether the menu bar icon is monochrome. */
-@property (getter = isBlackAndWhiteIcon) BOOL blackAndWhiteIcon;
 
 @end
