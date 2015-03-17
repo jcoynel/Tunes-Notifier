@@ -7,6 +7,8 @@
 
 "HIDE_FOREVER_MENU_ITEM" = "Piilota kuvake kokonaan";
 
+"UPDATE_MENU_ITEM" = "Check for Updates...";
+
 /* HIDE CONFIRMATION */
 "HIDE_FOREVER_CONFIRMATION_TITLE" = "Piilota kuvake ikuisesti";
 

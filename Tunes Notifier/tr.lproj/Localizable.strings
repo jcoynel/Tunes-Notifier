@@ -1,4 +1,4 @@
-﻿/* MENU ITEMS */
+/* MENU ITEMS */
 "ABOUT_MENU_ITEM" = "Tunes Notifier hakkında";
 
 "QUIT_MENU_ITEM" = "Tunes Notifier'den çık";
@@ -6,6 +6,8 @@
 "START_MENU_ITEM" = "Her oturumda başlat";
 
 "HIDE_FOREVER_MENU_ITEM" = "Menu çubuğundan daima gizle";
+
+"UPDATE_MENU_ITEM" = "Check for Updates...";
 
 /* HIDE CONFIRMATION */
 "HIDE_FOREVER_CONFIRMATION_TITLE" = "Menu çubuğundan daima gizle";

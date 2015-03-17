@@ -7,6 +7,8 @@
 
 "HIDE_FOREVER_MENU_ITEM" = "In der Menüleiste dauerhaft verstecken";
 
+"UPDATE_MENU_ITEM" = "Check for Updates...";
+
 /* HIDE CONFIRMATION */
 "HIDE_FOREVER_CONFIRMATION_TITLE" = "In der Menüleiste dauerhaft verstecken";
 

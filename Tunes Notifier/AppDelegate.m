@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "TNNotifier.h"
+#import <Sparkle/SUUpdater.h>
 
 NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper";
 
@@ -82,6 +83,10 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
                                                                         action:@selector(hideFromMenuBarForever)
                                                                  keyEquivalent:@"H"];
     
+    NSMenuItem *updateItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"UPDATE_MENU_ITEM", @"Check for Updates...")
+                                                        action:@selector(checkForUpdates:)
+                                                keyEquivalent:@""];
+    
     NSMenuItem *aboutItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"ABOUT_MENU_ITEM", @"About Tunes Notifier")
                                                        action:@selector(showAboutPanel)
                                                 keyEquivalent:@""];
@@ -94,6 +99,7 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
     [self.statusMenu addItem:[NSMenuItem separatorItem]];
     [self.statusMenu addItem:hideFromMenuBarForeverItem];
     [self.statusMenu addItem:[NSMenuItem separatorItem]];
+    [self.statusMenu addItem:updateItem];
     [self.statusMenu addItem:aboutItem];
     [self.statusMenu addItem:quitItem];
 }
@@ -116,6 +122,11 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
 {
     // Remove if present, add if not
     SMLoginItemSetEnabled((__bridge CFStringRef)helperBundleIdentifier, ![self isAppPresentInLoginItems]);
+}
+
+- (void)checkForUpdates:(id)sender
+{
+    [[SUUpdater sharedUpdater] checkForUpdates:sender];
 }
 
 // Overide from AppDelegate to force showing about panel on top of all other windows

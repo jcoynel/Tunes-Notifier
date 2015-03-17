@@ -7,6 +7,8 @@
 
 "HIDE_FOREVER_MENU_ITEM" = "今後メニューバーに表示しない";
 
+"UPDATE_MENU_ITEM" = "Check for Updates...";
+
 /* HIDE CONFIRMATION */
 "HIDE_FOREVER_CONFIRMATION_TITLE" = "今後メニューバーに表示しない";
 

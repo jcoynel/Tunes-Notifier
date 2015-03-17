@@ -7,6 +7,8 @@
 
 "HIDE_FOREVER_MENU_ITEM" = "Ocultar de barra de menu siempre";
 
+"UPDATE_MENU_ITEM" = "Check for Updates...";
+
 /* HIDE CONFIRMATION */
 "HIDE_FOREVER_CONFIRMATION_TITLE" = "Ocultar de barra de menu siempre";
 
