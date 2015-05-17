@@ -1,4 +1,12 @@
-﻿/* MENU ITEMS */
+/* 
+  Localizable.strings
+  Tunes Notifier
+
+  Created by Jules Coynel on 17/05/2015.
+  Copyright (c) 2015 Jules Coynel. All rights reserved.
+*/
+
+/* MENU ITEMS */
 "ABOUT_MENU_ITEM" = "About Tunes Notifier";
 
 "QUIT_MENU_ITEM" = "Quit Tunes Notifier";

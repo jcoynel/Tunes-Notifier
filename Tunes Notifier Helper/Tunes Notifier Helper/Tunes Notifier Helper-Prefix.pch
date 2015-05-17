@@ -1,7 +1,0 @@
-//
-// Prefix header for all source files of the 'TunesNotifierHelper' target in the 'TunesNotifierHelper' project
-//
-
-#ifdef __OBJC__
-    @import Cocoa;
-#endif
