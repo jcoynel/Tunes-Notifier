@@ -4,5 +4,7 @@
 <dict>
 	<key>hideForever</key>
 	<false/>
+	<key>NSApplicationCrashOnExceptions</key>
+	<true/>
 </dict>
 </plist>

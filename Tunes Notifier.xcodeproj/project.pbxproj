@@ -18,6 +18,8 @@
 		84EDF03615E3CCB2003A7AB0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EDF03515E3CCB2003A7AB0 /* main.m */; };
 		84EDF03D15E3CCB2003A7AB0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EDF03C15E3CCB2003A7AB0 /* AppDelegate.m */; };
 		84EDF04015E3CCB3003A7AB0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84EDF03E15E3CCB3003A7AB0 /* MainMenu.xib */; };
+		84FBF1311BE0E3AA0056832A /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FBF12F1BE0E3AA0056832A /* Fabric.framework */; };
+		84FBF1321BE0E3AA0056832A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FBF1301BE0E3AA0056832A /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,8 @@
 		84EDF03B15E3CCB2003A7AB0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84EDF03C15E3CCB2003A7AB0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		84EDF03F15E3CCB3003A7AB0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		84FBF12F1BE0E3AA0056832A /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
+		84FBF1301BE0E3AA0056832A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84FBF1321BE0E3AA0056832A /* Crashlytics.framework in Frameworks */,
+				84FBF1311BE0E3AA0056832A /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				843A454A168F4E2B005B1ACB /* Credits.rtf */,
+				84FBF1331BE0E3BC0056832A /* Fabric */,
 				84A6D1FD1929027D002E034E /* Images.xcassets */,
 				84EDF03215E3CCB2003A7AB0 /* InfoPlist.strings */,
 				842EE9DE15E684A5005C675C /* Localizable.strings */,
@@ -141,6 +148,15 @@
 				8492BB1B167E677500E06476 /* UserDefaults.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84FBF1331BE0E3BC0056832A /* Fabric */ = {
+			isa = PBXGroup;
+			children = (
+				84FBF1301BE0E3AA0056832A /* Crashlytics.framework */,
+				84FBF12F1BE0E3AA0056832A /* Fabric.framework */,
+			);
+			name = Fabric;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +170,7 @@
 				84EDF02215E3CCB2003A7AB0 /* Frameworks */,
 				84EDF02315E3CCB2003A7AB0 /* Resources */,
 				8402913915E3F8E300E23303 /* CopyFiles */,
+				84FBF12E1BE0E37F0056832A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -238,6 +255,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		84FBF12E1BE0E37F0056832A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 071ac5a2bb417e78461399ca39e7aa700ee5e8f4 799d2df5166a726fd65a0080e76222e6ad2c286fe9bca2891e4a5d5dfbbfa7ea";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		84EDF02115E3CCB2003A7AB0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -308,6 +341,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application: Jules Coynel";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -366,6 +400,10 @@
 				CODE_SIGN_ENTITLEMENTS = "Tunes Notifier/Tunes Notifier.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tunes Notifier/Tunes Notifier-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Tunes Notifier/Tunes Notifier-Info.plist";
@@ -386,6 +424,10 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tunes Notifier/Tunes Notifier-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Tunes Notifier/Tunes Notifier-Info.plist";

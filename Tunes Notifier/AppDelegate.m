@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "TNNotifier.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 
 NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper";
 
@@ -31,6 +33,8 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"UserDefaults" ofType:@"plist"]]];
+    
+    [Fabric with:@[[Crashlytics class]]];
     
     self.notifier = [[TNNotifier alloc] init];
 }
