@@ -70,6 +70,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return The singleton Crashlytics instance
  */
++ (Crashlytics *)sharedInstance;
 
 /**
  *  The easiest way to cause a crash - great for testing!
