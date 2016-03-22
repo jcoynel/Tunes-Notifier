@@ -131,25 +131,12 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
 
 - (void)hideFromMenuBarForever
 {
-    NSAlert *confirmation = [NSAlert alertWithMessageText:NSLocalizedString(@"HIDE_FOREVER_CONFIRMATION_TITLE", nil)
-                                            defaultButton:NSLocalizedString(@"HIDE_FOREVER_CONFIRMATION_CONTINUE", nil)
-                                          alternateButton:NSLocalizedString(@"HIDE_FOREVER_CONFIRMATION_CANCEL", nil)
-                                              otherButton:nil
-                                informativeTextWithFormat:NSLocalizedString(@"HIDE_FOREVER_CONFIRMATION_MESSAGE", nil)];
-    
-    [confirmation beginSheetModalForWindow:self.window
-                             modalDelegate:self
-                            didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:)
-                               contextInfo:NULL];
-    
-    [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
-}
-
-#pragma mark - Handle hide forever confirmation
-
-- (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
-{
-    if (returnCode == NSAlertDefaultReturn) { // user agreed to hide forever
+    NSAlert *confirmation = [[NSAlert alloc] init];
+    confirmation.messageText = NSLocalizedString(@"HIDE_FOREVER_CONFIRMATION_TITLE", nil);
+    confirmation.informativeText = NSLocalizedString(@"HIDE_FOREVER_CONFIRMATION_MESSAGE", nil);
+    [confirmation addButtonWithTitle:NSLocalizedString(@"HIDE_FOREVER_CONFIRMATION_CONTINUE", nil)];
+    [confirmation addButtonWithTitle:NSLocalizedString(@"HIDE_FOREVER_CONFIRMATION_CANCEL", nil)];
+    if ([confirmation runModal] == NSAlertFirstButtonReturn) {
         self.hideFromMenuBar = YES;
         
         if (![self isAppPresentInLoginItems]) { // start at login
