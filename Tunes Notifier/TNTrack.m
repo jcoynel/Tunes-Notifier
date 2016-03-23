@@ -10,7 +10,10 @@
 
 @implementation TNTrack
 
-- (instancetype)initWithName:(NSString *)name artist:(NSString *)artist album:(NSString *)album
+- (instancetype)initWithName:(NSString *)name
+                      artist:(NSString *)artist
+                       album:(NSString *)album
+                  artworkURL:(NSString *)artworkURL
 {
     self = [super init];
     
@@ -18,6 +21,7 @@
         _name = name;
         _artist = artist;
         _album = album;
+        _artworkURL = artworkURL;
     }
     
     return self;

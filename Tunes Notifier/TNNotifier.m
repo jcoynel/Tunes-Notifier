@@ -50,9 +50,17 @@
         NSDictionary *userInfo = notification.userInfo;
         NSString *playerState = userInfo[@"Player State"];
         if ([playerState isEqualToString:@"Playing"]) {
+            SpotifyTrack *currentTrack = self.spotify.currentTrack;
+            NSString *artworkURL;
+            // Some old versions of spotify don't support "artworkUrl"
+            if ([currentTrack respondsToSelector:@selector(artworkUrl)]) {
+                artworkURL = currentTrack.artworkUrl;
+            }
+            
             TNTrack *track = [[TNTrack alloc] initWithName:userInfo[@"Name"]
                                                     artist:userInfo[@"Artist"]
-                                                     album:userInfo[@"Album"]];
+                                                     album:userInfo[@"Album"]
+                                                artworkURL:artworkURL];
             [self sendNotificationForTrack:track];
         }
     }
