@@ -11,9 +11,10 @@
 #import "TNNotifier.h"
 #import "TNTrack.h"
 
-@interface TNNotifier () <NSUserNotificationCenterDelegate>
+@interface TNNotifier () <NSUserNotificationCenterDelegate, TNTackArtworkDownloadDelegate>
 
 @property (strong, readonly) SpotifyApplication *spotify;
+@property (strong) TNTrack *currentTrack;
 
 @end
 
@@ -57,12 +58,22 @@
                 artworkURL = currentTrack.artworkUrl;
             }
             
-            TNTrack *track = [[TNTrack alloc] initWithName:userInfo[@"Name"]
-                                                    artist:userInfo[@"Artist"]
-                                                     album:userInfo[@"Album"]
-                                                artworkURL:artworkURL];
-            [self sendNotificationForTrack:track];
+            self.currentTrack = [[TNTrack alloc] initWithName:userInfo[@"Name"]
+                                                       artist:userInfo[@"Artist"]
+                                                        album:userInfo[@"Album"]
+                                                   artworkURL:artworkURL];
+            
+            [self.currentTrack downloadArtworkWithDelegate:self];
         }
+    }
+}
+
+#pragma mark - TNTackArtworkDownloadDelegate
+
+- (void)didFinishDownloadingArtworkForTrack:(TNTrack *)track
+{
+    if (self.currentTrack == track) {
+        [self sendNotificationForTrack:track];
     }
 }
 
@@ -75,6 +86,7 @@
     userNotification.subtitle = track.artist;
     userNotification.informativeText = track.album;
     userNotification.soundName = nil;
+    userNotification.contentImage = track.artworkImage;
 
     NSUserNotificationCenter *notificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
     

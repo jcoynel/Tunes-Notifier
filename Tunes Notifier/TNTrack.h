@@ -8,17 +8,30 @@
 
 @import Foundation;
 
+@class TNTrack;
+
+@protocol TNTackArtworkDownloadDelegate <NSObject>
+
+- (void)didFinishDownloadingArtworkForTrack:(TNTrack *)track;
+
+@end
+
 @interface TNTrack : NSObject
 
 @property (nonatomic, strong, readonly) NSString *name;
 @property (nonatomic, strong, readonly) NSString *artist;
 @property (nonatomic, strong, readonly) NSString *album;
-@property (nonatomic, strong, readonly) NSString *artworkURL;
+@property (nonatomic, strong, readonly) NSURL *artworkURL;
+@property (nonatomic, strong, readonly) NSImage *artworkImage;
+
+@property (nonatomic, weak, readonly) id<TNTackArtworkDownloadDelegate> delegate;
 
 - (instancetype)init __unavailable;
 - (instancetype)initWithName:(NSString *)name
                       artist:(NSString *)artist
                        album:(NSString *)album
                   artworkURL:(NSString *)artworkURL;
+
+- (void)downloadArtworkWithDelegate:(id<TNTackArtworkDownloadDelegate>)delegate;
 
 @end
