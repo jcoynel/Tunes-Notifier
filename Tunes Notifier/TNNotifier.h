@@ -10,6 +10,8 @@
 
 @interface TNNotifier : NSObject
 
+@property (nonatomic, readonly) BOOL spotifyInstalled;
+
 - (void)cleanNotificationCenter;
 
 @end

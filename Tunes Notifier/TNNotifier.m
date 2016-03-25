@@ -10,6 +10,7 @@
 #import "Spotify.h"
 #import "TNNotifier.h"
 #import "TNTrack.h"
+#import <Crashlytics/Crashlytics.h>
 
 @interface TNNotifier () <NSUserNotificationCenterDelegate, TNTackArtworkDownloadDelegate>
 
@@ -41,6 +42,11 @@
 - (SpotifyApplication *)spotify
 {
     return [SBApplication applicationWithBundleIdentifier:spotifyBundleIdentifier];
+}
+
+- (BOOL)spotifyInstalled
+{
+    return self.spotify ? YES : NO;
 }
 
 #pragma mark - Players state
@@ -93,6 +99,13 @@
     notificationCenter.delegate = self;
     [self cleanNotificationCenter];
     [notificationCenter deliverNotification:userNotification];
+    
+    [Answers logCustomEventWithName:@"Post notification"
+                   customAttributes:@{ @"Name": track.name ? @YES : @NO,
+                                       @"Artist": track.artist ? @YES : @NO,
+                                       @"Album": track.album ? @YES : @NO,
+                                       @"Artwork": track.artworkImage ? @YES : @NO,
+                                       }];
 }
 
 - (void)cleanNotificationCenter
@@ -107,6 +120,8 @@
        didActivateNotification:(NSUserNotification *)notification
 {
     [self.spotify activate];
+    
+    [Answers logCustomEventWithName:@"Activate notification" customAttributes:nil];
 }
 
 @end

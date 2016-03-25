@@ -37,6 +37,13 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
     [Fabric with:@[[Crashlytics class]]];
     
     self.notifier = [[TNNotifier alloc] init];
+    
+    [Answers logCustomEventWithName:@"Launch"
+                   customAttributes:@{ @"Start at login": @([self isAppPresentInLoginItems]),
+                                       @"Hidden from menu bar": @([self shouldHideFromMenuBar]),
+                                       @"Preferred language": [NSLocale preferredLanguages].firstObject ?: @"N/A",
+                                       @"Spotify installed": @(self.notifier.spotifyInstalled),
+                                       }];
 }
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag
@@ -45,6 +52,8 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
     if (self.shouldHideFromMenuBar) {
         self.hideFromMenuBar = NO;
         [self setupMenu];
+        
+        [Answers logCustomEventWithName:@"Unhide from menu bar" customAttributes:nil];
     }
     
     return YES;
@@ -118,8 +127,11 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
 
 - (void)toogleStartAtLogin
 {
-    // Remove if present, add if not
-    SMLoginItemSetEnabled((__bridge CFStringRef)helperBundleIdentifier, ![self isAppPresentInLoginItems]);
+    BOOL autoStart = ![self isAppPresentInLoginItems];
+    [self setAppPresentInLoginItems:autoStart];
+    
+    [Answers logCustomEventWithName:@"Start at login"
+                   customAttributes:@{ @"Auto start": @(autoStart) }];
 }
 
 // Overide from AppDelegate to force showing about panel on top of all other windows
@@ -127,6 +139,8 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
 {
     [[NSApplication sharedApplication] orderFrontStandardAboutPanel:nil];
     [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
+    
+    [Answers logCustomEventWithName:@"Show about panel" customAttributes:nil];
 }
 
 - (void)hideFromMenuBarForever
@@ -136,18 +150,19 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
     confirmation.informativeText = NSLocalizedString(@"HIDE_FOREVER_CONFIRMATION_MESSAGE", nil);
     [confirmation addButtonWithTitle:NSLocalizedString(@"HIDE_FOREVER_CONFIRMATION_CONTINUE", nil)];
     [confirmation addButtonWithTitle:NSLocalizedString(@"HIDE_FOREVER_CONFIRMATION_CANCEL", nil)];
-    if ([confirmation runModal] == NSAlertFirstButtonReturn) {
+    NSModalResponse response = [confirmation runModal];
+    if (response == NSAlertFirstButtonReturn) {
         self.hideFromMenuBar = YES;
-        
-        if (![self isAppPresentInLoginItems]) { // start at login
-            [self toogleStartAtLogin];
-        }
+        [self setAppPresentInLoginItems:YES]; // start at login
         
         // hide menu
         NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
         [statusBar removeStatusItem:self.statusItem];
         [self.statusMenu removeAllItems];
     }
+    
+    [Answers logCustomEventWithName:@"Hide from menu bar alert"
+                   customAttributes:@{ @"Action": response == NSAlertFirstButtonReturn ? @"Continue" : @"Cancel"} ];
 }
 
 #pragma mark - NSUserDefaults
@@ -202,6 +217,11 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
     }
     
     return NO;
+}
+
+- (void)setAppPresentInLoginItems:(BOOL)present
+{
+    SMLoginItemSetEnabled((__bridge CFStringRef)helperBundleIdentifier, present);
 }
 
 @end
