@@ -1,7 +1,7 @@
 About Tunes Notifier
 --------------
 
-Minimal, easy to use OS X application that uses the Notification Center to display the name of the artist, album and song track any time a song starts playing on Spotify.
+Minimal, easy to use OS X application that uses the Notification Center to display the name of the artist, album, song and artwork track any time a song starts playing on Spotify.
 
 **Website:** http://www.tunes-notifier.com
 
@@ -12,11 +12,18 @@ Minimal, easy to use OS X application that uses the Notification Center to displ
 Requirements
 --------------
 Tunes Notifier requires the following
-- OS X Mountain Lion (10.8) or later
+- OS X El Capitan (10.11) or later
 - Spotify
 
 History
 --------------
+- **Version 2.0** (Submitted to Apple: 26/03/16)
+  - Song artwork visible in notifications
+  - New app icon
+  - New menu bar icon for "Dark menu bar"
+  - No more messages asking you to rate the app
+  - OS X El Capitan required 
+
 - **Version 1.6.1** (Submitted to Apple: 15/03/15 - Released: 20/03/15)
   - Fix for Spotify 1.0.1.1060 
 
@@ -55,7 +62,7 @@ History
 
 Licence (MIT)
 --------------
-Copyright (c) 2012-2015 Jules Coynel
+Copyright (c) 2012-2016 Jules Coynel
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
