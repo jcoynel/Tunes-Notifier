@@ -9,6 +9,11 @@ Minimal, easy to use OS X application that uses the Notification Center to displ
 
 **Contact:** Jules Coynel (jules@tunes-notifier.com)
 
+![notification](screenshots/notification-light.png)
+![notification center](screenshots/notification_center-light.png)
+![menu](screenshots/menu-light.png)
+![notification dark](screenshots/notification-dark.png)
+
 Requirements
 --------------
 Tunes Notifier requires the following
