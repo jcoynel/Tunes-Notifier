@@ -3,9 +3,9 @@ About Tunes Notifier
 
 Minimal, easy to use OS X application that uses the Notification Center to display the name of the artist, album, song and artwork track any time a song starts playing on Spotify.
 
-**Website:** http://www.tunes-notifier.com
+[![Download Tunes Notifier](screenshots/app_store.png)](https://itunes.apple.com/app/tunes-notifier/id555731861?ls=1&mt=12)
 
-**Mac App Store:** http://itunes.apple.com/app/tunes-notifier/id555731861?ls=1&mt=12
+**Website:** http://www.tunes-notifier.com
 
 **Contact:** Jules Coynel (jules@tunes-notifier.com)
 
