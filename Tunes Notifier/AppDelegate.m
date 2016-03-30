@@ -39,10 +39,10 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
     self.notifier = [[TNNotifier alloc] init];
     
     [Answers logCustomEventWithName:@"Launch"
-                   customAttributes:@{ @"Start at login": @([self isAppPresentInLoginItems]),
-                                       @"Hidden from menu bar": @([self shouldHideFromMenuBar]),
+                   customAttributes:@{ @"Start at login": [self isAppPresentInLoginItems] ? @"Yes" : @"No",
+                                       @"Hidden from menu bar": [self shouldHideFromMenuBar] ? @"Yes" : @"No",
                                        @"Preferred language": [NSLocale preferredLanguages].firstObject ?: @"N/A",
-                                       @"Spotify installed": @(self.notifier.spotifyInstalled),
+                                       @"Spotify installed": self.notifier.spotifyInstalled ? @"Yes" : @"No",
                                        }];
 }
 
@@ -131,7 +131,7 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
     [self setAppPresentInLoginItems:autoStart];
     
     [Answers logCustomEventWithName:@"Start at login"
-                   customAttributes:@{ @"Auto start": @(autoStart) }];
+                   customAttributes:@{ @"Auto start": autoStart ? @"Yes" : @"No" }];
 }
 
 // Overide from AppDelegate to force showing about panel on top of all other windows

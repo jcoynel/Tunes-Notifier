@@ -101,10 +101,10 @@
     [notificationCenter deliverNotification:userNotification];
     
     [Answers logCustomEventWithName:@"Post notification"
-                   customAttributes:@{ @"Name": track.name ? @YES : @NO,
-                                       @"Artist": track.artist ? @YES : @NO,
-                                       @"Album": track.album ? @YES : @NO,
-                                       @"Artwork": track.artworkImage ? @YES : @NO,
+                   customAttributes:@{ @"Name": track.name ? @"Yes" : @"No",
+                                       @"Artist": track.artist ? @"Yes" : @"No",
+                                       @"Album": track.album ? @"Yes" : @"No",
+                                       @"Artwork": track.artworkImage ? @"Yes" : @"No",
                                        }];
 }
 
