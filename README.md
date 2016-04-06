@@ -17,11 +17,14 @@ Minimal, easy to use OS X application that uses the Notification Center to displ
 Requirements
 --------------
 Tunes Notifier requires the following
-- OS X El Capitan (10.11) or later
+- OS X Yosemite (10.10) or later
 - Spotify
 
 History
 --------------
+- **Version 2.0.2** (Submitted to Apple: 06/04/16)
+  - Restore support for OS X Yosemite (10.10)
+
 - **Version 2.0.1** (Submitted to Apple: 30/03/16 - Released: 01/04/16)
   - Fix incorrect analytics values
 
