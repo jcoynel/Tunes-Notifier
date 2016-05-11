@@ -22,6 +22,9 @@ Tunes Notifier requires the following
 
 History
 --------------
+- **Version 2.0.3** (Submitted to Apple: 11/05/16)
+  - Fix a crash affecting old versions of Spotify
+
 - **Version 2.0.2** (Submitted to Apple: 06/04/16 - Released: 09/04/16)
   - Restore support for OS X Yosemite (10.10)
 
