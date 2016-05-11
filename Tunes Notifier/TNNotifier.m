@@ -57,6 +57,11 @@
         NSDictionary *userInfo = notification.userInfo;
         NSString *playerState = userInfo[@"Player State"];
         if ([playerState isEqualToString:@"Playing"]) {
+            /* Some old versions of spotify (e.g. 1.0.2.6) don't support
+             applescript properly so we may not be able to get currentTrack. */
+            if (![self.spotify respondsToSelector:@selector(currentTrack)]) {
+                return;
+            }
             SpotifyTrack *currentTrack = self.spotify.currentTrack;
             NSString *artworkURL;
             // Some old versions of spotify don't support "artworkUrl"
