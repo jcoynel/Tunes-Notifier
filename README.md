@@ -22,7 +22,7 @@ Tunes Notifier requires the following
 
 History
 --------------
-- **Version 2.0.4** (Submitted to Apple: 13/09/16)
+- **Version 2.0.4** (Submitted to Apple: 13/09/16 - Released: 13/09/16)
   - Add support for macOS Sierra (10.12)
 
 - **Version 2.0.3** (Submitted to Apple: 11/05/16 - Released: 12/05/16)
