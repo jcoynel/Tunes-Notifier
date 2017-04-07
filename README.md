@@ -5,7 +5,7 @@ Minimal, easy to use OS X application that uses the Notification Center to displ
 
 [![Download Tunes Notifier](screenshots/app_store.png)](https://itunes.apple.com/app/tunes-notifier/id555731861?ls=1&mt=12)
 
-**Website:** http://www.tunes-notifier.com
+**Website:** https://www.tunes-notifier.com
 
 **Contact:** Jules Coynel (jules@tunes-notifier.com)
 
