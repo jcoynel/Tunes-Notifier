@@ -30,7 +30,14 @@
         _name = name;
         _artist = artist;
         _album = album;
-        _artworkURL = artworkURL ? [NSURL URLWithString:artworkURL] : nil;
+        if (artworkURL) {
+            // Force HTTPS when the artwork URL is HTTP
+            NSURLComponents *components = [NSURLComponents componentsWithString:artworkURL];
+            if ([components.scheme isEqual: @"http"]) {
+                components.scheme = @"https";
+            }
+            _artworkURL = components.URL;
+        }
     }
     
     return self;
@@ -53,11 +60,12 @@
     }
     
     /*
-     We may get two types of URLs from artworkURL:
+     We may get several types of URLs from artworkURL:
      - http://images.spotify.com/image/302b4ec4105699130036e13a9f9f36c725a3ebba
+     - http://i.scdn.co/image/d437791a5159ac23270b8850c307c7da98e246cb
      - spotify:localfileimage:%2FUsers%2FJules%2FMusic%2FiTunes%2FiTunes%20Media%2FMusic%2FWALK%20THE%20MOON%2FTalking%20Is%20Hard%2F01%20Different%20Colors.m4a
      
-     The second is not supported by NSURLSession, which will return a kCFURLErrorUnsupportedURL error.
+     The latter is not supported by NSURLSession, which will return a kCFURLErrorUnsupportedURL error.
      */
     
     NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
