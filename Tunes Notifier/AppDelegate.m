@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "TNNotifier.h"
+#import "NSString+MaxWidth.h"
+#import "TNTrack.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 
@@ -16,6 +17,7 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
 @interface AppDelegate ()
 
 @property (strong) NSStatusItem *statusItem;
+@property (strong) NSMenuItem *currentSongInfoItem;
 @property (strong) NSMenuItem *startAtLoginItem;
 
 - (BOOL)isAppPresentInLoginItems;
@@ -23,6 +25,12 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
 @property (strong) TNNotifier *notifier;
 
 @property (getter = shouldHideFromMenuBar) BOOL hideFromMenuBar;
+
+- (void)updateCurrentSongMenuItem;
+
+- (NSAttributedString *)attributedTitleForSongWithName:(NSString *)name
+                                                artist:(NSString *)artist
+                                                 album:(NSString *)album;
 
 @end
 
@@ -36,7 +44,7 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
     
     [Fabric with:@[[Crashlytics class]]];
     
-    self.notifier = [[TNNotifier alloc] init];
+    self.notifier = [[TNNotifier alloc] initWithDelegate:self];
     
     [Answers logCustomEventWithName:@"Launch"
                    customAttributes:@{ @"Start at login": [self isAppPresentInLoginItems] ? @"Yes" : @"No",
@@ -87,6 +95,10 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
     [self.statusItem setImage:statusImage];
     [self.statusItem setHighlightMode:YES];
     
+    self.currentSongInfoItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"NO_SONG_PLAYING", @"No song playing.")
+                                                          action:@selector(openSpotify)
+                                                   keyEquivalent:@""];
+    
     self.startAtLoginItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"START_MENU_ITEM", @"Start at login")
                                                        action:@selector(toogleStartAtLogin)
                                                 keyEquivalent:@"s"];
@@ -103,6 +115,8 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
                                                       action:@selector(terminate:)
                                                keyEquivalent:@"q"];
     
+    [self.statusMenu addItem:self.currentSongInfoItem];
+    [self.statusMenu addItem:[NSMenuItem separatorItem]];
     [self.statusMenu addItem:self.startAtLoginItem];
     [self.statusMenu addItem:[NSMenuItem separatorItem]];
     [self.statusMenu addItem:hideFromMenuBarForeverItem];
@@ -111,9 +125,72 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
     [self.statusMenu addItem:quitItem];
 }
 
+- (void)updateCurrentSongMenuItem
+{
+    BOOL songPlaying = NO;
+    
+    NSString *name = nil;
+    NSString *artist = nil;
+    NSString *album = nil;
+    NSImage *artworkImage = nil;
+    
+    if (self.notifier.currentTrack) {
+        songPlaying = YES;
+        
+        TNTrack *track = self.notifier.currentTrack;
+        name = track.name;
+        artist = track.artist;
+        album = track.album;
+        artworkImage = track.artworkImage;
+    }
+    
+    if (!songPlaying) {
+        self.currentSongInfoItem.attributedTitle = nil;
+        self.currentSongInfoItem.image = nil;
+        self.currentSongInfoItem.title = NSLocalizedString(@"NO_SONG_PLAYING", @"No song playing...");
+        self.currentSongInfoItem.action = nil;
+    } else {
+        if (!artworkImage) {
+            artworkImage = [NSImage imageNamed:@"AppIcon"];
+        }
+        [artworkImage setSize:NSMakeSize(60, 60)];
+        
+        self.currentSongInfoItem.image = artworkImage;
+        self.currentSongInfoItem.attributedTitle = [self attributedTitleForSongWithName:name artist:artist album:album];
+        self.currentSongInfoItem.action = @selector(openSpotify);
+    }
+}
+
 - (void)updateAllMenuItems
 {
+    [self updateCurrentSongMenuItem];
     [self.startAtLoginItem setState:self.isAppPresentInLoginItems];
+}
+
+- (NSAttributedString *)attributedTitleForSongWithName:(NSString *)name artist:(NSString *)artist album:(NSString *)album
+{
+    NSFontManager *fontManager = [NSFontManager sharedFontManager];
+    NSFont *titleFont = [fontManager fontWithFamily:@"Lucida Grande" traits:NSBoldFontMask weight:0 size:14.0f];
+    NSFont *artistFont = [fontManager fontWithFamily:@"Lucida Grande" traits:NSBoldFontMask weight:0 size:12.0f];
+    NSFont *albumFont = [fontManager fontWithFamily:@"Lucida Grande" traits:0 weight:0 size:12.0f];
+    
+    NSString *titleString = name.length > 0 ? [name stringWithFont:titleFont maxWidth:240] : NSLocalizedString(@"UNKNOWN_TRACK", @"Unknown track");
+    NSString *artistString = artist.length > 0 ? [artist stringWithFont:artistFont maxWidth:240] : NSLocalizedString(@"UNKNOWN_ARTIST", @"Unknown artist");
+    NSString *albumString = album.length > 0 ? [album stringWithFont:albumFont maxWidth:240] : NSLocalizedString(@"UNKNOWN_ALBUM", @"Unknown album");
+    
+    NSString *menuTitle = [NSString stringWithFormat:@" %@\n %@\n %@", titleString, artistString, albumString];
+    
+    NSMutableAttributedString *attributedTitle = [[NSMutableAttributedString alloc] initWithString:menuTitle];
+    
+    NSDictionary *titleAttributes = @{NSFontAttributeName: titleFont};
+    NSDictionary *artistAttributes = @{NSFontAttributeName: artistFont};
+    NSDictionary *albumAttributes = @{NSFontAttributeName: albumFont};
+    
+    [attributedTitle addAttributes:titleAttributes range:[menuTitle rangeOfString:titleString]];
+    [attributedTitle addAttributes:artistAttributes range:[menuTitle rangeOfString:artistString]];
+    [attributedTitle addAttributes:albumAttributes range:[menuTitle rangeOfString:albumString]];
+    
+    return attributedTitle;
 }
 
 #pragma mark - NSMenuDelegate
@@ -123,7 +200,23 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
     [self updateAllMenuItems];
 }
 
+#pragma mark - TNNotifierDelegate
+
+- (void)currentSongDidChange
+{
+    // Refresh current song info if the menu is visible
+    if (!self.statusMenu.isTornOff) {
+        [self updateCurrentSongMenuItem];
+        [self.statusMenu update];
+    }
+}
+
 # pragma mark - Selected menu item Actions
+
+- (void)openSpotify
+{
+    [self.notifier openSpotify];
+}
 
 - (void)toogleStartAtLogin
 {

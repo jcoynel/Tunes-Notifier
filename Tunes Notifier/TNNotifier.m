@@ -15,17 +15,17 @@
 @interface TNNotifier () <NSUserNotificationCenterDelegate, TNTackArtworkDownloadDelegate>
 
 @property (strong, readonly) SpotifyApplication *spotify;
-@property (strong) TNTrack *currentTrack;
 
 @end
 
 @implementation TNNotifier
 
-- (instancetype)init
+- (instancetype)initWithDelegate:(id<TNNotifierDelegate>)delegate
 {
     self = [super init];
     
     if (self) {
+        _delegate = delegate;
         [[NSDistributedNotificationCenter defaultCenter] addObserver:self selector:@selector(spotifyPlaybackStateDidChange:) name:spotifyNotificationIdentifier object:nil];
     }
     
@@ -77,6 +77,8 @@
             [self.currentTrack downloadArtworkWithDelegate:self];
         }
     }
+    
+    [self notifyDelegateCurrentSongDidChange];
 }
 
 #pragma mark - TNTackArtworkDownloadDelegate
@@ -85,6 +87,7 @@
 {
     if (self.currentTrack == track) {
         [self sendNotificationForTrack:track];
+        [self notifyDelegateCurrentSongDidChange];
     }
 }
 
@@ -119,14 +122,25 @@
     [notificationCenter removeAllDeliveredNotifications];
 }
 
+- (void)openSpotify
+{
+    [self.spotify activate];
+}
+
 #pragma mark - NSUserNotificationCenterDelegate
 
 - (void)userNotificationCenter:(NSUserNotificationCenter *)center
        didActivateNotification:(NSUserNotification *)notification
 {
-    [self.spotify activate];
-    
+    [self openSpotify];
     [Answers logCustomEventWithName:@"Activate notification" customAttributes:nil];
+}
+
+#pragma mark - Methods for TNNotifierDelegate Protocol
+
+- (void)notifyDelegateCurrentSongDidChange
+{
+    [self.delegate currentSongDidChange];
 }
 
 @end

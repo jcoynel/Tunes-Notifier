@@ -1,4 +1,12 @@
 /* MENU ITEMS */
+"NO_SONG_PLAYING" = "No song playing...";
+
+"UNKNOWN_TRACK" = "Unknown track";
+
+"UNKNOWN_ARTIST" = "Unknown artist";
+
+"UNKNOWN_ALBUM" = "Unknown album";
+
 "ABOUT_MENU_ITEM" = "Sobre Tunes Notifier";
 
 "QUIT_MENU_ITEM" = "Encerrar Tunes Notifier";

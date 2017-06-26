@@ -8,8 +8,9 @@
 
 @import Cocoa;
 @import ServiceManagement;
+#import "TNNotifier.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, NSMenuDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, NSMenuDelegate, TNNotifierDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
 
