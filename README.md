@@ -22,6 +22,9 @@ Tunes Notifier requires the following
 
 History
 --------------
+- **Version 2.0.7** (Submitted to Apple: 31/12/17)
+  - Minor improvements
+
 - **Version 2.0.6** (Submitted to Apple: 26/06/17)
   - Add current song info to menu bar
 
