@@ -16,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		842BE4C720D0624A008BFFDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		84A45FED15E50DAC00DA8DF6 /* Tunes Notifier Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tunes Notifier Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A45FF915E50DAC00DA8DF6 /* Tunes Notifier Helper-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tunes Notifier Helper-Info.plist"; sourceTree = "<group>"; };
 		84A45FFB15E50DAC00DA8DF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -24,7 +25,6 @@
 		84A4600115E50DAC00DA8DF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		84A4600315E50DAC00DA8DF6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84A4600415E50DAC00DA8DF6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		84A4600715E50DAC00DA8DF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		84A4601415E50DE600DA8DF6 /* Tunes Notifier Helper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Tunes Notifier Helper.entitlements"; sourceTree = "<group>"; };
 		84A6D1FF19290357002E034E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,7 +107,7 @@
 		84A45FE415E50DAC00DA8DF6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Jules Coynel";
 				TargetAttributes = {
 					84A45FEC15E50DAC00DA8DF6 = {
@@ -121,6 +121,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 84A45FE215E50DAC00DA8DF6;
 			productRefGroup = 84A45FEE15E50DAC00DA8DF6 /* Products */;
@@ -178,7 +179,7 @@
 		84A4600615E50DAC00DA8DF6 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				84A4600715E50DAC00DA8DF6 /* en */,
+				842BE4C720D0624A008BFFDB /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -203,6 +204,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
@@ -255,6 +257,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
