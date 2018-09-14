@@ -9,8 +9,6 @@
 #import "AppDelegate.h"
 #import "NSString+MaxWidth.h"
 #import "TNTrack.h"
-#import <Fabric/Fabric.h>
-#import <Crashlytics/Crashlytics.h>
 
 NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper";
 
@@ -42,16 +40,7 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
 {
     [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"UserDefaults" ofType:@"plist"]]];
     
-    [Fabric with:@[[Crashlytics class]]];
-    
     self.notifier = [[TNNotifier alloc] initWithDelegate:self];
-    
-    [Answers logCustomEventWithName:@"Launch"
-                   customAttributes:@{ @"Start at login": [self isAppPresentInLoginItems] ? @"Yes" : @"No",
-                                       @"Hidden from menu bar": [self shouldHideFromMenuBar] ? @"Yes" : @"No",
-                                       @"Preferred language": [NSLocale preferredLanguages].firstObject ?: @"N/A",
-                                       @"Spotify installed": self.notifier.spotifyInstalled ? @"Yes" : @"No",
-                                       }];
 }
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag
@@ -60,8 +49,6 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
     if (self.shouldHideFromMenuBar) {
         self.hideFromMenuBar = NO;
         [self setupMenu];
-        
-        [Answers logCustomEventWithName:@"Unhide from menu bar" customAttributes:nil];
     }
     
     return YES;
@@ -222,9 +209,6 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
 {
     BOOL autoStart = ![self isAppPresentInLoginItems];
     [self setAppPresentInLoginItems:autoStart];
-    
-    [Answers logCustomEventWithName:@"Start at login"
-                   customAttributes:@{ @"Auto start": autoStart ? @"Yes" : @"No" }];
 }
 
 // Overide from AppDelegate to force showing about panel on top of all other windows
@@ -232,8 +216,6 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
 {
     [[NSApplication sharedApplication] orderFrontStandardAboutPanel:nil];
     [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
-    
-    [Answers logCustomEventWithName:@"Show about panel" customAttributes:nil];
 }
 
 - (void)hideFromMenuBarForever
@@ -253,9 +235,6 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
         [statusBar removeStatusItem:self.statusItem];
         [self.statusMenu removeAllItems];
     }
-    
-    [Answers logCustomEventWithName:@"Hide from menu bar alert"
-                   customAttributes:@{ @"Action": response == NSAlertFirstButtonReturn ? @"Continue" : @"Cancel"} ];
 }
 
 #pragma mark - NSUserDefaults

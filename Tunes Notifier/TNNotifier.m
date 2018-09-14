@@ -10,7 +10,6 @@
 #import "Spotify.h"
 #import "TNNotifier.h"
 #import "TNTrack.h"
-#import <Crashlytics/Crashlytics.h>
 
 @interface TNNotifier () <NSUserNotificationCenterDelegate, TNTackArtworkDownloadDelegate>
 
@@ -107,13 +106,6 @@
     notificationCenter.delegate = self;
     [self cleanNotificationCenter];
     [notificationCenter deliverNotification:userNotification];
-    
-    [Answers logCustomEventWithName:@"Post notification"
-                   customAttributes:@{ @"Name": track.name ? @"Yes" : @"No",
-                                       @"Artist": track.artist ? @"Yes" : @"No",
-                                       @"Album": track.album ? @"Yes" : @"No",
-                                       @"Artwork": track.artworkImage ? @"Yes" : @"No",
-                                       }];
 }
 
 - (void)cleanNotificationCenter
@@ -133,7 +125,6 @@
        didActivateNotification:(NSUserNotification *)notification
 {
     [self openSpotify];
-    [Answers logCustomEventWithName:@"Activate notification" customAttributes:nil];
 }
 
 #pragma mark - Methods for TNNotifierDelegate Protocol
