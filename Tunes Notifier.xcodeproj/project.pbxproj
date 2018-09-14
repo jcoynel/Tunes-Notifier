@@ -178,11 +178,6 @@
 				CLASSPREFIX = TN;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Jules Coynel";
-				TargetAttributes = {
-					84EDF02415E3CCB2003A7AB0 = {
-						DevelopmentTeam = VG59FX5MX7;
-					};
-				};
 			};
 			buildConfigurationList = 84EDF01F15E3CCB2003A7AB0 /* Build configuration list for PBXProject "Tunes Notifier" */;
 			compatibilityVersion = "Xcode 9.3";
@@ -412,6 +407,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Tunes Notifier/Tunes Notifier.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = VG59FX5MX7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -435,6 +431,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = VG59FX5MX7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
