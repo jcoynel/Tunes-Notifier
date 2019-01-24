@@ -192,10 +192,7 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
 - (void)currentSongDidChange
 {
     // Refresh current song info if the menu is visible
-    if (!self.statusMenu.isTornOff) {
-        [self updateCurrentSongMenuItem];
-        [self.statusMenu update];
-    }
+    [self updateCurrentSongMenuItem];
 }
 
 # pragma mark - Selected menu item Actions
