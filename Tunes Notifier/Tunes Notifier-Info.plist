@@ -35,5 +35,7 @@ All rights reserved.</string>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>NSAppleEventsUsageDescription</key>
+	<string>Needed to display album images from Spotify.</string>
 </dict>
 </plist>
