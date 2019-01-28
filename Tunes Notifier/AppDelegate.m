@@ -77,10 +77,7 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
     [self.statusItem setMenu:self.statusMenu];
     
     NSImage *statusImage = [NSImage imageNamed:@"status"];
-    [statusImage setTemplate:YES];
-    
-    [self.statusItem setImage:statusImage];
-    [self.statusItem setHighlightMode:YES];
+    [self.statusItem.button setImage:statusImage];
     
     self.currentSongInfoItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"NO_SONG_PLAYING", @"No song playing.")
                                                           action:@selector(openSpotify)
