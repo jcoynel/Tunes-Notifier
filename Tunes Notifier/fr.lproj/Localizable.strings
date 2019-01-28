@@ -1,4 +1,4 @@
-﻿/* MENU ITEMS */
+/* MENU ITEMS */
 "NO_SONG_PLAYING" = "Aucune musique...";
 
 "UNKNOWN_TRACK" = "Titre inconnu";
@@ -6,6 +6,8 @@
 "UNKNOWN_ARTIST" = "Artiste inconnu";
 
 "UNKNOWN_ALBUM" = "Album inconnu";
+
+"REVIEW_MENU_ITEM" = "Leave a review";
 
 "ABOUT_MENU_ITEM" = "À propos de Tunes Notifier";
 

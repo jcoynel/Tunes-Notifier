@@ -7,6 +7,8 @@
 
 "UNKNOWN_ALBUM" = "Unknown album";
 
+"REVIEW_MENU_ITEM" = "Leave a review";
+
 "ABOUT_MENU_ITEM" = "Sobre Tunes Notifier";
 
 "QUIT_MENU_ITEM" = "Encerrar Tunes Notifier";

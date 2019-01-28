@@ -94,6 +94,8 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
                                                                         action:@selector(hideFromMenuBarForever)
                                                                  keyEquivalent:@"H"];
     
+    NSMenuItem *reviewItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"REVIEW_MENU_ITEM", "Leave a review") action:@selector(leaveReview) keyEquivalent:@""];
+    
     NSMenuItem *aboutItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"ABOUT_MENU_ITEM", @"About Tunes Notifier")
                                                        action:@selector(showAboutPanel)
                                                 keyEquivalent:@""];
@@ -108,6 +110,7 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
     [self.statusMenu addItem:[NSMenuItem separatorItem]];
     [self.statusMenu addItem:hideFromMenuBarForeverItem];
     [self.statusMenu addItem:[NSMenuItem separatorItem]];
+    [self.statusMenu addItem:reviewItem];
     [self.statusMenu addItem:aboutItem];
     [self.statusMenu addItem:quitItem];
 }
@@ -206,6 +209,12 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
 {
     BOOL autoStart = ![self isAppPresentInLoginItems];
     [self setAppPresentInLoginItems:autoStart];
+}
+
+- (void)leaveReview
+{
+    NSURL *reviewURL = [NSURL URLWithString:macAppStoreReviewURL];
+    [[NSWorkspace sharedWorkspace] openURL:reviewURL];
 }
 
 // Overide from AppDelegate to force showing about panel on top of all other windows
