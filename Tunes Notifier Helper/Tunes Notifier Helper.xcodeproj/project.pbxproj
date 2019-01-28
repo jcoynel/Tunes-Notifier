@@ -108,7 +108,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1000;
-				ORGANIZATIONNAME = "Jules Coynel";
+				ORGANIZATIONNAME = "56 North Ltd";
 				TargetAttributes = {
 					84A45FEC15E50DAC00DA8DF6 = {
 						DevelopmentTeam = VG59FX5MX7;

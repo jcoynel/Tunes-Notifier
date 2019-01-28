@@ -177,7 +177,7 @@
 			attributes = {
 				CLASSPREFIX = TN;
 				LastUpgradeCheck = 1000;
-				ORGANIZATIONNAME = "Jules Coynel";
+				ORGANIZATIONNAME = "56 North Ltd";
 			};
 			buildConfigurationList = 84EDF01F15E3CCB2003A7AB0 /* Build configuration list for PBXProject "Tunes Notifier" */;
 			compatibilityVersion = "Xcode 10.0";
