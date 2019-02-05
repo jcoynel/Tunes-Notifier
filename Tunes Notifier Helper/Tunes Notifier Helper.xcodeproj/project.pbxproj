@@ -112,6 +112,11 @@
 				TargetAttributes = {
 					84A45FEC15E50DAC00DA8DF6 = {
 						DevelopmentTeam = VG59FX5MX7;
+						SystemCapabilities = {
+							com.apple.HardenedRuntime = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -283,6 +288,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Tunes Notifier Helper/Tunes Notifier Helper.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tunes Notifier Helper/Tunes Notifier Helper-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Tunes Notifier Helper/Tunes Notifier Helper-Info.plist";
@@ -300,6 +306,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Tunes Notifier Helper/Tunes Notifier Helper.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tunes Notifier Helper/Tunes Notifier Helper-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Tunes Notifier Helper/Tunes Notifier Helper-Info.plist";
