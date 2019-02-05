@@ -15,11 +15,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0.7</string>
+	<string>2.0.8</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>17</string>
+	<string>18</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSApplicationCategoryType</key>
@@ -28,6 +28,8 @@
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
 	<key>LSUIElement</key>
 	<true/>
+	<key>NSAppleEventsUsageDescription</key>
+	<string>Needed to display album images from Spotify.</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2012-2019 56 North Ltd
 All rights reserved.</string>
@@ -35,7 +37,5 @@ All rights reserved.</string>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-	<key>NSAppleEventsUsageDescription</key>
-	<string>Needed to display album images from Spotify.</string>
 </dict>
 </plist>
