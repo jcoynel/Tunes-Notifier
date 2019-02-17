@@ -22,6 +22,9 @@ Tunes Notifier requires the following
 
 History
 --------------
+- **Version 2.0.9** (Submitted to Apple: 17/02/19)
+  - Fix album artwork not showing 
+
 - **Version 2.0.8** (Submitted to Apple: 05/02/19)
   - Optimised for macOS Mojave 
 
