@@ -176,7 +176,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = TN;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = "56 North Ltd";
 				TargetAttributes = {
 					84EDF02415E3CCB2003A7AB0 = {
@@ -190,7 +190,7 @@
 			};
 			buildConfigurationList = 84EDF01F15E3CCB2003A7AB0 /* Build configuration list for PBXProject "Tunes Notifier" */;
 			compatibilityVersion = "Xcode 10.0";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -404,6 +404,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Tunes Notifier/Tunes Notifier.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = VG59FX5MX7;
@@ -426,6 +427,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Tunes Notifier/Tunes Notifier.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = VG59FX5MX7;
