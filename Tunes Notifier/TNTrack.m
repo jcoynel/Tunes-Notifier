@@ -48,6 +48,13 @@
     [self cancelArtworkDownload];
 }
 
+#pragma mark -
+
+- (BOOL)hasAnyInformation
+{
+    return (self.name.length > 0 || self.artist.length > 0 || self.album.length > 0 || self.artworkURL);
+}
+
 #pragma mark - Artwork Download
 
 - (void)downloadArtworkWithDelegate:(id<TNTackArtworkDownloadDelegate>)delegate

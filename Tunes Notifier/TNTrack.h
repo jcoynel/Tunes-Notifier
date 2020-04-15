@@ -24,6 +24,8 @@
 @property (nonatomic, strong, readonly) NSURL *artworkURL;
 @property (nonatomic, strong, readonly) NSImage *artworkImage;
 
+@property (nonatomic, readonly) BOOL hasAnyInformation;
+
 @property (nonatomic, weak, readonly) id<TNTackArtworkDownloadDelegate> delegate;
 
 - (instancetype)init __unavailable;

@@ -94,6 +94,12 @@
 
 - (void)sendNotificationForTrack:(TNTrack *)track
 {
+    // If the track doesn't contain any information, such as when playing Spotify
+    // on an external device, don't show a blank notification.
+    if (!track.hasAnyInformation) {
+        return;
+    }
+    
     NSUserNotification *userNotification = [[NSUserNotification alloc] init];
     userNotification.title = track.name;
     userNotification.subtitle = track.artist;
