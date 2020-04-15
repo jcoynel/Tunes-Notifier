@@ -22,6 +22,9 @@ Tunes Notifier requires the following
 
 History
 --------------
+- **Version 2.0.10** (Submitted to Apple: 15/04/20)
+  - Fix blank notification when Spotify doesn't provide song information, usually when playing to an external device 
+
 - **Version 2.0.9** (Submitted to Apple: 17/02/19)
   - Fix album artwork not showing 
 
