@@ -1,5 +1,8 @@
 About Tunes Notifier
 --------------
+[![GitHub license](https://img.shields.io/github/license/jcoynel/Tunes-Notifier)](https://github.com/jcoynel/Tunes-Notifier/blob/master/LICENSE)
+[![GitHub release](https://img.shields.io/github/v/release/jcoynel/Tunes-Notifier.svg)](https://github.com/jcoynel/Tunes-Notifier/releases/latest)
+![GitHub top language](https://img.shields.io/github/languages/top/jcoynel/Tunes-Notifier)
 
 Minimal, easy to use macOS application that uses the Notification Center to display the name of the artist, album, song and artwork track any time a song starts playing on Spotify.
 
