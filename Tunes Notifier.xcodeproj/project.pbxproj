@@ -63,6 +63,7 @@
 		844799CB1AB4EF46007CF71D /* TNTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNTrack.h; sourceTree = "<group>"; };
 		844799CC1AB4EF46007CF71D /* TNTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNTrack.m; sourceTree = "<group>"; };
 		846899741654454D00148B40 /* Spotify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spotify.h; sourceTree = "<group>"; };
+		84888FBB249D747100C13F0A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8492BB1B167E677500E06476 /* UserDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
 		8492BB1D167E770100E06476 /* TNConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNConstants.h; sourceTree = "<group>"; };
 		84A4600E15E50DAC00DA8DF6 /* Tunes Notifier Helper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Tunes Notifier Helper.xcodeproj"; path = "Tunes Notifier Helper/Tunes Notifier Helper.xcodeproj"; sourceTree = "<group>"; };
@@ -99,6 +100,7 @@
 		84EDF01A15E3CCB2003A7AB0 = {
 			isa = PBXGroup;
 			children = (
+				84888FBB249D747100C13F0A /* README.md */,
 				84A4600E15E50DAC00DA8DF6 /* Tunes Notifier Helper.xcodeproj */,
 				84EDF02F15E3CCB2003A7AB0 /* Tunes Notifier */,
 				84EDF02615E3CCB2003A7AB0 /* Products */,
@@ -407,6 +409,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = VG59FX5MX7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -416,6 +419,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tunes Notifier/Tunes Notifier-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Tunes Notifier/Tunes Notifier-Info.plist";
+				MARKETING_VERSION = 2.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.julescoynel.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "Tunes Notifier";
 				WRAPPER_EXTENSION = app;
@@ -430,6 +434,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = VG59FX5MX7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -439,6 +444,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tunes Notifier/Tunes Notifier-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Tunes Notifier/Tunes Notifier-Info.plist";
+				MARKETING_VERSION = 2.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.julescoynel.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "Tunes Notifier";
 				WRAPPER_EXTENSION = app;

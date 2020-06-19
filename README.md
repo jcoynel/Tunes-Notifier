@@ -23,8 +23,17 @@ Tunes Notifier requires the following
 - macOS 10.14 Mojave or later
 - Spotify
 
+Limitations
+--------------
+The Spotify app doesn't provide current song information when playing on external devices. As a result, Tunes Notifier is not able to present notifications or current song information in the menu bar.
+
+Note: AirPlay 2 speakers are not affected by this issue.
+
 History
 --------------
+- **Version 2.0.11** (Submitted to Apple: 19/06/20)
+  - Clarify song information may be missing when playing on external device, unless using AirPlay 2
+
 - **Version 2.0.10** (Submitted to Apple: 15/04/20)
   - Fix blank notification when Spotify doesn't provide song information, usually when playing to an external device 
 
@@ -97,4 +106,3 @@ History
 
 - **Version 1.0** (Submitted to Apple: 23/08/12 – Released: 25/09/12)
   - Initial version
-
