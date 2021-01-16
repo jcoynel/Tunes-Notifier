@@ -87,7 +87,9 @@
                                   
                                   BOOL cancelled = error.domain == NSURLErrorDomain && error.code == NSURLErrorCancelled;
                                   if (!cancelled) {
-                                      [weakSelf.delegate didFinishDownloadingArtworkForTrack:weakSelf];
+                                      dispatch_async(dispatch_get_main_queue(), ^{
+                                          [weakSelf.delegate didFinishDownloadingArtworkForTrack:weakSelf];
+                                      });
                                   }
                               }];
     
