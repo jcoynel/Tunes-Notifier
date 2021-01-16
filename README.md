@@ -31,8 +31,11 @@ Note: AirPlay 2 speakers are not affected by this issue.
 
 History
 --------------
+- **Version 2.0.13** (Submitted to Apple: 16/01/21)
+  - Fix rare crash
+
 - **Version 2.0.12** (Submitted to Apple: 06/11/20)
-	- Recompile for macOS 11 and ARM architecture
+  - Recompile for macOS 11 and ARM architecture
 
 - **Version 2.0.11** (Submitted to Apple: 19/06/20)
   - Clarify song information may be missing when playing on external device, unless using AirPlay 2
