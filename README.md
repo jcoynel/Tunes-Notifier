@@ -1,6 +1,6 @@
 About Tunes Notifier
 --------------
-[![GitHub license](https://img.shields.io/github/license/jcoynel/Tunes-Notifier)](https://github.com/jcoynel/Tunes-Notifier/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/jcoynel/Tunes-Notifier)](https://github.com/jcoynel/Tunes-Notifier/blob/main/LICENSE)
 [![GitHub release](https://img.shields.io/github/v/release/jcoynel/Tunes-Notifier.svg)](https://github.com/jcoynel/Tunes-Notifier/releases/latest)
 ![GitHub top language](https://img.shields.io/github/languages/top/jcoynel/Tunes-Notifier)
 
