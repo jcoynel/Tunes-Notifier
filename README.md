@@ -12,10 +12,10 @@ Minimal, easy to use macOS application that uses the Notification Center to disp
 
 **Contact:** Jules Coynel (jules@56north.co)
 
-![notification](screenshots/notification-light.png)
-![notification center](screenshots/notification_center-light.png)
-![menu](screenshots/menu-light.png)
-![notification dark](screenshots/notification-dark.png)
+<img src="screenshots/menu-light.jpg" width="200">
+<img src="screenshots/notification-light.jpg" width="200">
+<img src="screenshots/menu-dark.jpg" width="200">
+<img src="screenshots/notification-dark.jpg" width="200">
 
 Requirements
 --------------
@@ -31,6 +31,9 @@ Note: AirPlay 2 speakers are not affected by this issue.
 
 History
 --------------
+- **Version 2.0.14** (Submitted to Apple: 14/04/21)
+  - New app icon for macOS Big Sur
+
 - **Version 2.0.13** (Submitted to Apple: 16/01/21)
   - Fix rare crash
 
