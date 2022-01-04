@@ -31,6 +31,9 @@ Note: AirPlay 2 speakers are not affected by this issue.
 
 History
 --------------
+- **Version 2.0.15** (Submitted to Apple: 04/01/22)
+  - Recompile for macOS 12
+
 - **Version 2.0.14** (Submitted to Apple: 14/04/21)
   - New app icon for macOS Big Sur
 
