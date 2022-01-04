@@ -31,7 +31,7 @@
 	<key>NSAppleEventsUsageDescription</key>
 	<string>Needed to display album images from Spotify.</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2012-2021 56 North Ltd
+	<string>Copyright © 2012-2022 56 North Ltd
 All rights reserved.</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
