@@ -20,7 +20,7 @@ Minimal, easy to use macOS application that uses the Notification Center to disp
 Requirements
 --------------
 Tunes Notifier requires the following
-- macOS 10.14 Mojave or later
+- macOS 13.0 Ventura or later
 - Spotify
 
 Limitations
