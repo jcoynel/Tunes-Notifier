@@ -22,19 +22,24 @@
     }
     
     if (!alreadyRunning) {
-        NSString *path = [[NSBundle mainBundle] bundlePath];
+        NSString *path = [[NSBundle mainBundle] bundlePath]; // /Applications/Tunes Notifier.app/Contents/Library/LoginItems/Tunes Notifier Helper.app
         NSArray *p = [path pathComponents];
         NSMutableArray *pathComponents = [NSMutableArray arrayWithArray:p];
-        [pathComponents removeLastObject];
-        [pathComponents removeLastObject];
-        [pathComponents removeLastObject];
-        [pathComponents addObject:@"MacOS"];
-        [pathComponents addObject:mainAppFileName];
-        NSString *newPath = [NSString pathWithComponents:pathComponents];
-        [[NSWorkspace sharedWorkspace] launchApplication:newPath];
+        
+        [pathComponents removeLastObject]; // /Applications/Tunes Notifier.app/Contents/Library/LoginItems/
+        [pathComponents removeLastObject]; // /Applications/Tunes Notifier.app/Contents/Library/
+        [pathComponents removeLastObject]; // /Applications/Tunes Notifier.app/Contents/
+        [pathComponents removeLastObject]; // /Applications/Tunes Notifier.app/
+        
+        NSURL *newUrl = [NSURL fileURLWithPathComponents:pathComponents];
+        [[NSWorkspace sharedWorkspace] openApplicationAtURL:newUrl
+                                              configuration:[NSWorkspaceOpenConfiguration configuration]
+                                          completionHandler:^(NSRunningApplication * _Nullable app, NSError * _Nullable error) {
+            [NSApp terminate:nil];
+        }];
+    } else {
+        [NSApp terminate:nil];
     }
-    
-    [NSApp terminate:nil];
 }
 
 @end
