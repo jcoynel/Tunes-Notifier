@@ -12,10 +12,8 @@ Minimal, easy to use macOS application that uses the Notification Center to disp
 
 **Contact:** Jules Coynel (jules@56north.co)
 
-<img src="screenshots/menu-light.jpg" width="200">
-<img src="screenshots/notification-light.jpg" width="200">
-<img src="screenshots/menu-dark.jpg" width="200">
-<img src="screenshots/notification-dark.jpg" width="200">
+<img src="screenshots/menu-light.jpg" width="200"> <img src="screenshots/notification-light.jpg" width="200">
+<img src="screenshots/menu-dark.jpg" width="200"> <img src="screenshots/notification-dark.jpg" width="200">
 
 Requirements
 --------------
