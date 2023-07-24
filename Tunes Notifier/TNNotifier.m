@@ -7,11 +7,12 @@
 //
 
 @import ScriptingBridge;
+@import UserNotifications;
 #import "Spotify.h"
 #import "TNNotifier.h"
 #import "TNTrack.h"
 
-@interface TNNotifier () <NSUserNotificationCenterDelegate, TNTackArtworkDownloadDelegate>
+@interface TNNotifier () <UNUserNotificationCenterDelegate, TNTackArtworkDownloadDelegate>
 
 @property (strong, readonly) SpotifyApplication *spotify;
 
@@ -100,23 +101,37 @@
         return;
     }
     
-    NSUserNotification *userNotification = [[NSUserNotification alloc] init];
-    userNotification.title = track.name;
-    userNotification.subtitle = track.artist;
-    userNotification.informativeText = track.album;
-    userNotification.soundName = nil;
-    userNotification.contentImage = track.artworkImage;
-
-    NSUserNotificationCenter *notificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
+    NSURL *temporaryDirectoryURL = [NSURL fileURLWithPath:NSTemporaryDirectory() isDirectory:YES];
+    NSURL *temporaryFileURL = [[temporaryDirectoryURL URLByAppendingPathComponent:NSUUID.UUID.UUIDString] URLByAppendingPathExtension:@"jpg"];
+    [track.artworkImage.TIFFRepresentation writeToURL:temporaryFileURL atomically:YES];
+    UNNotificationAttachment *attachement = [UNNotificationAttachment attachmentWithIdentifier:NSUUID.UUID.UUIDString
+                                                                                           URL:temporaryFileURL
+                                                                                       options:nil
+                                                                                         error:nil];
+    
+    UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
+    content.title = track.name;
+    content.subtitle = track.artist;
+    content.body = track.album;
+    content.sound = nil;
+    if (attachement != nil) {
+        content.attachments = @[attachement];
+    }
+    
+    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:[NSUUID UUID].UUIDString
+                                                                          content:content
+                                                                          trigger:nil];
+    
+    UNUserNotificationCenter *notificationCenter = [UNUserNotificationCenter currentNotificationCenter];
     
     notificationCenter.delegate = self;
     [self cleanNotificationCenter];
-    [notificationCenter deliverNotification:userNotification];
+    [notificationCenter addNotificationRequest:request withCompletionHandler:nil];
 }
 
 - (void)cleanNotificationCenter
 {
-    NSUserNotificationCenter *notificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
+    UNUserNotificationCenter *notificationCenter = [UNUserNotificationCenter currentNotificationCenter];
     [notificationCenter removeAllDeliveredNotifications];
 }
 
@@ -125,12 +140,14 @@
     [self.spotify activate];
 }
 
-#pragma mark - NSUserNotificationCenterDelegate
+#pragma mark - UNUserNotificationCenterDelegate
 
-- (void)userNotificationCenter:(NSUserNotificationCenter *)center
-       didActivateNotification:(NSUserNotification *)notification
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center
+didReceiveNotificationResponse:(UNNotificationResponse *)response
+         withCompletionHandler:(void (^)(void))completionHandler
 {
     [self openSpotify];
+    completionHandler();
 }
 
 #pragma mark - Methods for TNNotifierDelegate Protocol
