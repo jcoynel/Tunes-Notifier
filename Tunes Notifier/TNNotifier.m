@@ -74,6 +74,7 @@
                                                         album:userInfo[@"Album"]
                                                    artworkURL:artworkURL];
             
+            [self requestPermissionIfNeeded];
             [self.currentTrack downloadArtworkWithDelegate:self];
         }
     }
@@ -92,6 +93,16 @@
 }
 
 #pragma mark - Notifications
+
+- (void)requestPermissionIfNeeded {
+    UNUserNotificationCenter *notificationCenter = [UNUserNotificationCenter currentNotificationCenter];
+    [notificationCenter getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
+        if (settings.authorizationStatus != UNAuthorizationStatusAuthorized) {
+            [notificationCenter requestAuthorizationWithOptions:UNAuthorizationOptionAlert
+                                              completionHandler:^(BOOL granted, NSError * _Nullable error) {}];
+        }
+    }];
+}
 
 - (void)sendNotificationForTrack:(TNTrack *)track
 {
