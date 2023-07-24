@@ -256,47 +256,16 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
 
 - (BOOL)isAppPresentInLoginItems
 {
-    /*
-     The following is what a job dictionary looks like
-     
-     {
-     EnableTransactions = 1;
-     Label = "com.julescoynel.Tunes-Notifier-Helper";
-     LastExitStatus = 0;
-     LimitLoadToSessionType = Aqua;
-     MachServices = {
-     "com.julescoynel.Tunes-Notifier-Helper" = 0;
-     };
-     OnDemand = 1;
-     ProgramArguments = (
-     "/usr/libexec/launchproxyls",
-     "com.julescoynel.Tunes-Notifier-Helper"
-     );
-     TimeOut = 30;
-     }
-     */
-    
-    NSArray *jobDicts = (NSArray *)CFBridgingRelease(SMCopyAllJobDictionaries(kSMDomainUserLaunchd));
-    
-    if ((jobDicts != nil) && [jobDicts count] > 0) {
-        BOOL bOnDemand = NO;
-        
-        for (NSDictionary * job in jobDicts) {
-            if ([helperBundleIdentifier isEqualToString:job[@"Label"]]) {
-                bOnDemand = [job[@"OnDemand"] boolValue];
-                break;
-            }
-        }
-        
-        return bOnDemand;
-    }
-    
-    return NO;
+    return [[SMAppService mainAppService] status] == SMAppServiceStatusEnabled;
 }
 
 - (void)setAppPresentInLoginItems:(BOOL)present
 {
-    SMLoginItemSetEnabled((__bridge CFStringRef)helperBundleIdentifier, present);
+    if (present) {
+        [[SMAppService mainAppService] registerAndReturnError:nil];
+    } else {
+        [[SMAppService mainAppService] unregisterAndReturnError:nil];
+    }
 }
 
 @end
