@@ -416,7 +416,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 27;
+				CURRENT_PROJECT_VERSION = 28;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = VG59FX5MX7;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -427,7 +427,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tunes Notifier/Tunes Notifier-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Tunes Notifier/Tunes Notifier-Info.plist";
-				MARKETING_VERSION = 2.0.16;
+				MARKETING_VERSION = 2.0.17;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.julescoynel.Tunes-Notifier";
 				PRODUCT_NAME = "Tunes Notifier";
 				WRAPPER_EXTENSION = app;
@@ -442,7 +442,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 27;
+				CURRENT_PROJECT_VERSION = 28;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = VG59FX5MX7;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -453,7 +453,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tunes Notifier/Tunes Notifier-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Tunes Notifier/Tunes Notifier-Info.plist";
-				MARKETING_VERSION = 2.0.16;
+				MARKETING_VERSION = 2.0.17;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.julescoynel.Tunes-Notifier";
 				PRODUCT_NAME = "Tunes Notifier";
 				WRAPPER_EXTENSION = app;
