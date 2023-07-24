@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -107,11 +107,11 @@
 		84A45FE415E50DAC00DA8DF6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1420;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
 				ORGANIZATIONNAME = "56 North Ltd";
 				TargetAttributes = {
 					84A45FEC15E50DAC00DA8DF6 = {
-						DevelopmentTeam = VG59FX5MX7;
 						SystemCapabilities = {
 							com.apple.HardenedRuntime = {
 								enabled = 1;
@@ -223,6 +223,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -274,6 +275,7 @@
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
@@ -297,12 +299,14 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 27;
 				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = VG59FX5MX7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tunes Notifier Helper/Tunes Notifier Helper-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Tunes Notifier Helper/Tunes Notifier Helper-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 2.0.16;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.julescoynel.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.julescoynel.Tunes-Notifier-Helper";
 				PRODUCT_NAME = "Tunes Notifier Helper";
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = app;
@@ -319,12 +323,14 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 27;
 				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = VG59FX5MX7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tunes Notifier Helper/Tunes Notifier Helper-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Tunes Notifier Helper/Tunes Notifier Helper-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 2.0.16;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.julescoynel.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.julescoynel.Tunes-Notifier-Helper";
 				PRODUCT_NAME = "Tunes Notifier Helper";
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = app;
