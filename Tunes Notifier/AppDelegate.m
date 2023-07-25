@@ -256,15 +256,16 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
 
 - (BOOL)isAppPresentInLoginItems
 {
-    return [[SMAppService mainAppService] status] == SMAppServiceStatusEnabled;
+    return [[SMAppService loginItemServiceWithIdentifier:helperBundleIdentifier] status] == SMAppServiceStatusEnabled;
 }
 
 - (void)setAppPresentInLoginItems:(BOOL)present
 {
+    SMAppService *service = [SMAppService loginItemServiceWithIdentifier:helperBundleIdentifier];
     if (present) {
-        [[SMAppService mainAppService] registerAndReturnError:nil];
+        [service registerAndReturnError:nil];
     } else {
-        [[SMAppService mainAppService] unregisterAndReturnError:nil];
+        [service unregisterAndReturnError:nil];
     }
 }
 
