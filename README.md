@@ -29,7 +29,7 @@ Note: AirPlay 2 speakers are not affected by this issue.
 
 History
 --------------
-- **Version 2.0.17** (Submitted to Apple: 24/07/23)
+- **Version 2.0.17** (Submitted to Apple: 26/07/23)
   - macOS 13.0 Ventura required
   - Remove deprecated API
 
