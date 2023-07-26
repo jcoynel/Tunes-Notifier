@@ -41,6 +41,8 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
     [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"UserDefaults" ofType:@"plist"]]];
     
     self.notifier = [[TNNotifier alloc] initWithDelegate:self];
+    
+    [self migrateLegacyLaunchAtLoginIfNeeded];
 }
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag
@@ -266,6 +268,22 @@ NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper
     } else {
         [[SMAppService mainAppService] unregisterAndReturnError:nil];
     }
+}
+
+- (void)migrateLegacyLaunchAtLoginIfNeeded
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if ([userDefaults boolForKey:userDefaultsHasMigratedLegacyLaunchAtLogin] == YES) {
+        return;
+    }
+    
+    SMAppService *legacyAppService = [SMAppService loginItemServiceWithIdentifier:helperBundleIdentifier];
+    if (legacyAppService.status == SMAppServiceStatusEnabled) {
+        [self setAppPresentInLoginItems: YES];
+    }
+    [legacyAppService unregisterAndReturnError:nil];
+    
+    [userDefaults setBool:YES forKey:userDefaultsHasMigratedLegacyLaunchAtLogin];
 }
 
 @end
