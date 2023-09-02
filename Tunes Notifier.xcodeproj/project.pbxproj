@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8402909B15E3D7E600E23303 /* TNNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8402909A15E3D7E600E23303 /* TNNotifier.m */; };
-		842EE9ED15E68920005C675C /* Tunes Notifier Helper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 842EE9EB15E68852005C675C /* Tunes Notifier Helper.app */; };
 		843A4548168F4E2B005B1ACB /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 843A454A168F4E2B005B1ACB /* Credits.rtf */; };
 		843E3E821640990300457644 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 842EE9DE15E684A5005C675C /* Localizable.strings */; };
 		8442C2AC1F0185490027AAF0 /* NSString+MaxWidth.m in Sources */ = {isa = PBXBuildFile; fileRef = 8442C2AB1F0185490027AAF0 /* NSString+MaxWidth.m */; };
@@ -21,16 +20,6 @@
 		84EDF04015E3CCB3003A7AB0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84EDF03E15E3CCB3003A7AB0 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		842EE9EA15E68852005C675C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 84A4600E15E50DAC00DA8DF6 /* Tunes Notifier Helper.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 84A45FED15E50DAC00DA8DF6;
-			remoteInfo = "Tunes Notifier Helper";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		8402913915E3F8E300E23303 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -38,7 +27,6 @@
 			dstPath = Contents/Library/LoginItems;
 			dstSubfolderSpec = 1;
 			files = (
-				842EE9ED15E68920005C675C /* Tunes Notifier Helper.app in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,7 +54,6 @@
 		84888FBB249D747100C13F0A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8492BB1B167E677500E06476 /* UserDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
 		8492BB1D167E770100E06476 /* TNConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNConstants.h; sourceTree = "<group>"; };
-		84A4600E15E50DAC00DA8DF6 /* Tunes Notifier Helper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Tunes Notifier Helper.xcodeproj"; path = "Tunes Notifier Helper/Tunes Notifier Helper.xcodeproj"; sourceTree = "<group>"; };
 		84A6D1FD1929027D002E034E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		84B8957D1613B34F005F781E /* fi */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84EDF02515E3CCB2003A7AB0 /* Tunes Notifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tunes Notifier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,19 +76,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		842EE9E715E68852005C675C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				842EE9EB15E68852005C675C /* Tunes Notifier Helper.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		84EDF01A15E3CCB2003A7AB0 = {
 			isa = PBXGroup;
 			children = (
 				84888FBB249D747100C13F0A /* README.md */,
-				84A4600E15E50DAC00DA8DF6 /* Tunes Notifier Helper.xcodeproj */,
 				84EDF02F15E3CCB2003A7AB0 /* Tunes Notifier */,
 				84EDF02615E3CCB2003A7AB0 /* Products */,
 			);
@@ -212,28 +190,12 @@
 			mainGroup = 84EDF01A15E3CCB2003A7AB0;
 			productRefGroup = 84EDF02615E3CCB2003A7AB0 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 842EE9E715E68852005C675C /* Products */;
-					ProjectRef = 84A4600E15E50DAC00DA8DF6 /* Tunes Notifier Helper.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				84EDF02415E3CCB2003A7AB0 /* Tunes Notifier */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		842EE9EB15E68852005C675C /* Tunes Notifier Helper.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "Tunes Notifier Helper.app";
-			remoteRef = 842EE9EA15E68852005C675C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		84EDF02315E3CCB2003A7AB0 /* Resources */ = {

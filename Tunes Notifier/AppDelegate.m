@@ -10,8 +10,6 @@
 #import "NSString+MaxWidth.h"
 #import "TNTrack.h"
 
-NSString *const helperBundleIdentifier = @"com.julescoynel.Tunes-Notifier-Helper";
-
 @interface AppDelegate ()
 
 @property (strong) NSStatusItem *statusItem;
