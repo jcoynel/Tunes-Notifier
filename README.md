@@ -6,7 +6,7 @@ About Tunes Notifier
 
 Minimal, easy to use macOS application that uses the Notification Center to display the name of the artist, album, song and artwork track any time a song starts playing on Spotify.
 
-[![Download Tunes Notifier](screenshots/app_store.png)](https://itunes.apple.com/app/tunes-notifier/id555731861?ls=1&mt=12)
+[![Download Tunes Notifier](screenshots/app_store.png)](https://apps.apple.com/app/tunes-notifier/id555731861?ls=1&mt=12)
 
 **Website:** https://www.tunes-notifier.com
 
@@ -29,6 +29,9 @@ Note: AirPlay 2 speakers are not affected by this issue.
 
 History
 --------------
+- **Version 2.0.19** (Submitted to Apple: 02/10/23)
+  - Recompile for macOS 14
+
 - **Version 2.0.18** (Submitted to Apple: 11/09/23)
   - Remove legacy helper
 
