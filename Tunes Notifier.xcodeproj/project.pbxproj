@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		8402909B15E3D7E600E23303 /* TNNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8402909A15E3D7E600E23303 /* TNNotifier.m */; };
 		843A4548168F4E2B005B1ACB /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 843A454A168F4E2B005B1ACB /* Credits.rtf */; };
-		843E3E821640990300457644 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 842EE9DE15E684A5005C675C /* Localizable.strings */; };
+		843CF5732B50418C00DC6591 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 843CF5722B50418C00DC6591 /* Localizable.xcstrings */; };
+		843CF5752B50429500DC6591 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 843CF5742B50429500DC6591 /* InfoPlist.xcstrings */; };
 		8442C2AC1F0185490027AAF0 /* NSString+MaxWidth.m in Sources */ = {isa = PBXBuildFile; fileRef = 8442C2AB1F0185490027AAF0 /* NSString+MaxWidth.m */; };
 		844799CD1AB4EF46007CF71D /* TNTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 844799CC1AB4EF46007CF71D /* TNTrack.m */; };
 		8492BB1C167E677500E06476 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8492BB1B167E677500E06476 /* UserDefaults.plist */; };
 		84A6D1FE1929027D002E034E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A6D1FD1929027D002E034E /* Images.xcassets */; };
-		84EDF03415E3CCB2003A7AB0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84EDF03215E3CCB2003A7AB0 /* InfoPlist.strings */; };
 		84EDF03615E3CCB2003A7AB0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EDF03515E3CCB2003A7AB0 /* main.m */; };
 		84EDF03D15E3CCB2003A7AB0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EDF03C15E3CCB2003A7AB0 /* AppDelegate.m */; };
 		84EDF04015E3CCB3003A7AB0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84EDF03E15E3CCB3003A7AB0 /* MainMenu.xib */; };
@@ -36,16 +36,10 @@
 		8402909915E3D7E600E23303 /* TNNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNNotifier.h; sourceTree = "<group>"; };
 		8402909A15E3D7E600E23303 /* TNNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNNotifier.m; sourceTree = "<group>"; };
 		8402909E15E3D94900E23303 /* Tunes Notifier.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Tunes Notifier.entitlements"; sourceTree = "<group>"; };
-		84225C6B1632C88600C12FBE /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		84268D7116170A570008E4B8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
-		84268D7316171A5D0008E4B8 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
-		84268D751617A1580008E4B8 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
-		84268D82161857560008E4B8 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		842BE4C820D0624A008BFFDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		842E4834161E30010095B1B6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		842EE9DD15E684A5005C675C /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		842EE9DF15E684A9005C675C /* fr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		843A4549168F4E2B005B1ACB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		843CF5722B50418C00DC6591 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		843CF5742B50429500DC6591 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		8442C2AA1F0185490027AAF0 /* NSString+MaxWidth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MaxWidth.h"; sourceTree = "<group>"; };
 		8442C2AB1F0185490027AAF0 /* NSString+MaxWidth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MaxWidth.m"; sourceTree = "<group>"; };
 		844799CB1AB4EF46007CF71D /* TNTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNTrack.h; sourceTree = "<group>"; };
@@ -55,10 +49,8 @@
 		8492BB1B167E677500E06476 /* UserDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
 		8492BB1D167E770100E06476 /* TNConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNConstants.h; sourceTree = "<group>"; };
 		84A6D1FD1929027D002E034E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		84B8957D1613B34F005F781E /* fi */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84EDF02515E3CCB2003A7AB0 /* Tunes Notifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tunes Notifier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84EDF03115E3CCB2003A7AB0 /* Tunes Notifier-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tunes Notifier-Info.plist"; sourceTree = "<group>"; };
-		84EDF03315E3CCB2003A7AB0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		84EDF03515E3CCB2003A7AB0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84EDF03715E3CCB2003A7AB0 /* Tunes Notifier-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tunes Notifier-Prefix.pch"; sourceTree = "<group>"; };
 		84EDF03B15E3CCB2003A7AB0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -117,8 +109,8 @@
 			children = (
 				843A454A168F4E2B005B1ACB /* Credits.rtf */,
 				84A6D1FD1929027D002E034E /* Images.xcassets */,
-				84EDF03215E3CCB2003A7AB0 /* InfoPlist.strings */,
-				842EE9DE15E684A5005C675C /* Localizable.strings */,
+				843CF5742B50429500DC6591 /* InfoPlist.xcstrings */,
+				843CF5722B50418C00DC6591 /* Localizable.xcstrings */,
 				84EDF03515E3CCB2003A7AB0 /* main.m */,
 				84EDF03115E3CCB2003A7AB0 /* Tunes Notifier-Info.plist */,
 				84EDF03715E3CCB2003A7AB0 /* Tunes Notifier-Prefix.pch */,
@@ -183,8 +175,6 @@
 				da,
 				de,
 				tr,
-				it,
-				nl,
 				Base,
 			);
 			mainGroup = 84EDF01A15E3CCB2003A7AB0;
@@ -202,11 +192,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84EDF03415E3CCB2003A7AB0 /* InfoPlist.strings in Resources */,
+				843CF5752B50429500DC6591 /* InfoPlist.xcstrings in Resources */,
 				84EDF04015E3CCB3003A7AB0 /* MainMenu.xib in Resources */,
 				84A6D1FE1929027D002E034E /* Images.xcassets in Resources */,
-				843E3E821640990300457644 /* Localizable.strings in Resources */,
 				8492BB1C167E677500E06476 /* UserDefaults.plist in Resources */,
+				843CF5732B50418C00DC6591 /* Localizable.xcstrings in Resources */,
 				843A4548168F4E2B005B1ACB /* Credits.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,36 +219,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		842EE9DE15E684A5005C675C /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				842EE9DD15E684A5005C675C /* en */,
-				842EE9DF15E684A9005C675C /* fr */,
-				84B8957D1613B34F005F781E /* fi */,
-				84268D7116170A570008E4B8 /* es */,
-				84268D7316171A5D0008E4B8 /* pt */,
-				84268D751617A1580008E4B8 /* da */,
-				84268D82161857560008E4B8 /* ja */,
-				842E4834161E30010095B1B6 /* de */,
-				84225C6B1632C88600C12FBE /* tr */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
 		843A454A168F4E2B005B1ACB /* Credits.rtf */ = {
 			isa = PBXVariantGroup;
 			children = (
 				843A4549168F4E2B005B1ACB /* en */,
 			);
 			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		84EDF03215E3CCB2003A7AB0 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				84EDF03315E3CCB2003A7AB0 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		84EDF03E15E3CCB3003A7AB0 /* MainMenu.xib */ = {
@@ -394,6 +360,7 @@
 				MARKETING_VERSION = 2.0.19;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.julescoynel.Tunes-Notifier";
 				PRODUCT_NAME = "Tunes Notifier";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -420,6 +387,7 @@
 				MARKETING_VERSION = 2.0.19;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.julescoynel.Tunes-Notifier";
 				PRODUCT_NAME = "Tunes Notifier";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
