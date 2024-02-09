@@ -357,7 +357,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tunes Notifier/Tunes Notifier-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Tunes Notifier/Tunes Notifier-Info.plist";
-				MARKETING_VERSION = 2.0.19;
+				MARKETING_VERSION = 2.0.20;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.julescoynel.Tunes-Notifier";
 				PRODUCT_NAME = "Tunes Notifier";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -384,7 +384,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tunes Notifier/Tunes Notifier-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Tunes Notifier/Tunes Notifier-Info.plist";
-				MARKETING_VERSION = 2.0.19;
+				MARKETING_VERSION = 2.0.20;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.julescoynel.Tunes-Notifier";
 				PRODUCT_NAME = "Tunes Notifier";
 				SWIFT_EMIT_LOC_STRINGS = YES;
