@@ -353,7 +353,7 @@
       }
     },
     "NO_SONG_PLAYING" : {
-      "comment" : "No song playing.\n   No song playing...",
+      "comment" : "No song playing.\nNo song playing...",
       "localizations" : {
         "da" : {
           "stringUnit" : {
