@@ -150,7 +150,7 @@
 				BuildIndependentTargetsInParallel = YES;
 				CLASSPREFIX = TN;
 				LastUpgradeCheck = 1500;
-				ORGANIZATIONNAME = "56 North Ltd";
+				ORGANIZATIONNAME = "Jules Coynel";
 				TargetAttributes = {
 					84EDF02415E3CCB2003A7AB0 = {
 						SystemCapabilities = {
