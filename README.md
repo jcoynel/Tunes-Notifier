@@ -29,6 +29,9 @@ Note: AirPlay 2 speakers are not affected by this issue.
 
 History
 --------------
+- **Version 2.0.21** (Submitted to Apple: 24/11/24)
+  - Recompile for macOS 15.1
+
 - **Version 2.0.20** (Submitted to Apple: 09/02/24)
   - Recompile for macOS 14.3
 
