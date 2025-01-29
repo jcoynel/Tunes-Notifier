@@ -10,7 +10,7 @@ Minimal, easy to use macOS application that uses the Notification Center to disp
 
 **Website:** https://www.tunes-notifier.com
 
-**Contact:** Jules Coynel (jules@56north.co)
+**Contact:** Jules Coynel (support@coynel.me)
 
 <img src="screenshots/menu-light.jpg" width="200"> <img src="screenshots/notification-light.jpg" width="200">
 <img src="screenshots/menu-dark.jpg" width="200"> <img src="screenshots/notification-dark.jpg" width="200">
