@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -162,7 +162,6 @@
 				};
 			};
 			buildConfigurationList = 84EDF01F15E3CCB2003A7AB0 /* Build configuration list for PBXProject "Tunes Notifier" */;
-			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -178,6 +177,7 @@
 				Base,
 			);
 			mainGroup = 84EDF01A15E3CCB2003A7AB0;
+			preferredProjectObjectVersion = 77;
 			productRefGroup = 84EDF02615E3CCB2003A7AB0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
