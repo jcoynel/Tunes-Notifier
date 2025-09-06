@@ -10,7 +10,7 @@
 
 @class TNTrack;
 
-@protocol TNTackArtworkDownloadDelegate <NSObject>
+@protocol TNTrackArtworkDownloadDelegate <NSObject>
 
 - (void)didFinishDownloadingArtworkForTrack:(TNTrack *)track;
 
@@ -26,7 +26,7 @@
 
 @property (nonatomic, readonly) BOOL hasAnyInformation;
 
-@property (nonatomic, weak, readonly) id<TNTackArtworkDownloadDelegate> delegate;
+@property (nonatomic, weak, readonly) id<TNTrackArtworkDownloadDelegate> delegate;
 
 - (instancetype)init __unavailable;
 - (instancetype)initWithName:(NSString *)name
@@ -34,6 +34,6 @@
                        album:(NSString *)album
                   artworkURL:(NSString *)artworkURL;
 
-- (void)downloadArtworkWithDelegate:(id<TNTackArtworkDownloadDelegate>)delegate;
+- (void)downloadArtworkWithDelegate:(id<TNTrackArtworkDownloadDelegate>)delegate;
 
 @end

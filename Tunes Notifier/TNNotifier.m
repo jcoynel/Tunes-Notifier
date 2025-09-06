@@ -12,7 +12,7 @@
 #import "TNNotifier.h"
 #import "TNTrack.h"
 
-@interface TNNotifier () <UNUserNotificationCenterDelegate, TNTackArtworkDownloadDelegate>
+@interface TNNotifier () <UNUserNotificationCenterDelegate, TNTrackArtworkDownloadDelegate>
 
 @property (strong, readonly) SpotifyApplication *spotify;
 
@@ -82,7 +82,7 @@
     [self notifyDelegateCurrentSongDidChange];
 }
 
-#pragma mark - TNTackArtworkDownloadDelegate
+#pragma mark - TNTrackArtworkDownloadDelegate
 
 - (void)didFinishDownloadingArtworkForTrack:(TNTrack *)track
 {

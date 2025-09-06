@@ -11,7 +11,7 @@
 @interface TNTrack ()
 
 @property (nonatomic, strong) NSImage *artworkImage;
-@property (nonatomic, weak) id<TNTackArtworkDownloadDelegate> delegate;
+@property (nonatomic, weak) id<TNTrackArtworkDownloadDelegate> delegate;
 
 @property (nonatomic, strong) NSURLSessionDataTask *artworkTask;
 
@@ -57,7 +57,7 @@
 
 #pragma mark - Artwork Download
 
-- (void)downloadArtworkWithDelegate:(id<TNTackArtworkDownloadDelegate>)delegate
+- (void)downloadArtworkWithDelegate:(id<TNTrackArtworkDownloadDelegate>)delegate
 {
     self.delegate = delegate;
     
